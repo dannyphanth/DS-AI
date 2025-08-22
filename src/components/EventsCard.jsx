@@ -6,7 +6,7 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
-import ReactCardFlip from 'react-card-flip';
+// import ReactCardFlip from 'react-card-flip';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getUpcomingEventsForCTA } from '../data/eventsData';

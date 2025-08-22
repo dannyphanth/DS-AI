@@ -17,10 +17,8 @@
     "@react-three/drei": "^10.5.2",
     "@react-three/fiber": "^9.2.0",
     "react": "^19.1.0",
-    "react-card-flip": "^1.2.3",
     "react-dom": "^19.1.0",
-    "react-parallax-tilt": "^1.7.299",
-    "react-tilt": "^1.0.2",
+    "react-parallax-tilt": "^1.7.305",
     "three": "^0.178.0"
   },
   "devDependencies": {
