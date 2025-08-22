@@ -2,6 +2,7 @@ import { Box, Typography, Button } from '@mui/material';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import Tilt from 'react-parallax-tilt';
 import { motion } from 'framer-motion';
+import { Link as RouterLink } from 'react-router-dom';
 
 const DigitalBadgesCard = () => {
     return (
@@ -99,7 +100,8 @@ const DigitalBadgesCard = () => {
                             <Button
                                 variant="contained"
                                 endIcon={<VerifiedIcon />}
-                                href="/resources?tab=badges"
+                                component={RouterLink}
+                                to="/resources?tab=badges"
                                 sx={{
                                     background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
                                     color: '#white',
