@@ -53,7 +53,7 @@ const Projects = () => {
     };
 
     return (
-        <Box sx={{ py: 8, backgroundColor: '#f5f5f5' }}>
+        <Box sx={{ py: 8, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial="hidden"
@@ -64,7 +64,7 @@ const Projects = () => {
                         variant="h3"
                         component="h1"
                         align="center"
-                        sx={{ mb: 6, fontWeight: 'bold', color: '#1a237e' }}
+                        sx={{ mb: 6, fontWeight: 'bold', color: 'white' }}
                     >
                         Our Projects
                     </Typography>
@@ -72,7 +72,7 @@ const Projects = () => {
                     <Typography
                         variant="h6"
                         align="center"
-                        sx={{ mb: 8, maxWidth: 800, mx: 'auto', color: '#666' }}
+                        sx={{ mb: 8, maxWidth: 800, mx: 'auto', color: '#9cebff' }}
                     >
                         Explore our innovative projects that combine data science and artificial intelligence
                         to solve real-world problems and enhance the student experience.

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import {
     Box,
     Container,
@@ -13,7 +13,6 @@ import {
     ToggleButton,
     ToggleButtonGroup
 } from '@mui/material';
-import { motion } from 'framer-motion';
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -39,8 +38,8 @@ const Contact = () => {
         {
             name: 'Megan',
             position: 'President',
-            image: '/portraitex.jpg',
-            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            image: '/MeganWeb.JPG',
+            message: "Hi! I'm a Senior majoring in Computer Science with a minor in Data Science. While I'm passionate about Data Science and AI, I also love working with embedded software and UAVs. If you ever have questions about CPP, computer science, or just want to chat, feel free to reach out! You can find me on Instagram @meganbee4, and if you're feeling extra adventurous, you can also connect with me on LinkedIn @megan-bee. Bonus points if you want to rally on the tennis court! 🎾",
             email: 'megan@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/megan',
@@ -51,8 +50,8 @@ const Contact = () => {
         {
             name: 'Joseline',
             position: 'Vice President',
-            image: '/portraitex.jpg',
-            message: 'Lorem ipsum dolor sit and ioahgd ansdf sa, tiooa sadfk askdgjasdkg askdjfhaskjdf asdkfj sa consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            image: '/JosieWeb.JPG',
+            message: "Hello! I'm a junior majoring in Computer Science with a concentration in Data Science. I'm still dabbling in the different areas, but I really like web design and utilizing knowledge bases. I like playing video games, listening to music, and drinking coffee (sorry, I'm a matcha disliker). You can catch me doom-scrolling on Instagram @joseliiiiiine or attempting to look professional on LinkedIn as Joseline Ly! Feel free to drop any recs or fun games that you enjoy!",
             email: 'joseline@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/joseline',
@@ -63,7 +62,7 @@ const Contact = () => {
         {
             name: 'Erika',
             position: 'Secretary',
-            image: '/portraitex.jpg',
+            image: '/ErikaWeb.JPG',
             message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
             email: 'erika@dsai-club.edu',
             socials: {
@@ -75,7 +74,7 @@ const Contact = () => {
         {
             name: 'Paul',
             position: 'Treasurer',
-            image: '/portraitex.jpg',
+            image: '/PaulWeb.JPG',
             message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
             email: 'paul@dsai-club.edu',
             socials: {
@@ -87,8 +86,8 @@ const Contact = () => {
         {
             name: 'Angela',
             position: 'Events Coordinator',
-            image: '/portraitex.jpg',
-            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            image: '/AngelaWeb.png',
+            message: "Hello! I'm a senior studying Computer Science with a minor in Data Science. I'm passionate about using AI and data science to tackle real-world problems, and I also love experimenting with creative technology like VR, game development, music, and UI/UX design. Outside of CS, I'm looking to make more music and start crocheting, and I love going on walks with my dog. If you ever want to swap game ideas, chat about projects, or share dog pictures, I'd be happy to connect anytime! :)",
             email: 'angela@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/angela',
@@ -99,8 +98,8 @@ const Contact = () => {
         {
             name: 'Brandon',
             position: 'Kaggle Team Leader',
-            image: '/portraitex.jpg',
-            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            image: '/BrandonWeb.jpg',
+            message: "Hi! I am a 5th year studying Computer Science with a minor in Data Science. I plan to strengthen my skills in ML and AI, and bring impact into various fields such as business, retail, and finance industries. Aside from studies, I really enjoy watching sports (NBA, MLB, UFC, F1), eating food, playing clash royale, drinking abnormal amounts of caffeine, working out, and listening to EDM. My door is always open to chat about projects, career, or hobbies! :3",
             email: 'brandon@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/brandon',
@@ -109,15 +108,27 @@ const Contact = () => {
             }
         },
         {
-            name: 'Daniel Caceres',
-            position: 'Webmaster',
-            image: '/portraitex.jpg',
-            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            name: 'Danny',
+            position: 'Historian',
+            image: '/DannyWeb.JPG',
+            message: "Hello! I'm currently a senior majoring in Computer Science. My inspiration has always been to make a difference at the frontiers of technology. From gaming to creating real-world applications, I've discovered a passion for combining creativity and problem-solving while making something impactful. I absolutely love everything sci-fi and cyberpunk themed, with Ready Player One being one of my favorites.",
             email: 'daniel@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/daniel',
                 github: 'https://github.com/daniel',
                 instagram: 'https://instagram.com/daniel'
+            }
+        },
+        {
+            name: 'Anthony',
+            position: 'Kaggle Team Co-Director',
+            image: '/portraitex.jpg',
+            message: "Hey there! I'm currently a senior studying computer information systems with a minor is data science! I enjoy using descriptive analytics and machine learning algorithms to coach my own performance and others when it comes to games or sales. Aside from studies, I enjoy video games and road-tripping around Cali to explore all kinds of nature. Feel free to reach out to talk about any interests about data or hobbies; I'd love to get to know everyone!",
+            email: 'anthony@dsai-club.edu',
+            socials: {
+                linkedin: 'https://linkedin.com/in/anthony',
+                github: 'https://github.com/anthony',
+                instagram: 'https://instagram.com/anthony'
             }
         }
     ];
@@ -185,30 +196,9 @@ const Contact = () => {
         }
     ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5
-            }
-        }
-    };
-
     return (
         <>
-            <Box sx={{ py: 9, position: 'relative' }}>
+            <Box sx={{ py: 10, position: 'relative' }}>
                 {/* Background color layer */}
                 <Box
                     sx={{
@@ -217,7 +207,7 @@ const Contact = () => {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        backgroundColor: '#050a14',
+                        backgroundColor: '#0a192f',
                         zIndex: -1
                     }}
                 />
@@ -231,231 +221,187 @@ const Contact = () => {
                 />
                 **/}
                 <Container maxWidth="lg" sx={{ zIndex: 1 }}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 1.2,
-                            ease: "easeOut"
-                        }}
-                    >
-                        <Typography
-                            variant="h4"
-                            component="h4"
-                            align="center"
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+                        <ToggleButtonGroup
+                            value={boardType}
+                            exclusive
+                            onChange={handleBoardTypeChange}
                             data-occupied="true"
                             sx={{
-                                fontWeight: 'bold',
-                                mb: 2,
-                                background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                backgroundClip: 'text',
-                                textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
-                                fontFamily: 'Montserrat, Poppins, sans-serif',
-                                letterSpacing: '0.5px'
+                                '& .MuiToggleButton-root': {
+                                    color: 'rgb(70, 184, 219)',
+                                    border: '1px solid rgb(70, 184, 219)',
+                                    px: 3,
+                                    py: 1,
+                                    fontSize: '0.9rem',
+                                    fontWeight: 500,
+                                    boxShadow: '0 4px 20px rgb(1, 0, 0)',
+                                    '&.Mui-selected': {
+                                        background: 'rgb(70, 184, 219)',
+                                        color: '#050a14',
+                                        '&:hover': {
+                                            background: 'rgb(70, 184, 219)',
+                                        }
+                                    },
+                                    '&:hover': {
+                                        background: 'rgba(70, 184, 219, 0.1)',
+                                    }
+                                }
                             }}
                         >
-                            Meet The Passionate Individuals Leading Our Team
-                        </Typography>
-                    </motion.div>
+                            <ToggleButton value="current">
+                                Current Board
+                            </ToggleButton>
+                            <ToggleButton value="past">
+                                Past Board
+                            </ToggleButton>
+                        </ToggleButtonGroup>
+                    </Box>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 1.2,
-                            ease: "easeOut",
-                            delay: 0.3
-                        }}
-                    >
-                        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
-                            <ToggleButtonGroup
-                                value={boardType}
-                                exclusive
-                                onChange={handleBoardTypeChange}
-                                data-occupied="true"
-                                sx={{
-                                    '& .MuiToggleButton-root': {
-                                        color: 'rgb(70, 184, 219)',
-                                        border: '1px solid rgb(70, 184, 219)',
-                                        px: 3,
-                                        py: 1,
-                                        fontSize: '0.9rem',
-                                        fontWeight: 500,
-                                        '&.Mui-selected': {
-                                            background: 'rgb(70, 184, 219)',
-                                            color: '#050a14',
-                                            '&:hover': {
-                                                background: 'rgb(70, 184, 219)',
-                                            }
-                                        },
+                    <Grid container spacing={10} justifyContent="center">
+                        {(boardType === 'current' ? currentBoardMembers : pastBoardMembers).map((member, index) => (
+                            <Grid item xs={12} sm={6} md={4} key={index}>
+                                <Card
+                                    data-occupied="true"
+                                    elevation={0}
+                                    sx={{
+                                        maxWidth: 425,
+                                        width: '100%',
+                                        height: 700,
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
+                                        border: '1px solid rgb(48, 184, 199, 0.3)',
+                                        borderRadius: 2,
+                                        boxShadow: '0 4px 20px rgb(1, 0, 0)',
+                                        transition: 'transform 0.2s',
                                         '&:hover': {
-                                            background: 'rgba(70, 184, 219, 0.1)',
-                                        }
-                                    }
-                                }}
-                            >
-                                <ToggleButton value="current">
-                                    Current Board
-                                </ToggleButton>
-                                <ToggleButton value="past">
-                                    Past Board
-                                </ToggleButton>
-                            </ToggleButtonGroup>
-                        </Box>
-                    </motion.div>
+                                            transform: 'translateY(-8px)',
+                                            boxShadow: '0 8px 30px rgba(41, 105, 157, 0.8)'
+                                        },
+                                        position: 'relative',
+                                        zIndex: 2
+                                    }}
+                                >
+                                    <CardMedia
+                                        component="img"
+                                        sx={{
+                                            height: '55%',
+                                            width: '100%',
+                                            objectFit: 'cover'
+                                        }}
+                                        image={member.image}
+                                        alt={member.name}
+                                    />
+                                    <CardContent sx={{ flexGrow: 1, p: 2.5, pb: 0, pt: 2.5, display: 'flex', flexDirection: 'column' }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 1.5 }}>
+                                            <Typography
+                                                variant="h6"
+                                                component="h2"
+                                                sx={{ fontWeight: 'bold', color: 'white', fontSize: '1.3rem', textShadow: '0 0 12px rgb(0, 0, 0)' }}
+                                            >
+                                                {member.name}
+                                            </Typography>
+                                            {member.position && (
+                                                <Chip
+                                                    label={member.position}
+                                                    sx={{
+                                                        background: 'rgba(48, 184, 199, 0.2)',
+                                                        color: 'rgb(48, 164, 199)',
+                                                        border: '1px solid rgb(48, 184, 199, 0.5)',
+                                                        fontWeight: 500,
+                                                        fontSize: '1rem',
+                                                        height: '24px',
+                                                        '& .MuiChip-label': { textShadow: '0 0 12px rgb(0, 0, 0)' }
+                                                    }}
+                                                />
+                                            )}
+                                        </Box>
 
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={containerVariants}
-                    >
-                        <Grid container spacing={10} justifyContent="center">
-                            {(boardType === 'current' ? currentBoardMembers : pastBoardMembers).map((member, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index}>
-                                    <motion.div variants={itemVariants}>
-                                        <Card
-                                            data-occupied="true"
-                                            elevation={0}
+                                        <Typography
+                                            variant="body2"
                                             sx={{
-                                                maxWidth: 425,
-                                                width: '100%',
-                                                height: 650,
+                                                mb: 1,
+                                                color: '#9cebff',
+                                                fontStyle: 'italic',
+                                                textAlign: 'center',
+                                                lineHeight: 1.6,
+                                                flexGrow: 1,
+                                                fontSize: '0.9rem',
                                                 display: 'flex',
-                                                flexDirection: 'column',
-                                                background: 'linear-gradient(135deg,rgb(0, 0, 0) 0%,rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
-                                                border: '1px solid rgb(48, 184, 199, 0.3)',
-                                                borderRadius: 2,
-                                                boxShadow: '0 4px 20px rgba(0, 184, 187, 0.20)',
-                                                transition: 'transform 0.2s',
-                                                '&:hover': {
-                                                    transform: 'translateY(-8px)',
-                                                    boxShadow: '0 8px 30px rgba(41, 105, 157, 0.8)'
-                                                },
-                                                position: 'relative',
-                                                zIndex: 2
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                textShadow: '0 0 12px rgb(0, 0, 0)'
                                             }}
                                         >
-                                            <CardMedia
-                                                component="img"
-                                                sx={{
-                                                    height: '60%',
-                                                    width: '100%',
-                                                    objectFit: 'cover'
-                                                }}
-                                                image={member.image}
-                                                alt={member.name}
-                                            />
-                                            <CardContent sx={{ flexGrow: 1, p: 2, pb: 0, pt: 2, display: 'flex', flexDirection: 'column' }}>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 1 }}>
-                                                    <Typography
-                                                        variant="h6"
-                                                        component="h2"
-                                                        sx={{ fontWeight: 'bold', color: 'white', fontSize: '1.3rem', textShadow: '0 0 12px rgb(0, 0, 0)' }}
-                                                    >
-                                                        {member.name}
-                                                    </Typography>
-                                                    <Chip
-                                                        label={member.position}
-                                                        sx={{
-                                                            background: 'rgba(48, 184, 199, 0.2)',
-                                                            color: 'rgb(48, 164, 199)',
-                                                            border: '1px solid rgb(48, 184, 199, 0.5)',
-                                                            fontWeight: 500,
-                                                            fontSize: '1rem',
-                                                            height: '24px',
-                                                            '& .MuiChip-label': { textShadow: '0 0 12px rgb(0, 0, 0)' }
-                                                        }}
-                                                    />
-                                                </Box>
+                                            "{member.message}"
+                                        </Typography>
 
-                                                <Typography
-                                                    variant="body2"
+                                        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 'auto', mb: 0.5 }}>
+                                            <IconButton
+                                                href={`mailto:${member.email}`}
+                                                sx={{
+                                                    color: 'rgb(48, 164, 199)',
+                                                    filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                    '&:hover': {
+                                                        backgroundColor: 'rgba(48, 184, 199, 0.1)'
+                                                    }
+                                                }}
+                                            >
+                                                <EmailIcon />
+                                            </IconButton>
+                                            {member.socials.linkedin && (
+                                                <IconButton
+                                                    href={member.socials.linkedin}
+                                                    target="_blank"
                                                     sx={{
-                                                        mb: 0.5,
-                                                        color: '#9cebff',
-                                                        fontStyle: 'italic',
-                                                        textAlign: 'center',
-                                                        lineHeight: 1.6,
-                                                        flexGrow: 1,
-                                                        fontSize: '0.875rem',
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        justifyContent: 'center',
-                                                        textShadow: '0 0 12px rgb(0, 0, 0)'
+                                                        color: 'rgb(48, 164, 199)',
+                                                        filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                        '&:hover': {
+                                                            backgroundColor: 'rgba(48, 184, 199, 0.1)'
+                                                        }
                                                     }}
                                                 >
-                                                    "{member.message}"
-                                                </Typography>
+                                                    <LinkedInIcon />
+                                                </IconButton>
+                                            )}
+                                            {member.socials.github && (
+                                                <IconButton
+                                                    href={member.socials.github}
+                                                    target="_blank"
+                                                    sx={{
+                                                        color: 'rgb(48, 164, 199)',
+                                                        filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                        '&:hover': {
+                                                            backgroundColor: 'rgba(48, 184, 199, 0.1)'
+                                                        }
+                                                    }}
+                                                >
+                                                    <GitHubIcon />
+                                                </IconButton>
+                                            )}
 
-                                                <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 'auto', mb: -1 }}>
-                                                    <IconButton
-                                                        href={`mailto:${member.email}`}
-                                                        sx={{
-                                                            color: 'rgb(48, 164, 199)',
-                                                            filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
-                                                            '&:hover': {
-                                                                backgroundColor: 'rgba(48, 184, 199, 0.1)'
-                                                            }
-                                                        }}
-                                                    >
-                                                        <EmailIcon />
-                                                    </IconButton>
-                                                    {member.socials.linkedin && (
-                                                        <IconButton
-                                                            href={member.socials.linkedin}
-                                                            target="_blank"
-                                                            sx={{
-                                                                color: 'rgb(48, 164, 199)',
-                                                                filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
-                                                                '&:hover': {
-                                                                    backgroundColor: 'rgba(48, 184, 199, 0.1)'
-                                                                }
-                                                            }}
-                                                        >
-                                                            <LinkedInIcon />
-                                                        </IconButton>
-                                                    )}
-                                                    {member.socials.github && (
-                                                        <IconButton
-                                                            href={member.socials.github}
-                                                            target="_blank"
-                                                            sx={{
-                                                                color: 'rgb(48, 164, 199)',
-                                                                filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
-                                                                '&:hover': {
-                                                                    backgroundColor: 'rgba(48, 184, 199, 0.1)'
-                                                                }
-                                                            }}
-                                                        >
-                                                            <GitHubIcon />
-                                                        </IconButton>
-                                                    )}
-
-                                                    {member.socials.instagram && (
-                                                        <IconButton
-                                                            href={member.socials.instagram}
-                                                            target="_blank"
-                                                            sx={{
-                                                                color: 'rgb(48, 164, 199)',
-                                                                filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
-                                                                '&:hover': {
-                                                                    backgroundColor: 'rgba(48, 184, 199, 0.1)'
-                                                                }
-                                                            }}
-                                                        >
-                                                            <InstagramIcon />
-                                                        </IconButton>
-                                                    )}
-                                                </Box>
-                                            </CardContent>
-                                        </Card>
-                                    </motion.div>
-                                </Grid>
-                            ))}
-                        </Grid>
-                    </motion.div>
+                                            {member.socials.instagram && (
+                                                <IconButton
+                                                    href={member.socials.instagram}
+                                                    target="_blank"
+                                                    sx={{
+                                                        color: 'rgb(48, 164, 199)',
+                                                        filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                        '&:hover': {
+                                                            backgroundColor: 'rgba(48, 184, 199, 0.1)'
+                                                        }
+                                                    }}
+                                                >
+                                                    <InstagramIcon />
+                                                </IconButton>
+                                            )}
+                                        </Box>
+                                    </CardContent>
+                                </Card>
+                            </Grid>
+                        ))}
+                    </Grid>
                 </Container>
             </Box>
         </>

@@ -52,7 +52,7 @@ const About = () => {
     };
 
     return (
-        <Box sx={{ py: 9, backgroundColor: '#050a14' }}>
+        <Box sx={{ py: { xs: 6, md: 10 }, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial="hidden"
@@ -80,6 +80,7 @@ const About = () => {
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
                                     textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
+                                    // fontSize: { xs: '1.75rem', sm: '2rem', md: '2.25rem' }
 
                                 }}
                             >
@@ -126,7 +127,8 @@ const About = () => {
                                                     inset: 0,
                                                     width: '100%',
                                                     height: '100%',
-                                                    objectFit: 'cover'
+                                                    objectFit: 'cover',
+                                                    borderRadius: '12px'
                                                 }}
                                                 initial={{ opacity: 0, scale: 1.02 }}
                                                 animate={{ opacity: 1, scale: 1 }}
@@ -174,7 +176,7 @@ const About = () => {
                                     </Box>
 
                                     {/* Right Column - Content */}
-                                    <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: 3, pr: { xs: 2, md: 3 }, display: 'flex', alignItems: 'center' }}>
+                                    <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: { xs: 2.5, md: 3 }, pr: { xs: 0, md: 3 }, pl: { xs: 2, md: 0 }, display: 'flex', alignItems: 'center' }}>
                                         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
                                             <Typography
                                                 variant="h5"
@@ -184,7 +186,7 @@ const About = () => {
                                                     WebkitTextFillColor: 'transparent',
                                                     backgroundClip: 'text',
                                                     fontWeight: 'bold',
-                                                    fontSize: { xs: '1.5rem', md: '1.8rem' },
+                                                    fontSize: { xs: '1.35rem', sm: '1.5rem', md: '1.8rem' },
                                                     lineHeight: 1.2,
                                                     textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -197,15 +199,14 @@ const About = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'white',
-                                                    fontSize: '1.1rem',
+                                                    fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                                                     lineHeight: 1.6,
                                                     fontWeight: 300,
                                                     textShadow: '0 0 12px rgb(0, 0, 0)',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                 }}
                                             >
-                                                Founded in ????, the Data Science & AI Club (DS&AI) is a student-led organization that serves as a central hub for students interested in the data sciences and its multifaceted applications in the modern world. We aim to fulfill the needs of CPP students by providing opportunities to expand personal and professional networks, and hosting events with an aim to bolster relevant skills applicable to professional development. DS&AI organizes a wide range of initiatives such as social gatherings, competitions, development workshops, and collaborations with other CPP clubs.
-                                            </Typography>
+                                                The DSAI club at CPP is more than just workshops and technical projects. We want to build a community. While we host meetings, plan hands-on activities, and attend conferences together, at the heart of it all we’re simply a group of students who bond over a shared interest in Data Science, AI, and STEM as a whole. As a newer club, our goal isn’t just to strengthen technical skills, but to create a space where students can learn, collaborate, and grow together. Whether it’s tackling a data challenge, playing board games after a meeting, or traveling as a group to events like summits, we aim to provide both professional development and lasting friendships. Our vision is to bring out the best in one another, building knowledge, confidence, and community along the way.                                            </Typography>
                                         </Box>
                                     </Box>
                                 </Box>
@@ -243,11 +244,11 @@ const About = () => {
                             sx={{
                                 background: 'linear-gradient(135deg, #0a192f 0%, #112240 50%, rgb(48, 164, 199, 0.4) 100%)',
                                 borderRadius: 3,
-                                p: 4,
+                                p: { xs: 2, sm: 3, md: 4 },
                                 transition: 'all 0.3s ease'
                             }}
                         >
-                            <Grid container spacing={4} justifyContent="center" alignItems="center">
+                            <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center" alignItems="center">
                                 <Grid item xs={12} sm={6} md={4}>
                                     <Box
                                         sx={{
@@ -269,7 +270,7 @@ const About = () => {
                                             src="/oracleLogo.png"
                                             alt="Oracle"
                                             sx={{
-                                                height: 80,
+                                                height: { xs: 60, sm: 70, md: 80 },
                                                 width: 'auto',
                                                 objectFit: 'contain',
                                                 maxWidth: '200px'
@@ -283,7 +284,8 @@ const About = () => {
                                             sx={{
                                                 color: 'white',
                                                 fontWeight: 'bold',
-                                                textAlign: 'center'
+                                                textAlign: 'center',
+                                                fontSize: { xs: '1.05rem', sm: '1.1rem' }
                                             }}
                                         >
                                             Oracle
@@ -309,12 +311,16 @@ const About = () => {
                                     >
                                         <Box
                                             component="img"
-                                            src="/company-logo-2.png"
+                                            src="/rhaiLogo.webp"
+                                            alt="Resonant Health AI"
                                             sx={{
-                                                height: 80,
+                                                height: { xs: 60, sm: 70, md: 80 },
                                                 width: 'auto',
                                                 objectFit: 'contain',
-                                                filter: 'brightness(0) invert(1)'
+                                                maxWidth: '200px'
+                                            }}
+                                            onError={(e) => {
+                                                console.error('Failed to load Resonant Health AI logo:', e);
                                             }}
                                         />
                                         <Typography
@@ -322,10 +328,11 @@ const About = () => {
                                             sx={{
                                                 color: 'white',
                                                 fontWeight: 'bold',
-                                                textAlign: 'center'
+                                                textAlign: 'center',
+                                                fontSize: { xs: '1.05rem', sm: '1.1rem' }
                                             }}
                                         >
-                                            Company Name
+                                            Resonant Health AI
                                         </Typography>
                                     </Box>
                                 </Grid>

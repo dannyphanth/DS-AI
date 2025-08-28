@@ -76,7 +76,7 @@ const DatathonCard = () => {
             tiltMaxAngleY={3}
             perspective={1000}
             glareEnable={true}
-            glareMaxOpacity={0.4}
+            glareMaxOpacity={0.2}
             glareColor="#026ca6"
             glarePosition="all"
             glareBorderRadius="12px"
@@ -85,10 +85,26 @@ const DatathonCard = () => {
         >
             <Box
                 sx={{
-                    p: 3,
+                    p: 4,
                     borderRadius: 2,
                     boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                     mb: 4,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.45) 0%, rgba(17,37,64,0.40) 50%, rgba(48,164,199,0.07) 100%)',
+                    border: '1px solid rgba(48,164,199,0.14)',
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        inset: 0,
+                        borderRadius: 'inherit',
+                        pointerEvents: 'none',
+                        background: `
+                            radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
+                            radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
+                        `,
+                        opacity: 1
+                    },
                     transition: 'transform 0.3s, box-shadow 0.3s',
                     '&:hover': {
                         transform: 'translateY(-5px)',
@@ -172,12 +188,12 @@ const DatathonCard = () => {
                                     fontWeight: 600,
                                     px: 3,
                                     py: 1.2,
-                                    boxShadow: '0 0 12px rgba(70,255,249,0.18)',
+                                    boxShadow: '0 0 12px rgba(10,25,47,0.8)',
                                     alignSelf: 'flex-start',
                                     mt: 1,
                                     border: '1px solid rgba(70,255,249,0.12)',
                                     '&:hover': {
-                                        boxShadow: '0 0 10px #30a4c7',
+                                        boxShadow: '0 0 12px rgba(10,25,47,0.95)',
                                     },
                                 }}
                             >

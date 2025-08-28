@@ -7,16 +7,13 @@ import {
     Tabs,
     Tab,
     Card,
-    CardContent,
-    CardMedia,
     Button,
-    Grid,
-    Link
+    Grid
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import SlideshowIcon from '@mui/icons-material/Slideshow';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import VerifiedIcon from '@mui/icons-material/Verified';
 import BadgesContent from './BadgesContent';
 
 const Resources = () => {
@@ -40,7 +37,7 @@ const Resources = () => {
     const resources = {
         slides: [
             {
-                title: 'General Meeting #8 - Intro to Pytorch',
+                title: 'Intro to Pytorch',
                 platform: 'DS&AI Club',
                 date: 'Spr25 March 20',
                 description: 'Learn about one of the most popular research deep learning frameworks',
@@ -61,9 +58,16 @@ const Resources = () => {
                 date: 'Fall24',
                 description: 'Learn about a type of deep learning model that pits two neural networks against each other in a competitive game.',
                 image: '/gansGE.png',
-                link: 'https://docs.google.com/presentation/d/1rx0l0oT9lGujgAqp1pPzIg77f9fiHDbqsSdgrADFCPY/edit?slide=id.g312eca421e4_0_66#slide=id.g312eca421e4_0_66'
+                link: 'https://docs.google.com/presentation/d/1rx0l0oT9lGujgAqp1pPzIg77f9fiHDbqsSdgrADFCPY/edit?slide=id.g312eca421e4_0_66#slide=id.g312eca421e4_0_145'
             },
-
+            {
+                title: 'Datathon Prep',
+                platform: 'DS&AI Club',
+                date: 'Fall24',
+                description: 'Prepare for one of our biggest events of the semester, and be ready to build something amazing!',
+                image: '/datathonprepSlide.png',
+                link: 'https://docs.google.com/presentation/d/1GBkRyGOohdKMzLQD0Ja54mHpda2BOl4jt24v1IXfIjI/edit?slide=id.g2f395795646_0_10#slide=id.g2f395795646_0_10'
+            }
         ],
         videos: [
             {
@@ -102,7 +106,7 @@ const Resources = () => {
     const categories = [
         { label: 'Meeting Slides', icon: <SlideshowIcon />, key: 'slides' },
         { label: 'Videos', icon: <VideoLibraryIcon />, key: 'videos' },
-        { label: 'Digital Badges', icon: <EmojiEventsIcon />, key: 'badges' }
+        { label: 'Digital Badges', icon: <VerifiedIcon />, key: 'badges' }
     ];
 
     const containerVariants = {
@@ -135,7 +139,7 @@ const Resources = () => {
     };
 
     return (
-        <Box sx={{ py: 8, backgroundColor: '#050a14' }}>
+        <Box sx={{ py: 10, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -170,8 +174,8 @@ const Resources = () => {
                         scrollButtons="auto"
                         sx={{
                             '& .MuiTab-root': {
-                                minHeight: 64,
-                                fontSize: '1rem',
+                                minHeight: { xs: 48, sm: 56, md: 64 },
+                                fontSize: { xs: '0.9rem', sm: '1rem' },
                                 color: 'white',
                                 '&.Mui-selected': {
                                     color: 'white'
@@ -199,21 +203,21 @@ const Resources = () => {
                         {categories[value].key === 'badges' ? (
                             <BadgesContent />
                         ) : (
-                            <Grid container spacing={6} justifyContent="center">
+                            <Grid container spacing={{ xs: 3, sm: 4, md: 6 }} justifyContent="center">
                                 {[...resources[categories[value].key]].map((resource, index) => (
                                     <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
                                         <motion.div variants={itemVariants}>
                                             <Card
                                                 elevation={0}
                                                 sx={{
-                                                    height: 400,
-                                                    width: 500,
+                                                    width: '100%',
+                                                    maxWidth: 500,
                                                     display: 'flex',
                                                     flexDirection: 'column',
-                                                    background: 'linear-gradient(135deg,rgb(0, 0, 0) 0%,rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
+                                                    background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
                                                     border: '1px solid rgb(48, 184, 199, 0.3)',
                                                     borderRadius: 2,
-                                                    boxShadow: '0 4px 20px rgba(0, 184, 187, 0.20)',
+                                                    boxShadow: '0 4px 20px rgb(1, 0, 0)',
                                                     transition: 'transform 0.2s',
                                                     '&:hover': {
                                                         transform: 'translateY(-8px)',
@@ -221,7 +225,7 @@ const Resources = () => {
                                                     }
                                                 }}
                                             >
-                                                <Box sx={{ height: '60%', overflow: 'hidden' }}>
+                                                <Box sx={{ position: 'relative', width: '100%', aspectRatio: '16 / 9', overflow: 'hidden' }}>
                                                     <img
                                                         src={resource.image ? resource.image.split('/').map(encodeURIComponent).join('/') : resource.image}
                                                         alt={resource.title}
@@ -235,22 +239,18 @@ const Resources = () => {
                                                         }}
                                                     />
                                                 </Box>
-                                                <Box sx={{ height: '40%', p: 2, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', overflow: 'hidden' }}>
+                                                <Box sx={{ p: { xs: 1.5, sm: 2 }, display: 'flex', flexDirection: 'column', gap: 0.75 }}>
                                                     <Typography
                                                         variant="h6"
                                                         component="h2"
                                                         sx={{
                                                             fontWeight: 'bold',
-                                                            background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
-                                                            WebkitBackgroundClip: 'text',
-                                                            backgroundClip: 'text',
-                                                            WebkitTextFillColor: 'transparent',
-                                                            color: 'transparent',
+                                                            color: 'white',
                                                             textShadow: '0 0 12px rgba(0, 0, 0, 0.20)',
 
-                                                            fontSize: '1.3rem',
-                                                            lineHeight: 1.05,
-                                                            mb: 0.1
+                                                            fontSize: { xs: '1.05rem', sm: '1.2rem', md: '1.3rem' },
+                                                            lineHeight: 1.15,
+                                                            mb: 0
                                                         }}
                                                     >
                                                         {resource.title}
@@ -260,16 +260,21 @@ const Resources = () => {
                                                         variant="body2"
                                                         sx={{
                                                             mt: 0,
-                                                            mb: 0.2,
-                                                            lineHeight: 1.15,
+                                                            mb: 0.5,
+                                                            lineHeight: 1.3,
+                                                            fontWeight: '600',
                                                             background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
                                                             WebkitBackgroundClip: 'text',
                                                             backgroundClip: 'text',
                                                             WebkitTextFillColor: 'transparent',
                                                             color: 'transparent',
                                                             textShadow: '0 0 12px rgba(0, 0, 0, 0.50)',
-                                                            fontSize: '1rem',
+                                                            fontSize: { xs: '0.95rem', sm: '1rem' },
                                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                                            display: '-webkit-box',
+                                                            WebkitLineClamp: { xs: 3, sm: 3 },
+                                                            WebkitBoxOrient: 'vertical',
+                                                            overflow: 'hidden'
                                                         }}                                            >
                                                         {resource.description}
                                                     </Typography>
@@ -279,7 +284,7 @@ const Resources = () => {
                                                             variant="caption"
                                                             sx={{
                                                                 mt: 0.1,
-                                                                mb: 0.2,
+                                                                mb: 0.4,
                                                                 lineHeight: 1.1,
                                                                 background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
                                                                 WebkitBackgroundClip: 'text',
@@ -287,7 +292,7 @@ const Resources = () => {
                                                                 WebkitTextFillColor: 'transparent',
                                                                 color: 'transparent',
                                                                 textShadow: '0 0 12px rgba(0, 0, 0, 0.50)',
-                                                                fontSize: '0.9rem',
+                                                                fontSize: { xs: '0.85rem', sm: '0.9rem' },
                                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                             }}
                                                         >
@@ -301,8 +306,10 @@ const Resources = () => {
                                                         href={resource.link}
                                                         target="_blank"
                                                         size="small"
+                                                        fullWidth
                                                         sx={{
-                                                            fontSize: '0.9rem',
+                                                            alignSelf: 'stretch',
+                                                            fontSize: { xs: '0.85rem', sm: '0.9rem' },
                                                             py: 0.6,
                                                             px: 1.6,
                                                             background: 'rgba(48, 184, 199, 0.2)',

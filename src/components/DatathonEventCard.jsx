@@ -2,14 +2,17 @@ import { Box, Container, Typography, Button, Grid, Divider } from '@mui/material
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
+import { useState } from 'react';
 
 const DatathonEventCard = () => {
+    const [imageRatio, setImageRatio] = useState(null); // width / height
+
     return (
         <Box
             sx={{
-                background: '#000',
+                background: 'transparent',
                 position: 'relative',
-                py: 2, // Add vertical padding for more space
+                py: 2,
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -41,7 +44,7 @@ const DatathonEventCard = () => {
                         tiltMaxAngleY={2}
                         perspective={1000}
                         glareEnable={true}
-                        glareMaxOpacity={0.1}
+                        glareMaxOpacity={0.05}
                         glareColor="#46fff9"
                         glarePosition="all"
                         glareBorderRadius="20px"
@@ -50,34 +53,71 @@ const DatathonEventCard = () => {
                     >
                         <Box
                             sx={{
-                                background: 'linear-gradient(135deg, #0a192f 0%, #112240 50%, rgb(48, 164, 199, 0.4) 100%)',
-                                border: '2px solid rgba(41, 105, 157, 0.8)',
+                                background: 'linear-gradient(135deg, #0a192f 0%, #112240 50%, rgba(48, 164, 199, 0.28) 100%)',
+                                border: '2px solid rgba(41, 105, 157, 0.6)',
                                 borderRadius: 1,
                                 boxShadow: '0 8px 32px rgba(41, 105, 157, 0.4)',
+                                position: 'relative',
+                                overflow: 'hidden',
+                                '&::before': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    inset: 0,
+                                    borderRadius: 'inherit',
+                                    pointerEvents: 'none',
+                                    background: `
+                                        radial-gradient(1000px 400px at 10% -15%, rgba(48,164,199,0.10), transparent 60%),
+                                        radial-gradient(800px 320px at 110% 10%, rgba(70,255,249,0.08), transparent 60%)
+                                    `,
+                                    opacity: 1
+                                },
                                 transition: 'all 0.3s ease',
                                 '&:hover': {
                                     boxShadow: '0 12px 40px rgba(41, 105, 157, 0.8)',
                                 }
                             }}
                         >
-                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4 }}>
+                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: { xs: 'stretch', md: 'center' } }}>
                                 {/* Left Column - Image */}
                                 <Box
                                     sx={{
-                                        flex: { xs: 'none', md: '0 0 40%' },
-                                        width: { xs: '100%', md: '40%' },
-                                        height: { xs: 'auto', md: 'auto' },
-                                        aspectRatio: '1 / 1',
-                                        backgroundImage: 'url("Past Datathon Cover.png")',
-                                        backgroundSize: 'cover',
-                                        backgroundPosition: 'center',
-                                        backgroundRepeat: 'no-repeat',
+                                        flex: { xs: 'none', md: 'none' },
+                                        width: { xs: '100%', md: 'auto' },
+                                        maxWidth: {
+                                            xs: imageRatio ? `${Math.round(imageRatio * 260)}px` : '100%',
+                                            md: imageRatio ? `${Math.min(520, Math.round(imageRatio * 360))}px` : '520px'
+                                        },
+                                        height: { xs: 260, md: 360 },
+                                        mx: { xs: 'auto', md: 0 },
+                                        position: 'relative',
+                                        overflow: 'hidden',
+                                        borderRadius: 1,
                                         boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
                                     }}
-                                />
+                                >
+                                    <img
+                                        src="/Social1.png"
+                                        alt="Board Games & Study Event"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                            display: 'block'
+                                        }}
+                                        onLoad={(e) => {
+                                            const { naturalWidth, naturalHeight } = e.currentTarget;
+                                            if (naturalWidth && naturalHeight) {
+                                                const ratio = naturalWidth / naturalHeight;
+                                                if (Number.isFinite(ratio)) {
+                                                    setImageRatio(ratio);
+                                                }
+                                            }
+                                        }}
+                                    />
+                                </Box>
 
                                 {/* Right Column - Info */}
-                                <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: 4, pr: { xs: 2, md: 4 } }}>
+                                <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: { xs: 3, md: 4 }, px: { xs: 3, md: 0 }, pr: { xs: 3, md: 4 } }}>
                                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
                                         {/* Coming Soon Badge */}
                                         <Box
@@ -119,7 +159,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            2025 Data Wars: The AI Awakens
+                                            Board Games & Study
                                         </Typography>
 
                                         {/* Event Details */}
@@ -132,7 +172,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Thurs. February 7th | CPP BSC, Ursa Major
+                                            Sunday, September 8th | 5:30 PM - 8:00 PM
                                         </Typography>
 
                                         {/* Event Description */}
@@ -146,10 +186,10 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Compete in our upcoming datathon, apply your data science skills, and be judged by industry professionals!
+                                            A perfect mix of fun and productivity! Meet new members, play games with friends, and study in a chill group setting.
                                         </Typography>
 
-                                        {/* Sign Up Link */}
+                                        {/* Location Info */}
                                         <Typography
                                             variant="body1"
                                             sx={{
@@ -160,26 +200,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Sign up{' '}
-                                            <Link
-                                                to=""
-                                                style={{
-                                                    color: 'rgb(30, 180, 226)',
-                                                    textDecoration: 'underline',
-                                                    fontWeight: 500,
-                                                    transition: 'all 0.3s ease',
-                                                }}
-                                                onMouseEnter={(e) => {
-                                                    e.target.style.color = 'rgb(30, 180, 226)';
-                                                    e.target.style.textShadow = '0 0 8px rgba(70, 255, 249, 0.5)';
-                                                }}
-                                                onMouseLeave={(e) => {
-                                                    e.target.style.color = '#46rgb(30, 180, 226)';
-                                                    e.target.style.textShadow = 'none';
-                                                }}
-                                            >
-                                                here!
-                                            </Link>
+                                            Location: TBA - Check back soon for updates!
                                         </Typography>
                                     </Box>
                                 </Box>

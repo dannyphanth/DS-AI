@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { ThemeProvider, createTheme, CssBaseline } from '@mui/material'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+import { ThemeProvider, createTheme, CssBaseline, Box } from '@mui/material'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer.jsx'
 import Home from './components/Home'
@@ -8,7 +8,6 @@ import ScrollToTop from './components/ScrollToTop.jsx'
 import Events from './components/Events'
 import About from './components/About'
 import Board from './components/Contact.jsx'
-import Join from './components/Join'
 import Projects from './components/Projects'
 import Resources from './components/Resources'
 import Contact from './components/Contact'
@@ -29,8 +28,8 @@ const theme = createTheme({
       contrastText: '#ffffff',
     },
     background: {
-      default: '#ffffff',
-      paper: '#f5f5f5',
+      default: '#0a192f',
+      paper: '#0d0f12',
     },
   },
   typography: {
@@ -96,31 +95,46 @@ const theme = createTheme({
   },
 })
 
+function AppShell() {
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
+  return (
+    <Box sx={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      backgroundColor: '#0a192f'
+    }}>
+      <Box sx={{ display: isHome ? { xs: 'none', sm: 'block' } : 'block' }}>
+        <Navbar />
+      </Box>
+      <Box component="main" sx={{ flex: 1 }}>
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Home />
+            </>
+          } />
+          <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/resources" element={<Resources />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/board" element={<Board />} />
+        </Routes>
+      </Box>
+      <Footer />
+    </Box>
+  )
+}
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
         <ScrollToTop />
-        <div className="min-h-screen flex flex-col bg-primary text-white">
-          <Navbar />
-          <main className="flex-1 container mx-auto px-4 py-8">
-            <Routes>
-              <Route path="/" element={
-                <>
-                  <Home />
-                </>
-              } />
-              <Route path="/about" element={<About />} />
-              <Route path="/events" element={<Events />} />
-              <Route path="/resources" element={<Resources />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/board" element={<Board />} />
-              <Route path="/join" element={<Join />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
+        <AppShell />
       </Router>
     </ThemeProvider>
   )

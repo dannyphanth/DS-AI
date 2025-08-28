@@ -76,7 +76,7 @@ const PractitionerCard = ({ title, summary, requirements, clubHelp, timeEstimate
         >
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
                 {iconComponent}
-                <Typography variant="h5" sx={{ color: 'white', fontWeight: 700, minHeight: 32 }}>{title}</Typography>
+                <Typography variant="h5" sx={{ color: 'white', fontWeight: 700, minHeight: 32, fontSize: { xs: '1.05rem', sm: '1.25rem' } }}>{title}</Typography>
             </Box>
             <Typography
                 variant="body1"
@@ -357,7 +357,7 @@ const BadgesContent = () => {
                             variant="body1"
                             sx={{
                                 color: 'white',
-                                fontSize: '1.1rem',
+                                fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                 mb: 3,
                                 lineHeight: 1.6,
@@ -373,7 +373,7 @@ const BadgesContent = () => {
                             variant="body1"
                             sx={{
                                 color: 'white',
-                                fontSize: '1.1rem',
+                                fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                 mb: 3,
                                 lineHeight: 1.6,
@@ -386,7 +386,7 @@ const BadgesContent = () => {
                         </Typography>
                     </motion.div>
                 </Box>
-                <Box sx={{ display: { xs: 'block', md: 'block' }, float: { md: 'right' }, ml: { md: 1 }, mb: 1, textAlign: { xs: 'center', md: 'right' } }}>
+                <Box sx={{ display: { xs: 'flex', md: 'block' }, justifyContent: { xs: 'center' }, float: { md: 'right' }, ml: { md: 1 }, mb: 1, textAlign: { xs: 'center', md: 'right' }, width: { xs: '100%', md: 'auto' } }}>
                     <motion.img
                         src="/dbResume2.svg"
                         alt="Digital badges resume preview"
@@ -396,10 +396,12 @@ const BadgesContent = () => {
                         transition={{ opacity: { duration: 0.6, ease: 'easeOut' }, y: { duration: 3, ease: 'easeInOut', repeat: Infinity } }}
                         whileHover={{ scale: 1.02 }}
                         style={{
-                            height: 340,
+                            height: 300,
                             width: 'auto',
                             maxWidth: '100%',
                             display: 'block',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
                             filter: 'drop-shadow(0 0 14px rgba(70,255,249,0.45)) drop-shadow(0 0 28px rgba(41,105,157,0.45)) drop-shadow(0 6px 18px rgba(0,0,0,0.35))'
                         }}
                     />
@@ -410,9 +412,9 @@ const BadgesContent = () => {
 
 
             {/* Badge selection and overview in same row */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, mb: 4, alignItems: 'flex-start' }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 2, md: 4 }, mb: 4, alignItems: 'center' }}>
                 {/* Left side: Clickable badges */}
-                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 4, flex: { md: '0 0 auto' } }}>
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: { xs: 2, sm: 3, md: 4 }, flex: { md: '0 0 auto' } }}>
                     {/* Practitioner badge with gradient ring + scale and underline */}
                     <motion.div
                         onClick={() => handleSelect('practitioner')}
@@ -427,7 +429,7 @@ const BadgesContent = () => {
                                     src="/badgePractitioner.png"
                                     alt="Practitioner badge"
                                     style={{
-                                        height: 160,
+                                        height: 140,
                                         width: 'auto',
                                         display: 'block',
                                         filter: selectedBadge === 'practitioner' ? 'drop-shadow(0 0 10px rgba(70,255,249,0.45)) drop-shadow(0 0 20px rgba(41,105,157,0.3))' : selectedBadge === 'advanced' ? 'opacity(0.5)' : 'none'
@@ -452,7 +454,7 @@ const BadgesContent = () => {
                                     src="/badgeAdvanced.png"
                                     alt="Advanced badge"
                                     style={{
-                                        height: 160,
+                                        height: 140,
                                         width: 'auto',
                                         display: 'block',
                                         filter: selectedBadge === 'advanced' ? 'drop-shadow(0 0 10px rgba(70,255,249,0.45)) drop-shadow(0 0 20px rgba(41,105,157,0.3))' : selectedBadge === 'practitioner' ? 'opacity(0.5)' : 'none'
@@ -465,7 +467,7 @@ const BadgesContent = () => {
                 </Box>
 
                 {/* Right side: Selected badge overview */}
-                <Box ref={detailsRef} sx={{ flex: { md: '1 1 auto' } }}>
+                <Box ref={detailsRef} sx={{ flex: { md: '1 1 auto' }, width: '100%' }}>
                     {selectedBadge && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
                             <Box sx={{ p: 2, borderRadius: 2, background: 'transparent' }}>
@@ -489,6 +491,7 @@ const BadgesContent = () => {
                                                         fontWeight: 'bold',
                                                         textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
                                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                                        fontSize: { xs: '1.2rem', sm: '1.35rem', md: '1.5rem' }
                                                     }}
                                                 >
                                                     Practitioner Badge Overview
@@ -500,7 +503,7 @@ const BadgesContent = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'white',
-                                                    fontSize: '1.1rem',
+                                                    fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                                                     lineHeight: 1.6,
                                                     fontWeight: 300,
                                                     letterSpacing: '0.02em',
@@ -533,6 +536,7 @@ const BadgesContent = () => {
                                                         fontWeight: 'bold',
                                                         textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
                                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                                        fontSize: { xs: '1.2rem', sm: '1.35rem', md: '1.5rem' }
                                                     }}
                                                 >
                                                     Advanced Badge Overview
@@ -544,7 +548,7 @@ const BadgesContent = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'white',
-                                                    fontSize: '1.1rem',
+                                                    fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
                                                     lineHeight: 1.6,
                                                     fontWeight: 300,
                                                     letterSpacing: '0.02em',
@@ -567,7 +571,7 @@ const BadgesContent = () => {
             {(!selectedBadge || selectedBadge === 'practitioner') && (
                 <>
 
-                    <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 2, mb: 3, alignItems: 'stretch', gridAutoRows: '1fr' }}>
+                    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: 2, mb: 3, alignItems: 'stretch', gridAutoRows: '1fr' }}>
                         {practitionerTasks.map((task) => (
                             <Box key={task.key} sx={{ minWidth: 0, height: '100%' }}>
                                 <PractitionerCard

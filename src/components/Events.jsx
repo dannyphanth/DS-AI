@@ -101,10 +101,10 @@ const Events = () => {
                         width: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        background: 'linear-gradient(135deg,rgb(0, 0, 0) 0%,rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
+                        background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
                         border: '1px solid rgb(48, 184, 199, 0.3)',
                         borderRadius: 2,
-                        boxShadow: '0 4px 20px rgba(0, 184, 187, 0.20)',
+                        boxShadow: '0 4px 20px rgb(1, 0, 0)',
                         transition: 'transform 0.2s',
                         opacity: isPast ? 0.8 : 1,
                         '&:hover': {
@@ -313,7 +313,7 @@ const Events = () => {
     };
 
     return (
-        <Box sx={{ py: 10, backgroundColor: '#050a14' }}>
+        <Box sx={{ py: 10, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
 
                 {/* <Typography
@@ -346,6 +346,7 @@ const Events = () => {
                                     py: 1,
                                     fontSize: '0.9rem',
                                     fontWeight: 500,
+                                    boxShadow: '0 4px 20px rgb(1, 0, 0)',
                                     '&.Mui-selected': {
                                         background: 'rgb(70, 184, 219)',
                                         color: '#050a14',

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
     AppBar,
     Toolbar,
@@ -21,6 +21,7 @@ const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const location = useLocation();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -31,7 +32,7 @@ const Navbar = () => {
         { name: 'Events', path: '/events' },
         { name: 'Resources', path: '/resources' },
         { name: 'About', path: '/about' },
-        { name: 'Meet the Board', path: '/contact' }
+        { name: 'Team', path: '/contact' }
     ];
 
     const drawer = (
@@ -42,12 +43,49 @@ const Navbar = () => {
                     DS&AI
                 </Typography>
             </Box>
-            <List>
-                {navItems.map((item) => (
-                    <ListItem key={item.name} component={Link} to={item.path} sx={{ textAlign: 'center' }}>
-                        <ListItemText primary={item.name} />
-                    </ListItem>
-                ))}
+            <List sx={{ px: 1 }}>
+                {navItems.map((item) => {
+                    const isActive = location.pathname === item.path;
+                    return (
+                        <ListItem
+                            key={item.name}
+                            disablePadding
+                            sx={{ mb: 0.5 }}
+                        >
+                            <Box
+                                component={Link}
+                                to={item.path}
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    width: '100%',
+                                    textDecoration: 'none',
+                                    color: 'inherit',
+                                    borderRadius: 1.5,
+                                    px: 2,
+                                    py: 1.1,
+                                    minHeight: 48,
+                                    background: isActive ? 'rgba(156,235,255,0.12)' : 'transparent',
+                                    border: isActive ? '1px solid rgba(156,235,255,0.25)' : '1px solid transparent',
+                                    transition: 'background 160ms ease, transform 160ms ease',
+                                    '&:hover': { background: 'rgba(156,235,255,0.08)' }
+                                }}
+                            >
+                                <ListItemText
+                                    primary={item.name}
+                                    primaryTypographyProps={{
+                                        fontSize: '1rem',
+                                        fontWeight: 600,
+                                        letterSpacing: 0.5,
+                                        textAlign: 'center',
+                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                                    }}
+                                />
+                            </Box>
+                        </ListItem>
+                    );
+                })}
             </List>
         </Box>
     );
@@ -57,7 +95,7 @@ const Navbar = () => {
             <AppBar
                 position="fixed"
                 elevation={0}
-                sx={{ background: 'transparent', boxShadow: 'none', p: 1 }}
+                sx={{ background: 'transparent', boxShadow: 'none', p: 1, zIndex: 1400, color: 'white' }}
             >
                 <Container maxWidth="xl">
                     <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 1, md: 4 } }}>
@@ -108,7 +146,7 @@ const Navbar = () => {
                                 aria-label="open drawer"
                                 edge="end"
                                 onClick={handleDrawerToggle}
-                                sx={{ ml: 1 }}
+                                sx={{ ml: 1, color: 'white' }}
                             >
                                 <MenuIcon />
                             </IconButton>
@@ -124,9 +162,10 @@ const Navbar = () => {
                 ModalProps={{ keepMounted: true }}
                 sx={{
                     '& .MuiDrawer-paper': {
-                        background: 'linear-gradient(135deg, #001f3f 0%, #003366 50%, #004080 100%)',
+                        background: '#0a192f',
                         color: 'white',
-                        width: 250
+                        width: 280,
+                        borderRight: '1px solid rgba(156,235,255,0.15)'
                     }
                 }}
             >

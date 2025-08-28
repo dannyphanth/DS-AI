@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Card, CardContent, Chip } from '@mui/material';
+import { Box, Typography, Button, Card, CardContent, Chip, useTheme, useMediaQuery } from '@mui/material';
 import EventIcon from '@mui/icons-material/Event';
 import GroupIcon from '@mui/icons-material/Group';
 import SchoolIcon from '@mui/icons-material/School';
@@ -15,6 +15,44 @@ const EventsCard = () => {
     const navigate = useNavigate();
     const [flippedCards, setFlippedCards] = useState({});
     const upcomingEvents = getUpcomingEventsForCTA();
+    const theme = useTheme();
+    const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+    const visibleEvents = isXs ? upcomingEvents.slice(0, 2) : upcomingEvents;
+    const totalEvents = visibleEvents.length;
+    const midIndex = (totalEvents - 1) / 2;
+
+    const formatDateShort = (dateStr) => {
+        if (!dateStr) return '';
+        const first = dateStr.split(',')[0].trim();
+        const [monthName, dayRaw] = first.split(/\s+/);
+        const monthMap = {
+            January: 1, February: 2, March: 3, April: 4, May: 5, June: 6,
+            July: 7, August: 8, September: 9, October: 10, November: 11, December: 12
+        };
+        const month = monthMap[monthName];
+        const day = parseInt(dayRaw, 10);
+        if (month && Number.isFinite(day)) return `${month}/${day}`;
+        return first;
+    };
+
+    const formatTimeCondensed = (timeStr) => {
+        if (!timeStr) return '';
+        const normalized = timeStr.replace(/\s+/g, ' ').trim();
+        const split = normalized.split(/-|\u2013/); // hyphen or en dash
+        if (split.length < 2) return normalized;
+        let [start, end] = split.map(s => s.trim());
+        const meridiem = (s) => {
+            const m = s.match(/(am|pm)$/i);
+            return m ? m[1].toUpperCase() : '';
+        };
+        const stripMeridiem = (s) => s.replace(/\s*(AM|PM)$/i, '');
+        const startMer = meridiem(start);
+        const endMer = meridiem(end);
+        start = stripMeridiem(start);
+        end = stripMeridiem(end);
+        const mer = endMer || startMer;
+        return `${start}\u2013${end}${mer ? ` ${mer}` : ''}`;
+    };
 
     const handleEventClick = (event) => {
         // Navigate to events page with the specific event expanded
@@ -48,7 +86,7 @@ const EventsCard = () => {
             tiltMaxAngleY={3}
             perspective={1000}
             glareEnable={true}
-            glareMaxOpacity={0.4}
+            glareMaxOpacity={0.2}
             glareColor="#026ca6"
             glarePosition="all"
             glareBorderRadius="12px"
@@ -57,10 +95,26 @@ const EventsCard = () => {
         >
             <Box
                 sx={{
-                    py: 0,
+                    p: 3,
                     borderRadius: 2,
                     boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
                     mb: 4,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.45) 0%, rgba(17,37,64,0.40) 50%, rgba(48,164,199,0.07) 100%)',
+                    border: '1px solid rgba(12, 71, 89, 0.14)',
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        inset: 0,
+                        borderRadius: 'inherit',
+                        pointerEvents: 'none',
+                        background: `
+                            radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
+                            radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
+                        `,
+                        opacity: 1
+                    },
                     transition: 'transform 0.3s, box-shadow 0.3s',
                     '&:hover': {
                         transform: 'translateY(-5px)',
@@ -145,12 +199,12 @@ const EventsCard = () => {
                                     fontWeight: 600,
                                     px: 3,
                                     py: 1.2,
-                                    boxShadow: '0 0 12px rgba(70,255,249,0.18)',
+                                    boxShadow: '0 0 12px rgba(10,25,47,0.8)',
                                     alignSelf: 'flex-start',
                                     mt: 1,
                                     border: '1px solid rgba(70,255,249,0.12)',
                                     '&:hover': {
-                                        boxShadow: '0 0 10px #30a4c7',
+                                        boxShadow: '0 0 12px rgba(10,25,47,0.95)',
                                     },
                                 }}
                             >
@@ -188,20 +242,20 @@ const EventsCard = () => {
                         <Box sx={{
                             position: 'relative',
                             width: '100%',
-                            height: '320px',
-                            minHeight: '320px',
+                            height: { xs: '280px', sm: '320px' },
+                            minHeight: { xs: '280px', sm: '320px' },
                             display: 'flex',
                             justifyContent: 'center',
-                            alignItems: 'flex-start', // changed from 'center'
+                            alignItems: 'flex-start',
                             overflow: 'visible',
                             perspective: '1200px',
                             transformStyle: 'preserve-3d',
-                            minWidth: '720px',
+                            minWidth: { xs: '100%', sm: '720px' },
                             pt: 0,
                             mt: 0,
                             paddingTop: 0,
                         }}>
-                            {upcomingEvents.map((event, index) => (
+                            {visibleEvents.map((event, index) => (
                                 <motion.div
                                     key={event.title}
                                     initial={{
@@ -209,22 +263,22 @@ const EventsCard = () => {
                                         rotateZ: -8,
                                         x: -60 * index,
                                         y: -20 * index,
-                                        zIndex: upcomingEvents.length - index,
+                                        zIndex: totalEvents - index,
                                         opacity: 0.7
                                     }}
                                     animate={{
-                                        rotateY: index === 0 ? 30 : index === 2 ? -30 : 0,
-                                        rotateZ: (index - 1) * 5,
-                                        x: index * 240 - 240,
-                                        y: index === 0 ? 10 : index === 2 ? 10 : 0,
-                                        zIndex: index === 1 ? 1 : upcomingEvents.length - index,
+                                        rotateY: isXs ? 0 : (index === 0 ? 30 : index === 2 ? -30 : 0),
+                                        rotateZ: isXs ? ((index - midIndex) * 8) : ((index - 1) * 5),
+                                        x: isXs ? ((index - midIndex) * 185) : (index * 230 - 240),
+                                        y: isXs ? Math.abs(index - midIndex) * 12 : (index === 0 ? 8 : index === 2 ? 8 : 0),
+                                        zIndex: index === 1 ? 1 : totalEvents - index,
                                         z: index === 1 ? -70 : 0,
                                         opacity: 1
                                     }}
                                     whileHover={{
-                                        rotateY: index === 0 ? 20 : index === 2 ? -20 : 5,
-                                        rotateZ: (index - 1) * 5 + 2,
-                                        scale: 1.08,
+                                        rotateY: isXs ? 0 : (index === 0 ? 20 : index === 2 ? -20 : 5),
+                                        rotateZ: isXs ? ((index - midIndex) * 10 + 2) : ((index - 1) * 5 + 2),
+                                        scale: isXs ? 1.03 : 1.08,
                                         zIndex: 10,
                                         transition: { duration: 0.3 }
                                     }}
@@ -235,23 +289,20 @@ const EventsCard = () => {
                                     }}
                                     style={{
                                         position: 'absolute',
-                                        width: '220px',
-                                        height: '260px',
+                                        width: isXs ? 180 : 216,
+                                        height: isXs ? 220 : 260,
                                         transformStyle: 'preserve-3d',
                                     }}
                                 >
                                     <Card
                                         onClick={() => handleEventClick(event)}
                                         sx={{
-                                            width: '220px',
-                                            height: '260px',
-                                            background: 'linear-gradient(135deg,rgb(0, 0, 0) 0%,rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
+                                            width: { xs: '180px', sm: '216px' },
+                                            height: { xs: '220px', sm: '260px' },
+                                            background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
                                             border: '1px solid rgb(48, 184, 199, 0.3)',
                                             borderRadius: 2,
-                                            // boxShadow: `
-                                            //     0 4px 20px rgba(0, 184, 187, 0.20),
-                                            //     ${index * 3}px ${index * 3}px ${index * 6}px ${index * 6}px rgba(0, 0, 0, 0.4)
-                                            // `,
+                                            boxShadow: '0 4px 20px rgb(1, 0, 0)',
                                             overflow: 'hidden',
                                             cursor: 'pointer',
                                             position: 'relative',
@@ -286,7 +337,7 @@ const EventsCard = () => {
                                         <Box
                                             sx={{
                                                 width: '100%',
-                                                height: '200px',
+                                                height: { xs: '160px', sm: '200px' },
                                                 backgroundImage: `url(${event.image.startsWith('/') ? event.image : '/' + event.image})`,
                                                 backgroundSize: '100% 100%',
                                                 backgroundPosition: 'center',
@@ -324,12 +375,18 @@ const EventsCard = () => {
                                                     <Typography
                                                         variant="caption"
                                                         sx={{
-                                                            color: '#9cebff',
+                                                            background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
+                                                            WebkitBackgroundClip: 'text',
+                                                            backgroundClip: 'text',
+                                                            WebkitTextFillColor: 'transparent',
+                                                            color: 'transparent',
                                                             fontSize: '0.8rem',
+                                                            textShadow: '0 0 12px rgba(156, 235, 255, 0.35)',
+                                                            whiteSpace: { xs: 'nowrap', sm: 'normal' },
                                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                         }}
                                                     >
-                                                        {event.date.split(',')[0]} • {event.time}
+                                                        {formatDateShort(event.date)} • {formatTimeCondensed(event.time)}
                                                     </Typography>
                                                 </Box>
                                             </Box>

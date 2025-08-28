@@ -33,7 +33,7 @@ const MembershipCard = () => (
         tiltMaxAngleY={3}
         perspective={1000}
         glareEnable={true}
-        glareMaxOpacity={0.4}
+        glareMaxOpacity={0.2}
         glareColor="#026ca6"
         glarePosition="all"
         glareBorderRadius="12px"
@@ -51,10 +51,26 @@ const MembershipCard = () => (
         </svg>
         <Box
             sx={{
-                p: 3,
+                p: 4,
                 borderRadius: 2,
                 boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                 mb: 4,
+                position: 'relative',
+                overflow: 'hidden',
+                background: 'linear-gradient(135deg, rgba(10,25,47,0.45) 0%, rgba(17,37,64,0.40) 50%, rgba(48,164,199,0.07) 100%)',
+                border: '1px solid rgba(48,164,199,0.14)',
+                '&::before': {
+                    content: '""',
+                    position: 'absolute',
+                    inset: 0,
+                    borderRadius: 'inherit',
+                    pointerEvents: 'none',
+                    background: `
+                        radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
+                        radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
+                    `,
+                    opacity: 1
+                },
                 transition: 'transform 0.3s, box-shadow 0.3s',
                 '&:hover': {
                     transform: 'translateY(-5px)',
@@ -150,12 +166,70 @@ const MembershipCard = () => (
                         Membership Benefits
                     </Typography>
 
+                    {/* Mobile 2-1 grid for membership benefits */}
                     <Box sx={{
+                        display: { xs: 'grid', md: 'none' },
+                        gridTemplateColumns: 'repeat(2, 1fr)',
+                        gap: 2,
+                        width: '100%',
+                        mt: 1
+                    }}>
+                        {membershipBenefits.map((benefit, index) => (
+                            <Card key={`mgrid-${benefit.title}-${index}`} sx={{
+                                background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(26, 60, 100) 50%, rgb(48, 164, 199) 120%)',
+                                border: '1px solid rgba(48, 184, 199, 0.3)',
+                                borderRadius: 2,
+                                boxShadow: '0 4px 20px rgb(1, 0, 0)',
+                                overflow: 'hidden',
+                                gridColumn: { xs: index === 2 ? '1 / -1' : 'auto' },
+                                justifySelf: { xs: index === 2 ? 'center' : 'stretch' },
+                            }}>
+                                <CardContent sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                    <Box sx={{ filter: 'drop-shadow(0 0 6px rgba(156, 235, 255, 0.3))', mb: 1 }}>
+                                        {benefit.icon}
+                                    </Box>
+                                    <Typography
+                                        variant="subtitle2"
+                                        sx={{
+                                            color: 'white',
+                                            textShadow: '0 0 12px rgba(0, 0, 0, 0.35)',
+                                            fontWeight: 600,
+                                            fontSize: '1rem',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            textAlign: 'center'
+                                        }}
+                                    >
+                                        {benefit.title}
+                                    </Typography>
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            backgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            color: 'transparent',
+                                            textShadow: '0 0 12px rgba(0, 0, 0, 0.35)',
+                                            fontSize: '0.9rem',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            textAlign: 'center',
+                                            mt: 0.5
+                                        }}
+                                    >
+                                        {benefit.description}
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        ))}
+                    </Box>
+
+                    <Box sx={{
+                        display: { xs: 'none', md: 'flex' },
                         position: 'relative',
                         width: '100%',
                         height: '320px',
                         minHeight: '320px',
-                        display: 'flex',
+                        // display controlled above via breakpoints
                         justifyContent: 'center',
                         alignItems: 'flex-start',
                         overflow: 'visible',
@@ -180,7 +254,7 @@ const MembershipCard = () => (
                                 animate={{
                                     rotateY: index === 0 ? 30 : index === 2 ? -30 : 0,
                                     rotateZ: (index - 1) * 5,
-                                    x: index * 240 - 240,
+                                    x: index * 230 - 240,
                                     y: index === 0 ? 10 : index === 2 ? 10 : 0,
                                     zIndex: index === 1 ? 1 : membershipBenefits.length - index,
                                     z: index === 1 ? -70 : 0,
@@ -200,22 +274,22 @@ const MembershipCard = () => (
                                 }}
                                 style={{
                                     position: 'absolute',
-                                    width: '220px',
+                                    width: '216px',
                                     height: '260px',
                                     transformStyle: 'preserve-3d',
                                 }}
                             >
                                 <Card
                                     sx={{
-                                        width: '220px',
+                                        width: '216px',
                                         height: '260px',
-                                        background: 'linear-gradient(135deg, rgb(0, 0, 0) 0%, rgb(26, 60, 100) 50%, rgb(48, 164, 199) 120%)',
+                                        background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(26, 60, 100) 50%, rgb(48, 164, 199) 120%)',
                                         border: '1px solid rgba(48, 184, 199, 0.3)',
                                         borderRadius: 2,
-                                        boxShadow: `
-                                            0 4px 20px rgba(0, 184, 187, 0.20),
-                                            ${index * 3}px ${index * 3}px ${index * 6}px rgba(0,0,0,0.4)
-                                        `,
+                                        // boxShadow: `
+                                        //     0 4px 20px rgba(0, 184, 187, 0.20),
+                                        //     ${index * 3}px ${index * 3}px ${index * 6}px rgba(0,0,0,0.4)
+                                        // `,
                                         overflow: 'hidden',
                                         cursor: 'default',
                                         position: 'relative',
@@ -247,14 +321,15 @@ const MembershipCard = () => (
                                     elevation={0}
                                 >
                                     <CardContent sx={{ p: 1, position: 'relative', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                                        <Box sx={{ filter: 'drop-shadow(0 0 6px rgba(156, 235, 255, 0.6))' }}>
+                                        <Box sx={{ filter: 'drop-shadow(0 0 6px rgba(156, 235, 255, 0.3))' }}>
                                             {benefit.icon}
                                         </Box>
                                         <Typography
                                             variant="subtitle2"
                                             sx={{
                                                 color: 'white',
-                                                fontWeight: 700,
+                                                textShadow: '0 0 12px rgba(0, 0, 0, 0.35)',
+                                                fontWeight: 600,
                                                 fontSize: '1.1rem',
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                 mb: 0.5,
@@ -271,7 +346,7 @@ const MembershipCard = () => (
                                                 backgroundClip: 'text',
                                                 WebkitTextFillColor: 'transparent',
                                                 color: 'transparent',
-                                                textShadow: '0 0 12px rgba(156, 235, 255, 0.35)',
+                                                textShadow: '0 0 12px rgba(0, 0, 0, 0.35)',
                                                 fontSize: '1rem',
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                 textAlign: 'center',

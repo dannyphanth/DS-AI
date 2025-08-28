@@ -11,7 +11,7 @@ const DigitalBadgesCard = () => {
             tiltMaxAngleY={3}
             perspective={1000}
             glareEnable={true}
-            glareMaxOpacity={0.4}
+            glareMaxOpacity={0.2}
             glareColor="#026ca6"
             glarePosition="all"
             glareBorderRadius="12px"
@@ -24,6 +24,22 @@ const DigitalBadgesCard = () => {
                     borderRadius: 2,
                     boxShadow: '0 4px 20px rgba(0,0,0,0.1)',
                     mb: 4,
+                    position: 'relative',
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.45) 0%, rgba(17,37,64,0.40) 50%, rgba(48,164,199,0.07) 100%)',
+                    border: '1px solid rgba(48,164,199,0.14)',
+                    '&::before': {
+                        content: '""',
+                        position: 'absolute',
+                        inset: 0,
+                        borderRadius: 'inherit',
+                        pointerEvents: 'none',
+                        background: `
+                            radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
+                            radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
+                        `,
+                        opacity: 1
+                    },
                     transition: 'transform 0.3s, box-shadow 0.3s',
                     '&:hover': {
                         transform: 'translateY(-5px)',
@@ -108,12 +124,12 @@ const DigitalBadgesCard = () => {
                                     fontWeight: 600,
                                     px: 3,
                                     py: 1.2,
-                                    boxShadow: '0 0 12px rgba(70,255,249,0.18)',
+                                    boxShadow: '0 0 12px rgba(10,25,47,0.8)',
                                     alignSelf: 'flex-start',
                                     mt: 1,
                                     border: '1px solid rgba(70,255,249,0.12)',
                                     '&:hover': {
-                                        boxShadow: '0 0 10px #30a4c7',
+                                        boxShadow: '0 0 12px rgba(10,25,47,0.95)',
                                     },
                                 }}
                             >
@@ -184,55 +200,73 @@ const DigitalBadgesCard = () => {
                                 }}
                             />
 
-                            {/* DSAI badge with gesture animation */}
-                            <motion.img
-                                src={'/dsaiBadge.png'}
-                                alt="DSAI Badge"
-                                initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                whileHover={{ scale: 1.08, rotate: 3 }}
-                                whileTap={{ scale: 0.95, rotate: -3 }}
-                                drag
-                                dragConstraints={{ left: -24, right: 24, top: -24, bottom: 24 }}
-                                dragElastic={0.2}
-                                transition={{ type: 'spring', stiffness: 260, damping: 18, mass: 0.6 }}
+                            {/* DSAI badge with infinite spring-like loop (left) */}
+                            <motion.div
+                                initial={{ rotate: 0 }}
+                                animate={{ rotate: [0, 8, 0], scale: [1, 1.06, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                                 style={{
                                     position: 'absolute',
                                     top: '6%',
                                     left: '6%',
                                     width: '22%',
-                                    height: 'auto',
-                                    objectFit: 'contain',
                                     zIndex: 3,
-                                    filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.35))'
                                 }}
-                            />
+                            >
+                                <motion.img
+                                    src={'/dsaiBadge.png'}
+                                    alt="DSAI Badge"
+                                    initial={{ opacity: 0, scale: 0.9, y: -10 }}
+                                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    // whileHover={{ scale: 1.08, rotate: 3 }}
+                                    whileTap={{ scale: 0.95, rotate: -3 }}
+                                    drag
+                                    dragConstraints={{ left: -24, right: 24, top: -24, bottom: 24 }}
+                                    dragElastic={0.2}
+                                    transition={{ delay: 0.2, stiffness: 260, damping: 18, mass: 0.6 }}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.35))'
+                                    }}
+                                />
+                            </motion.div>
 
-                            {/* DSAI badge overlay for Advanced badge (right) */}
-                            <motion.img
-                                src={'/dsaiBadge.png'}
-                                alt="DSAI Badge Advanced"
-                                initial={{ opacity: 0, scale: 0.9, y: -10 }}
-                                whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                                viewport={{ once: true, amount: 0.3 }}
-                                whileHover={{ scale: 1.08, rotate: 3 }}
-                                whileTap={{ scale: 0.95, rotate: -3 }}
-                                drag
-                                dragConstraints={{ left: -24, right: 24, top: -24, bottom: 24 }}
-                                dragElastic={0.2}
-                                transition={{ type: 'spring', stiffness: 260, damping: 18, mass: 0.6 }}
+                            {/* DSAI badge overlay for Advanced badge (right) with delayed reveal, loop starts immediately */}
+                            <motion.div
+                                initial={{ rotate: 0 }}
+                                animate={{ rotate: [0, 8, 0], scale: [1, 1.06, 1] }}
+                                transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
                                 style={{
                                     position: 'absolute',
                                     top: '6%',
                                     left: '50%',
                                     width: '22%',
-                                    height: 'auto',
-                                    objectFit: 'contain',
                                     zIndex: 3,
-                                    filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.35))'
                                 }}
-                            />
+                            >
+                                <motion.img
+                                    src={'/dsaiBadge.png'}
+                                    alt="DSAI Badge Advanced"
+                                    initial={{ opacity: 0, scale: 0.9, y: -10 }}
+                                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                                    viewport={{ once: true, amount: 0.3 }}
+                                    whileHover={{ scale: 1.08, rotate: 3 }}
+                                    whileTap={{ scale: 0.95, rotate: -3 }}
+                                    transition={{ type: 'spring', duration: 2.8, ease: 'easeOut', delay: 1.1 }}
+                                    drag
+                                    dragConstraints={{ left: -24, right: 24, top: -24, bottom: 24 }}
+                                    dragElastic={0.2}
+                                    style={{
+                                        width: '100%',
+                                        height: 'auto',
+                                        objectFit: 'contain',
+                                        filter: 'drop-shadow(0 6px 18px rgba(0,0,0,0.35))'
+                                    }}
+                                />
+                            </motion.div>
                         </Box>
                     </Box>
                 </Box>
