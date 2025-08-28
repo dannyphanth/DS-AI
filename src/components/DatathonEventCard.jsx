@@ -89,6 +89,7 @@ const DatathonEventCard = () => {
                                         },
                                         height: { xs: 260, md: 360 },
                                         mx: { xs: 'auto', md: 0 },
+                                        mt: { xs: 2, md: 0 },
                                         position: 'relative',
                                         overflow: 'hidden',
                                         borderRadius: 1,

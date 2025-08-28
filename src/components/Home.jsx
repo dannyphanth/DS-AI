@@ -336,7 +336,7 @@ const Home = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.05 }}
                         >
-                            <DigitalBadgesCard />
+                            <DatathonEventCard />
                         </motion.div>
                         <Divider
                             sx={{
@@ -354,7 +354,7 @@ const Home = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                         >
-                            <DatathonEventCard />
+                            <DigitalBadgesCard />
                         </motion.div>
                         <Divider
                             sx={{
