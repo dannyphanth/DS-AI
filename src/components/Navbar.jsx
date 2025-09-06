@@ -39,7 +39,7 @@ const Navbar = () => {
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 2 }}>
                 <img src="/dsai%20logo.png" alt="DS&AI Logo" style={{ height: 40, marginRight: 8 }} />
-                <Typography variant="h6" sx={{ fontWeight: 'bold', letterSpacing: 2, fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif' }}>
+                <Typography variant="h6" sx={{ fontWeight: 'bold', letterSpacing: 2, fontFamily: '"Syncopate", "Chakra Petch", "Exo 2", monospace' }}>
                     DS&AI
                 </Typography>
             </Box>
@@ -161,11 +161,13 @@ const Navbar = () => {
                 onClose={handleDrawerToggle}
                 ModalProps={{ keepMounted: true }}
                 sx={{
+                    zIndex: 1500,
                     '& .MuiDrawer-paper': {
                         background: '#0a192f',
                         color: 'white',
                         width: 280,
-                        borderRight: '1px solid rgba(156,235,255,0.15)'
+                        borderRight: '1px solid rgba(156,235,255,0.15)',
+                        zIndex: 1500
                     }
                 }}
             >

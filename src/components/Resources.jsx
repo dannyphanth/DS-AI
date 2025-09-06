@@ -141,33 +141,34 @@ const Resources = () => {
     return (
         <Box sx={{ py: 9, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        duration: 1.2,
-                        ease: "easeOut"
-                    }}
-                    style={{ textAlign: 'center', marginBottom: '0.45rem' }}
-                >
-                    <Typography
-                        variant="h3"
-                        component="h1"
-                        sx={{
-                            fontWeight: 'bold',
-                            fontSize: { xs: '1.8rem', sm: '2.25rem', md: '2.7rem' },
-                            background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            backgroundClip: 'text',
-                            textShadow: '0 0 10.8px rgba(70,255,249,0.25), 0 0 21.6px rgba(41,105,157,0.2)'
+                <Box sx={{ textAlign: 'center', mb: { xs: 3, sm: 0.45 } }}>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                            duration: 1.2,
+                            ease: "easeOut"
                         }}
                     >
-                        Learn by Doing
-                    </Typography>
-                </motion.div>
+                        <Typography
+                            variant="h3"
+                            component="h1"
+                            sx={{
+                                fontWeight: 'bold',
+                                fontSize: { xs: '2.2rem', sm: '2.25rem', md: '2.7rem' },
+                                background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text',
+                                textShadow: '0 0 10.8px rgba(70,255,249,0.25), 0 0 21.6px rgba(41,105,157,0.2)'
+                            }}
+                        >
+                            Learn by Doing
+                        </Typography>
+                    </motion.div>
+                </Box>
 
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 1.8 }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: { xs: 4, sm: 1.8 } }}>
                     <Tabs
                         value={value}
                         onChange={handleChange}

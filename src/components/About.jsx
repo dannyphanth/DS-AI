@@ -52,7 +52,7 @@ const About = () => {
     };
 
     return (
-        <Box sx={{ py: { xs: 5.4, md: 9 }, backgroundColor: '#0a192f' }}>
+        <Box sx={{ py: { xs: 8, md: 9 }, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial="hidden"
@@ -75,7 +75,7 @@ const About = () => {
                                 sx={{
                                     fontWeight: 'bold',
                                     mb: 3.6,
-                                    fontSize: { xs: '1.8rem', sm: '2.25rem', md: '2.7rem' },
+                                    fontSize: { xs: '2.2rem', sm: '2.25rem', md: '2.7rem' },
                                     background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
@@ -207,7 +207,7 @@ const About = () => {
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                 }}
                                             >
-                                                The DSAI club at CPP is more than just workshops and technical projects. We want to build a community. While we host meetings, plan hands-on activities, and attend conferences together, at the heart of it all we’re simply a group of students who bond over a shared interest in Data Science, AI, and STEM as a whole. As a newer club, our goal isn’t just to strengthen technical skills, but to create a space where students can learn, collaborate, and grow together. Whether it’s tackling a data challenge, playing board games after a meeting, or traveling as a group to events like summits, we aim to provide both professional development and lasting friendships. Our vision is to bring out the best in one another, building knowledge, confidence, and community along the way.                                            </Typography>
+                                                The Data Science and AI club at CPP is more than just workshops and technical projects. We want to build a community. While we host meetings, plan hands-on activities, and attend conferences together, at the heart of it all we’re simply a group of students who bond over a shared interest in Data Science, AI, and STEM as a whole. As a newer club, our goal isn’t just to strengthen technical skills, but to create a space where students can learn, collaborate, and grow together. Whether it’s tackling a data challenge, playing board games after a meeting, or traveling as a group to events like summits, we aim to provide both professional development and lasting friendships. Our vision is to bring out the best in one another, building knowledge, confidence, and community along the way.                                            </Typography>
                                         </Box>
                                     </Box>
                                 </Box>
