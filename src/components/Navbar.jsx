@@ -20,7 +20,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const location = useLocation();
 
     const handleDrawerToggle = () => {
@@ -119,7 +119,7 @@ const Navbar = () => {
                                 DS&AI
                             </Typography>
                         </Box>
-                        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 3 }}>
+                        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: { sm: 0.5 } }}>
                             {navItems.map((item) => (
                                 <Button
                                     key={item.name}
@@ -140,7 +140,7 @@ const Navbar = () => {
                                 </Button>
                             ))}
                         </Box>
-                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                        <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
                             <IconButton
                                 color="inherit"
                                 aria-label="open drawer"

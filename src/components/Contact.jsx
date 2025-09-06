@@ -63,7 +63,7 @@ const Contact = () => {
             name: 'Erika',
             position: 'Secretary',
             image: '/ErikaWeb.JPG',
-            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            message: 'Hey! I’m a 5th-year Computer Science undergrad minoring in Data Science and Cybersecurity. I’m interested in where those two areas overlap, whether that’s applying machine learning to security processes or rethinking how we handle data in secure spaces.  Outside of school, you’ll usually find me at a concert or festival, adding to my vinyl collection, or exploring new food spots.',
             email: 'erika@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/erika',
@@ -75,7 +75,7 @@ const Contact = () => {
             name: 'Paul',
             position: 'Treasurer',
             image: '/PaulWeb.JPG',
-            message: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+            message: 'Hello reader! I’m a junior majoring in Computer Science, focusing on the topic of machine learning. In my free time, I enjoy playing video games, sports such as volleyball and tennis, and netflixing. You can find me on Instagram @myunwon_  or look on my LinkedIn as Paul Myung. Hmu to play any fps game or PEAK games!',
             email: 'paul@dsai-club.edu',
             socials: {
                 linkedin: 'https://linkedin.com/in/paul',
@@ -198,7 +198,7 @@ const Contact = () => {
 
     return (
         <>
-            <Box sx={{ py: 10, position: 'relative' }}>
+            <Box sx={{ py: 9, position: 'relative' }}>
                 {/* Background color layer */}
                 <Box
                     sx={{
@@ -221,7 +221,7 @@ const Contact = () => {
                 />
                 **/}
                 <Container maxWidth="lg" sx={{ zIndex: 1 }}>
-                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3.6 }}>
                         <ToggleButtonGroup
                             value={boardType}
                             exclusive
@@ -231,9 +231,9 @@ const Contact = () => {
                                 '& .MuiToggleButton-root': {
                                     color: 'rgb(70, 184, 219)',
                                     border: '1px solid rgb(70, 184, 219)',
-                                    px: 3,
-                                    py: 1,
-                                    fontSize: '0.9rem',
+                                    px: 2.7,
+                                    py: 0.9,
+                                    fontSize: '0.81rem',
                                     fontWeight: 500,
                                     boxShadow: '0 4px 20px rgb(1, 0, 0)',
                                     '&.Mui-selected': {
@@ -258,26 +258,26 @@ const Contact = () => {
                         </ToggleButtonGroup>
                     </Box>
 
-                    <Grid container spacing={10} justifyContent="center">
+                    <Grid container spacing={9} justifyContent="center">
                         {(boardType === 'current' ? currentBoardMembers : pastBoardMembers).map((member, index) => (
                             <Grid item xs={12} sm={6} md={4} key={index}>
                                 <Card
                                     data-occupied="true"
                                     elevation={0}
                                     sx={{
-                                        maxWidth: 425,
+                                        maxWidth: 382.5,
                                         width: '100%',
-                                        height: 700,
+                                        height: 720,
                                         display: 'flex',
                                         flexDirection: 'column',
                                         background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
                                         border: '1px solid rgb(48, 184, 199, 0.3)',
                                         borderRadius: 2,
-                                        boxShadow: '0 4px 20px rgb(1, 0, 0)',
+                                        boxShadow: '0 3.6px 18px rgb(1, 0, 0)',
                                         transition: 'transform 0.2s',
                                         '&:hover': {
-                                            transform: 'translateY(-8px)',
-                                            boxShadow: '0 8px 30px rgba(41, 105, 157, 0.8)'
+                                            transform: 'translateY(-7.2px)',
+                                            boxShadow: '0 7.2px 27px rgba(41, 105, 157, 0.8)'
                                         },
                                         position: 'relative',
                                         zIndex: 2
@@ -286,15 +286,15 @@ const Contact = () => {
                                     <CardMedia
                                         component="img"
                                         sx={{
-                                            height: '55%',
+                                            height: '45%',
                                             width: '100%',
                                             objectFit: 'cover'
                                         }}
                                         image={member.image}
                                         alt={member.name}
                                     />
-                                    <CardContent sx={{ flexGrow: 1, p: 2.5, pb: 0, pt: 2.5, display: 'flex', flexDirection: 'column' }}>
-                                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 1.5 }}>
+                                    <CardContent sx={{ flexGrow: 1, p: 3, pb: 1, pt: 3, display: 'flex', flexDirection: 'column' }}>
+                                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, mb: 2 }}>
                                             <Typography
                                                 variant="h6"
                                                 component="h2"
@@ -337,12 +337,12 @@ const Contact = () => {
                                             "{member.message}"
                                         </Typography>
 
-                                        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 'auto', mb: 0.5 }}>
+                                        <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 'auto', mb: 1 }}>
                                             <IconButton
                                                 href={`mailto:${member.email}`}
                                                 sx={{
                                                     color: 'rgb(48, 164, 199)',
-                                                    filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                    filter: 'drop-shadow(0 0 10.8px rgb(0, 0, 0))',
                                                     '&:hover': {
                                                         backgroundColor: 'rgba(48, 184, 199, 0.1)'
                                                     }
@@ -356,7 +356,7 @@ const Contact = () => {
                                                     target="_blank"
                                                     sx={{
                                                         color: 'rgb(48, 164, 199)',
-                                                        filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                        filter: 'drop-shadow(0 0 10.8px rgb(0, 0, 0))',
                                                         '&:hover': {
                                                             backgroundColor: 'rgba(48, 184, 199, 0.1)'
                                                         }
@@ -371,7 +371,7 @@ const Contact = () => {
                                                     target="_blank"
                                                     sx={{
                                                         color: 'rgb(48, 164, 199)',
-                                                        filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                        filter: 'drop-shadow(0 0 10.8px rgb(0, 0, 0))',
                                                         '&:hover': {
                                                             backgroundColor: 'rgba(48, 184, 199, 0.1)'
                                                         }
@@ -387,7 +387,7 @@ const Contact = () => {
                                                     target="_blank"
                                                     sx={{
                                                         color: 'rgb(48, 164, 199)',
-                                                        filter: 'drop-shadow(0 0 12px rgb(0, 0, 0))',
+                                                        filter: 'drop-shadow(0 0 10.8px rgb(0, 0, 0))',
                                                         '&:hover': {
                                                             backgroundColor: 'rgba(48, 184, 199, 0.1)'
                                                         }

@@ -139,7 +139,7 @@ const Resources = () => {
     };
 
     return (
-        <Box sx={{ py: 10, backgroundColor: '#0a192f' }}>
+        <Box sx={{ py: 9, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -148,25 +148,26 @@ const Resources = () => {
                         duration: 1.2,
                         ease: "easeOut"
                     }}
-                    style={{ textAlign: 'center', marginBottom: '0.5rem' }}
+                    style={{ textAlign: 'center', marginBottom: '0.45rem' }}
                 >
                     <Typography
                         variant="h3"
                         component="h1"
                         sx={{
                             fontWeight: 'bold',
+                            fontSize: { xs: '1.8rem', sm: '2.25rem', md: '2.7rem' },
                             background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                             backgroundClip: 'text',
-                            textShadow: '0 0 12px rgba(70,255,249,0.25), 0 0 24px rgba(41,105,157,0.2)'
+                            textShadow: '0 0 10.8px rgba(70,255,249,0.25), 0 0 21.6px rgba(41,105,157,0.2)'
                         }}
                     >
                         Learn by Doing
                     </Typography>
                 </motion.div>
 
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 2 }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: 1.8 }}>
                     <Tabs
                         value={value}
                         onChange={handleChange}
@@ -174,8 +175,8 @@ const Resources = () => {
                         scrollButtons="auto"
                         sx={{
                             '& .MuiTab-root': {
-                                minHeight: { xs: 48, sm: 56, md: 64 },
-                                fontSize: { xs: '0.9rem', sm: '1rem' },
+                                minHeight: { xs: 43.2, sm: 50.4, md: 57.6 },
+                                fontSize: { xs: '0.81rem', sm: '0.9rem' },
                                 color: 'white',
                                 '&.Mui-selected': {
                                     color: 'white'
@@ -203,7 +204,7 @@ const Resources = () => {
                         {categories[value].key === 'badges' ? (
                             <BadgesContent />
                         ) : (
-                            <Grid container spacing={{ xs: 3, sm: 4, md: 6 }} justifyContent="center">
+                            <Grid container spacing={{ xs: 2.7, sm: 3.6, md: 5.4 }} justifyContent="center">
                                 {[...resources[categories[value].key]].map((resource, index) => (
                                     <Grid item xs={12} sm={6} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
                                         <motion.div variants={itemVariants}>
@@ -211,17 +212,17 @@ const Resources = () => {
                                                 elevation={0}
                                                 sx={{
                                                     width: '100%',
-                                                    maxWidth: 500,
+                                                    maxWidth: 450,
                                                     display: 'flex',
                                                     flexDirection: 'column',
                                                     background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
                                                     border: '1px solid rgb(48, 184, 199, 0.3)',
                                                     borderRadius: 2,
-                                                    boxShadow: '0 4px 20px rgb(1, 0, 0)',
+                                                    boxShadow: '0 3.6px 18px rgb(1, 0, 0)',
                                                     transition: 'transform 0.2s',
                                                     '&:hover': {
-                                                        transform: 'translateY(-8px)',
-                                                        boxShadow: '0 8px 30px rgba(41, 105, 157, 0.8)'
+                                                        transform: 'translateY(-7.2px)',
+                                                        boxShadow: '0 7.2px 27px rgba(41, 105, 157, 0.8)'
                                                     }
                                                 }}
                                             >
@@ -239,16 +240,16 @@ const Resources = () => {
                                                         }}
                                                     />
                                                 </Box>
-                                                <Box sx={{ p: { xs: 1.5, sm: 2 }, display: 'flex', flexDirection: 'column', gap: 0.75 }}>
+                                                <Box sx={{ p: { xs: 1.35, sm: 1.8 }, display: 'flex', flexDirection: 'column', gap: 0.675 }}>
                                                     <Typography
                                                         variant="h6"
                                                         component="h2"
                                                         sx={{
                                                             fontWeight: 'bold',
                                                             color: 'white',
-                                                            textShadow: '0 0 12px rgba(0, 0, 0, 0.20)',
+                                                            textShadow: '0 0 10.8px rgba(0, 0, 0, 0.20)',
 
-                                                            fontSize: { xs: '1.05rem', sm: '1.2rem', md: '1.3rem' },
+                                                            fontSize: { xs: '0.945rem', sm: '1.08rem', md: '1.17rem' },
                                                             lineHeight: 1.15,
                                                             mb: 0
                                                         }}
@@ -260,7 +261,7 @@ const Resources = () => {
                                                         variant="body2"
                                                         sx={{
                                                             mt: 0,
-                                                            mb: 0.5,
+                                                            mb: 0.45,
                                                             lineHeight: 1.3,
                                                             fontWeight: '600',
                                                             background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
@@ -268,8 +269,8 @@ const Resources = () => {
                                                             backgroundClip: 'text',
                                                             WebkitTextFillColor: 'transparent',
                                                             color: 'transparent',
-                                                            textShadow: '0 0 12px rgba(0, 0, 0, 0.50)',
-                                                            fontSize: { xs: '0.95rem', sm: '1rem' },
+                                                            textShadow: '0 0 10.8px rgba(0, 0, 0, 0.50)',
+                                                            fontSize: { xs: '0.855rem', sm: '0.9rem' },
                                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                             display: '-webkit-box',
                                                             WebkitLineClamp: { xs: 3, sm: 3 },
@@ -283,16 +284,16 @@ const Resources = () => {
                                                         <Typography
                                                             variant="caption"
                                                             sx={{
-                                                                mt: 0.1,
-                                                                mb: 0.4,
+                                                                mt: 0.09,
+                                                                mb: 0.36,
                                                                 lineHeight: 1.1,
                                                                 background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
                                                                 WebkitBackgroundClip: 'text',
                                                                 backgroundClip: 'text',
                                                                 WebkitTextFillColor: 'transparent',
                                                                 color: 'transparent',
-                                                                textShadow: '0 0 12px rgba(0, 0, 0, 0.50)',
-                                                                fontSize: { xs: '0.85rem', sm: '0.9rem' },
+                                                                textShadow: '0 0 10.8px rgba(0, 0, 0, 0.50)',
+                                                                fontSize: { xs: '0.765rem', sm: '0.81rem' },
                                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                             }}
                                                         >
@@ -309,18 +310,18 @@ const Resources = () => {
                                                         fullWidth
                                                         sx={{
                                                             alignSelf: 'stretch',
-                                                            fontSize: { xs: '0.85rem', sm: '0.9rem' },
-                                                            py: 0.6,
-                                                            px: 1.6,
+                                                            fontSize: { xs: '0.765rem', sm: '0.81rem' },
+                                                            py: 0.54,
+                                                            px: 1.44,
                                                             background: 'rgba(48, 184, 199, 0.2)',
                                                             color: 'white',
                                                             fontWeight: 600,
-                                                            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.20)',
+                                                            boxShadow: '0 3.6px 10.8px rgba(0, 0, 0, 0.20)',
                                                             border: '1px solid rgba(48, 184, 199, 0.5)',
                                                             '&:hover': {
                                                                 backgroundColor: 'rgba(48, 184, 199, 0.3)',
                                                                 borderColor: 'rgba(48, 184, 199, 0.7)',
-                                                                boxShadow: '0 6px 16px rgba(0, 0, 0, 0.45)'
+                                                                boxShadow: '0 5.4px 14.4px rgba(0, 0, 0, 0.45)'
                                                             }
                                                         }}
                                                     >

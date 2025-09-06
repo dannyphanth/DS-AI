@@ -13,7 +13,7 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import { useRef, useState } from 'react';
 
 const SectionHeading = ({ id, title, subtitle }) => (
-    <Box id={id} sx={{ mb: 2 }}>
+    <Box id={id} sx={{ mb: 1.8 }}>
         <Typography
             variant="h4"
             sx={{
@@ -27,7 +27,7 @@ const SectionHeading = ({ id, title, subtitle }) => (
             {title}
         </Typography>
         {subtitle && (
-            <Typography variant="body1" sx={{ color: '#9cebff', mt: 0.5 }}>
+            <Typography variant="body1" sx={{ color: '#9cebff', mt: 0.45, fontSize: { xs: '0.9rem', sm: '0.95rem' } }}>
                 {subtitle}
             </Typography>
         )}
@@ -35,7 +35,7 @@ const SectionHeading = ({ id, title, subtitle }) => (
 );
 
 const Subnav = () => (
-    <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap', position: { md: 'sticky' }, top: { md: 16 }, zIndex: 1, mb: 3 }}>
+    <Box sx={{ display: 'flex', gap: 0.9, flexWrap: 'wrap', position: { md: 'sticky' }, top: { md: 14.4 }, zIndex: 1, mb: 2.7 }}>
         {[
             { href: '#intro', label: 'What are pathways?' },
             { href: '#practitioner', label: 'Practitioner badge' },
@@ -43,7 +43,7 @@ const Subnav = () => (
             { href: '#more', label: 'More information' },
             { href: '#faq', label: 'FAQ' },
         ].map((item) => (
-            <Button key={item.href} href={item.href} variant="outlined" size="small" sx={{ color: '#9cebff', borderColor: 'rgba(156,235,255,0.4)' }}>
+            <Button key={item.href} href={item.href} variant="outlined" size="small" sx={{ color: '#9cebff', borderColor: 'rgba(156,235,255,0.4)', fontSize: '0.72rem' }}>
                 {item.label}
             </Button>
         ))}
@@ -58,64 +58,68 @@ const PractitionerCard = ({ title, summary, requirements, clubHelp, timeEstimate
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4 }}
-        style={{ cursor: 'pointer', borderRadius: 12, willChange: 'transform' }}
+        style={{ cursor: 'pointer', borderRadius: 12, willChange: 'transform', height: '100%', display: 'flex' }}
     >
         <Box
             sx={{
-                p: 2,
+                p: 1.8,
                 borderRadius: 2,
                 background: 'linear-gradient(135deg, rgba(10,25,47,0.95) 0%, rgba(17,37,64,0.95) 50%, rgba(48,164,199,0.3) 120%)',
                 border: '1px solid rgba(48,184,199,0.45)',
                 boxShadow: '0 12px 48px rgba(0,0,0,0.5)',
                 overflow: 'hidden',
+                width: '100%',
                 height: '100%',
-                minHeight: 350,
+                minHeight: 315,
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                justifyContent: 'space-between'
             }}
         >
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 1 }}>
-                {iconComponent}
-                <Typography variant="h5" sx={{ color: 'white', fontWeight: 700, minHeight: 32, fontSize: { xs: '1.05rem', sm: '1.25rem' } }}>{title}</Typography>
-            </Box>
-            <Typography
-                variant="body1"
-                sx={{
-                    color: '#cfefff',
-                    mb: 1,
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden'
-                }}
-            >
-                {summary}
-            </Typography>
-            {/* Requirements (keep compact spacing) */}
-            <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.1, fontWeight: 700 }}>Requirements</Typography>
-            <Box component="ul" sx={{ pl: 3, mt: 0.1, mb: 0.5, m: 0 }}>
-                {((requirements || []).slice(0, 3)).map((req) => (
-                    <li key={req}>
-                        <Typography variant="body2" sx={{ color: '#cfefff' }}>{req}</Typography>
-                    </li>
-                ))}
-                {Array.from({ length: Math.max(0, 3 - (requirements ? Math.min(requirements.length, 3) : 0)) }).map((_, i) => (
-                    <li key={`req-filler-${i}`}>
-                        <Typography variant="body2" sx={{ color: 'transparent' }}>.</Typography>
-                    </li>
-                ))}
-            </Box>
-            {/* Club Help (show all, with compact spacing) */}
-            <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.1, fontWeight: 700 }}>Club Help</Typography>
-            <Box component="ul" sx={{ pl: 3, mt: 0.1, mb: 0.5, m: 0 }}>
-                {(clubHelp || []).map((h) => (
-                    <li key={h}>
-                        <Typography variant="body2" sx={{ color: '#cfefff' }}>{h}</Typography>
-                    </li>
-                ))}
+            <Box sx={{ flex: '1 1 auto' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.9, mb: 0.9 }}>
+                    {iconComponent}
+                    <Typography variant="h5" sx={{ color: 'white', fontWeight: 700, minHeight: 28.8, fontSize: { xs: '0.945rem', sm: '1.125rem' } }}>{title}</Typography>
+                </Box>
+                <Typography
+                    variant="body1"
+                    sx={{
+                        color: '#cfefff',
+                        mb: 0.9,
+                        display: '-webkit-box',
+                        WebkitLineClamp: 2,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
+                    }}
+                >
+                    {summary}
+                </Typography>
+                {/* Requirements (keep compact spacing) */}
+                <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.09, fontWeight: 700, fontSize: '0.765rem' }}>Requirements</Typography>
+                <Box component="ul" sx={{ pl: 2.7, mt: 0.09, mb: 0.45, m: 0 }}>
+                    {((requirements || []).slice(0, 3)).map((req) => (
+                        <li key={req}>
+                            <Typography variant="body2" sx={{ color: '#cfefff', fontSize: '0.765rem' }}>{req}</Typography>
+                        </li>
+                    ))}
+                    {Array.from({ length: Math.max(0, 3 - (requirements ? Math.min(requirements.length, 3) : 0)) }).map((_, i) => (
+                        <li key={`req-filler-${i}`}>
+                            <Typography variant="body2" sx={{ color: 'transparent' }}>.</Typography>
+                        </li>
+                    ))}
+                </Box>
+                {/* Club Help (show all, with compact spacing) */}
+                <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.09, fontWeight: 700, fontSize: '0.765rem' }}>Club Help</Typography>
+                <Box component="ul" sx={{ pl: 2.7, mt: 0.09, mb: 0.45, m: 0 }}>
+                    {(clubHelp || []).map((h) => (
+                        <li key={h}>
+                            <Typography variant="body2" sx={{ color: '#cfefff', fontSize: '0.765rem' }}>{h}</Typography>
+                        </li>
+                    ))}
+                </Box>
             </Box>
             {timeEstimate && (
-                <Box sx={{ mt: 0.75 }}>
+                <Box sx={{ mt: 0.675 }}>
                     <Chip label={`Estimated time: ${timeEstimate}`} size="small" sx={{ color: '#cfefff', borderColor: 'rgba(156,235,255,0.4)', border: '1px solid', background: 'transparent' }} />
                 </Box>
             )}
@@ -314,24 +318,24 @@ const BadgesContent = () => {
     };
 
     return (
-        <Box sx={{ color: 'white' }}>
+        <Box sx={{ color: 'white', px: { xs: 2, sm: 3, md: 4 } }}>
             {/* Hero */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: { xs: 'flex-start', md: 'center' }, justifyContent: 'space-between', gap: 1, mb: 3 }}>
-                <Box sx={{ width: { xs: '100%', md: '65%' }, flex: { md: '0 0 65%' } }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', justifyContent: 'center', gap: { xs: 2, md: 3 }, mb: 2.7 }}>
+                <Box sx={{ width: { xs: '100%', md: '60%' }, textAlign: { xs: 'center', md: 'left' } }}>
                     <motion.div
                         initial={{ opacity: 0, x: -100 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 1.6, ease: 'easeOut', delay: 0.2 }}
                         viewport={{ once: true }}
                     >
-                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.9 }}>
                             <Box
                                 sx={{
-                                    height: 2,
-                                    width: 32,
-                                    borderRadius: 2,
+                                    height: 1.8,
+                                    width: 28.8,
+                                    borderRadius: 1.8,
                                     background: 'linear-gradient(90deg,rgb(48, 184, 199),rgba(255, 98, 41, 0.97))',
-                                    mr: 1,
+                                    mr: 0.9,
                                 }}
                             />
                             <Typography
@@ -357,14 +361,14 @@ const BadgesContent = () => {
                             variant="body1"
                             sx={{
                                 color: 'white',
-                                fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
+                                fontSize: { xs: '0.9rem', sm: '0.945rem', md: '0.99rem' },
                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                mb: 3,
+                                mb: 2.7,
                                 lineHeight: 1.6,
                                 fontWeight: 300,
                                 letterSpacing: '0.02em',
-                                mt: 1,
-                                maxWidth: 720
+                                mt: 0.9,
+                                maxWidth: 648
                             }}
                         >
                             What are pathways and digital badges? At Cal Poly Pomona, students have access to specialized learning pathways that go beyond the classroom, offering opportunities to deepen their knowledge in emerging fields. Our club collaborates closely with a new pathway designed to expand student expertise in Data Science and AI. This initiative, developed by our advisors—Dr. Korah, Dr. Marin, and Dr. Kosaraju—alongside other campus leaders, provides students the opportunity to earn both a practitioner badge and advanced badge that can be put on resumes and linkedin profiles.
@@ -373,20 +377,20 @@ const BadgesContent = () => {
                             variant="body1"
                             sx={{
                                 color: 'white',
-                                fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
+                                fontSize: { xs: '0.9rem', sm: '0.945rem', md: '0.99rem' },
                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                mb: 3,
+                                mb: 2.7,
                                 lineHeight: 1.6,
                                 fontWeight: 300,
                                 letterSpacing: '0.02em',
-                                maxWidth: 720
+                                maxWidth: 648
                             }}
                         >
                             Digital badges are university-recognized credentials that certify a student’s proficiency through demonstrated skills and completed projects outside traditional coursework. Uniquely, these badges are designed to align with the requirements for the Data Science minor at CPP. This means that as students work toward earning their badges, they simultaneously progress toward fulfilling the requirements of the minor—making the pathway both practical and rewarding.
                         </Typography>
                     </motion.div>
                 </Box>
-                <Box sx={{ display: { xs: 'flex', md: 'block' }, justifyContent: { xs: 'center' }, float: { md: 'right' }, ml: { md: 1 }, mb: 1, textAlign: { xs: 'center', md: 'right' }, width: { xs: '100%', md: 'auto' } }}>
+                <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: { xs: '100%', md: '40%' } }}>
                     <motion.img
                         src="/dbResume2.svg"
                         alt="Digital badges resume preview"
@@ -396,25 +400,24 @@ const BadgesContent = () => {
                         transition={{ opacity: { duration: 0.6, ease: 'easeOut' }, y: { duration: 3, ease: 'easeInOut', repeat: Infinity } }}
                         whileHover={{ scale: 1.02 }}
                         style={{
-                            height: 300,
+                            height: 270,
                             width: 'auto',
                             maxWidth: '100%',
                             display: 'block',
-                            marginLeft: 'auto',
-                            marginRight: 'auto',
-                            filter: 'drop-shadow(0 0 14px rgba(70,255,249,0.45)) drop-shadow(0 0 28px rgba(41,105,157,0.45)) drop-shadow(0 6px 18px rgba(0,0,0,0.35))'
+                            margin: '0 auto',
+                            filter: 'drop-shadow(0 0 12.6px rgba(70,255,249,0.45)) drop-shadow(0 0 25.2px rgba(41,105,157,0.45)) drop-shadow(0 5.4px 16.2px rgba(0,0,0,0.35))'
                         }}
                     />
                 </Box>
             </Box>
-            <Divider sx={{ borderColor: 'rgba(156, 235, 255, 0.2)', my: 2 }} />
+            <Divider sx={{ borderColor: 'rgba(156, 235, 255, 0.2)', my: 1.8 }} />
 
 
 
             {/* Badge selection and overview in same row */}
-            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 2, md: 4 }, mb: 4, alignItems: 'center' }}>
+            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: { xs: 1.8, md: 3.6 }, mb: 3.6, alignItems: 'center' }}>
                 {/* Left side: Clickable badges */}
-                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: { xs: 2, sm: 3, md: 4 }, flex: { md: '0 0 auto' } }}>
+                <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: { xs: 1.8, sm: 2.7, md: 3.6 }, flex: { md: '0 0 auto' } }}>
                     {/* Practitioner badge with gradient ring + scale and underline */}
                     <motion.div
                         onClick={() => handleSelect('practitioner')}
@@ -429,15 +432,15 @@ const BadgesContent = () => {
                                     src="/badgePractitioner.png"
                                     alt="Practitioner badge"
                                     style={{
-                                        height: 140,
+                                        height: 126,
                                         width: 'auto',
                                         display: 'block',
-                                        filter: selectedBadge === 'practitioner' ? 'drop-shadow(0 0 10px rgba(70,255,249,0.45)) drop-shadow(0 0 20px rgba(41,105,157,0.3))' : selectedBadge === 'advanced' ? 'opacity(0.5)' : 'none'
+                                        filter: selectedBadge === 'practitioner' ? 'drop-shadow(0 0 9px rgba(70,255,249,0.45)) drop-shadow(0 0 18px rgba(41,105,157,0.3))' : selectedBadge === 'advanced' ? 'opacity(0.5)' : 'none'
                                     }}
                                 />
                             </Box>
                         </Box>
-                        <Box sx={{ height: 3, borderRadius: 2, mt: 0.75, mx: 'auto', background: selectedBadge === 'practitioner' ? 'linear-gradient(90deg,rgb(48, 184, 199),rgb(119, 169, 184))' : 'transparent', width: selectedBadge === 'practitioner' ? '70%' : '0%', transition: 'width 300ms ease, background 300ms ease' }} />
+                        <Box sx={{ height: 2.7, borderRadius: 1.8, mt: 0.675, mx: 'auto', background: selectedBadge === 'practitioner' ? 'linear-gradient(90deg,rgb(48, 184, 199),rgb(119, 169, 184))' : 'transparent', width: selectedBadge === 'practitioner' ? '70%' : '0%', transition: 'width 300ms ease, background 300ms ease' }} />
                     </motion.div>
 
                     {/* Advanced badge with gradient ring + scale and underline */}
@@ -454,15 +457,15 @@ const BadgesContent = () => {
                                     src="/badgeAdvanced.png"
                                     alt="Advanced badge"
                                     style={{
-                                        height: 140,
+                                        height: 126,
                                         width: 'auto',
                                         display: 'block',
-                                        filter: selectedBadge === 'advanced' ? 'drop-shadow(0 0 10px rgba(70,255,249,0.45)) drop-shadow(0 0 20px rgba(41,105,157,0.3))' : selectedBadge === 'practitioner' ? 'opacity(0.5)' : 'none'
+                                        filter: selectedBadge === 'advanced' ? 'drop-shadow(0 0 9px rgba(70,255,249,0.45)) drop-shadow(0 0 18px rgba(41,105,157,0.3))' : selectedBadge === 'practitioner' ? 'opacity(0.5)' : 'none'
                                     }}
                                 />
                             </Box>
                         </Box>
-                        <Box sx={{ height: 3, borderRadius: 2, mt: 0.75, mx: 'auto', background: selectedBadge === 'advanced' ? 'linear-gradient(90deg,rgb(48, 184, 199),rgb(119, 169, 184))' : 'transparent', width: selectedBadge === 'advanced' ? '70%' : '0%', transition: 'width 300ms ease, background 300ms ease' }} />
+                        <Box sx={{ height: 2.7, borderRadius: 1.8, mt: 0.675, mx: 'auto', background: selectedBadge === 'advanced' ? 'linear-gradient(90deg,rgb(48, 184, 199),rgb(119, 169, 184))' : 'transparent', width: selectedBadge === 'advanced' ? '70%' : '0%', transition: 'width 300ms ease, background 300ms ease' }} />
                     </motion.div>
                 </Box>
 
@@ -470,18 +473,18 @@ const BadgesContent = () => {
                 <Box ref={detailsRef} sx={{ flex: { md: '1 1 auto' }, width: '100%' }}>
                     {selectedBadge && (
                         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-                            <Box sx={{ p: 2, borderRadius: 2, background: 'transparent' }}>
+                            <Box sx={{ p: 1.8, borderRadius: 1.8, background: 'transparent' }}>
                                 {selectedBadge === 'practitioner' && (
                                     <>
                                         <motion.div initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.6, ease: 'easeOut', delay: 0.2 }} viewport={{ once: true }}>
-                                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.9 }}>
                                                 <Box
                                                     sx={{
-                                                        height: 2,
-                                                        width: 32,
-                                                        borderRadius: 2,
+                                                        height: 1.8,
+                                                        width: 28.8,
+                                                        borderRadius: 1.8,
                                                         background: 'linear-gradient(90deg,rgb(48, 184, 199),rgba(255, 98, 41, 0.97))',
-                                                        mr: 1,
+                                                        mr: 0.9,
                                                     }}
                                                 />
                                                 <Typography
@@ -489,9 +492,9 @@ const BadgesContent = () => {
                                                     sx={{
                                                         color: 'white',
                                                         fontWeight: 'bold',
-                                                        textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                                        textShadow: '0 0 9px rgba(70, 255, 249, 0.3)',
                                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                        fontSize: { xs: '1.2rem', sm: '1.35rem', md: '1.5rem' }
+                                                        fontSize: { xs: '1.08rem', sm: '1.215rem', md: '1.35rem' }
                                                     }}
                                                 >
                                                     Practitioner Badge Overview
@@ -503,12 +506,12 @@ const BadgesContent = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'white',
-                                                    fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
+                                                    fontSize: { xs: '0.9rem', sm: '0.945rem', md: '0.99rem' },
                                                     lineHeight: 1.6,
                                                     fontWeight: 300,
                                                     letterSpacing: '0.02em',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                    mb: 1.5
+                                                    mb: 1.35
                                                 }}
                                             >
                                                 This is the first badge that you need to obtain in this DS&AI Pathway. There are 7 main tasks that you need to complete and they can be done in any order. Together, these tasks validate your foundation across communication, collaboration, research practice, and real‑world application—preparing you to contribute confidently in projects and teams.
@@ -519,14 +522,14 @@ const BadgesContent = () => {
                                 {selectedBadge === 'advanced' && (
                                     <>
                                         <motion.div initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.6, ease: 'easeOut', delay: 0.2 }} viewport={{ once: true }}>
-                                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                                            <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.9 }}>
                                                 <Box
                                                     sx={{
-                                                        height: 2,
-                                                        width: 32,
-                                                        borderRadius: 2,
+                                                        height: 1.8,
+                                                        width: 28.8,
+                                                        borderRadius: 1.8,
                                                         background: 'linear-gradient(90deg,rgb(48, 184, 199),rgba(255, 98, 41, 0.97))',
-                                                        mr: 1,
+                                                        mr: 0.9,
                                                     }}
                                                 />
                                                 <Typography
@@ -534,9 +537,9 @@ const BadgesContent = () => {
                                                     sx={{
                                                         color: 'white',
                                                         fontWeight: 'bold',
-                                                        textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                                        textShadow: '0 0 9px rgba(70, 255, 249, 0.3)',
                                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                        fontSize: { xs: '1.2rem', sm: '1.35rem', md: '1.5rem' }
+                                                        fontSize: { xs: '1.08rem', sm: '1.215rem', md: '1.35rem' }
                                                     }}
                                                 >
                                                     Advanced Badge Overview
@@ -548,12 +551,12 @@ const BadgesContent = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'white',
-                                                    fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
+                                                    fontSize: { xs: '0.9rem', sm: '0.945rem', md: '0.99rem' },
                                                     lineHeight: 1.6,
                                                     fontWeight: 300,
                                                     letterSpacing: '0.02em',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                    mb: 1.5
+                                                    mb: 1.35
                                                 }}
                                             >
                                                 The Advanced Badge highlights your coursework and commitment to deeper projects in Data Science and AI. To earn it, you'll need two elective courses from the <a href="https://www.cpp.edu/sci/ds/minor-in-data-science.shtml" target="_blank" rel="noreferrer" style={{ color: '#9cebff' }}>Data Science Minor</a> list, plus a senior project (different from your previous badge project) within the Data Science and AI field.
@@ -571,7 +574,7 @@ const BadgesContent = () => {
             {(!selectedBadge || selectedBadge === 'practitioner') && (
                 <>
 
-                    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: 2, mb: 3, alignItems: 'stretch', gridAutoRows: '1fr' }}>
+                    <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, minmax(0, 1fr))' }, gap: 1.8, mb: 2.7, alignItems: 'stretch', gridAutoRows: '1fr' }}>
                         {practitionerTasks.map((task) => (
                             <Box key={task.key} sx={{ minWidth: 0, height: '100%' }}>
                                 <PractitionerCard
@@ -612,18 +615,18 @@ const BadgesContent = () => {
                                     style={{ position: 'relative', width: 'min(720px, 92vw)', borderRadius: 12, overflow: 'hidden', willChange: 'transform' }}
                                 >
                                     <Box sx={{ p: 3, borderRadius: 0, background: 'linear-gradient(135deg, rgba(10,25,47,0.95) 0%, rgba(17,37,64,0.95) 50%, rgba(48,164,199,0.3) 120%)', border: '1px solid rgba(48,184,199,0.45)', boxShadow: '0 12px 48px rgba(0,0,0,0.5)' }}>
-                                        <IconButton onClick={() => setOpenTask(null)} sx={{ position: 'absolute', top: 8, right: 8, color: 'white' }}>
+                                        <IconButton onClick={() => setOpenTask(null)} sx={{ position: 'absolute', top: 7.2, right: 7.2, color: 'white' }}>
                                             <CloseIcon />
                                         </IconButton>
-                                        <Typography variant="h5" sx={{ color: 'white', fontWeight: 700, mb: 1 }}>{openTaskData.title}</Typography>
-                                        <Typography variant="body1" sx={{ color: '#cfefff', mb: 1.5 }}>{openTaskData.summary}</Typography>
+                                        <Typography variant="h5" sx={{ color: 'white', fontWeight: 700, mb: 0.9, fontSize: { xs: '1.08rem', sm: '1.215rem' } }}>{openTaskData.title}</Typography>
+                                        <Typography variant="body1" sx={{ color: '#cfefff', mb: 1.35, fontSize: { xs: '0.9rem', sm: '0.95rem' } }}>{openTaskData.summary}</Typography>
                                         {openTaskData.requirements?.length > 0 && (
                                             <>
-                                                <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.5 }}>Requirements</Typography>
+                                                <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.45, fontSize: '0.765rem' }}>Requirements</Typography>
                                                 <Box component="ul" sx={{ pl: 3, mb: 1.5 }}>
                                                     {openTaskData.requirements.map((req) => (
                                                         <li key={req}>
-                                                            <Typography variant="body2" sx={{ color: '#cfefff' }}>{req}</Typography>
+                                                            <Typography variant="body2" sx={{ color: '#cfefff', fontSize: '0.765rem' }}>{req}</Typography>
                                                         </li>
                                                     ))}
                                                 </Box>
@@ -631,11 +634,11 @@ const BadgesContent = () => {
                                         )}
                                         {openTaskData.help?.length > 0 && (
                                             <>
-                                                <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.5 }}>Club Help</Typography>
+                                                <Typography variant="subtitle2" sx={{ color: 'white', mb: 0.45, fontSize: '0.765rem' }}>Club Help</Typography>
                                                 <Box component="ul" sx={{ pl: 3, mb: 1.5 }}>
                                                     {openTaskData.help.map((h) => (
                                                         <li key={h}>
-                                                            <Typography variant="body2" sx={{ color: '#cfefff' }}>{h}</Typography>
+                                                            <Typography variant="body2" sx={{ color: '#cfefff', fontSize: '0.765rem' }}>{h}</Typography>
                                                         </li>
                                                     ))}
                                                 </Box>
@@ -650,12 +653,12 @@ const BadgesContent = () => {
                         )}
                     </AnimatePresence>
                     {/* More info attached to Practitioner (centered, no card background) */}
-                    <Box id="more" sx={{ p: 0, mb: 3, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                        <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mb: 0.75 }}>More Information</Typography>
-                        <Typography variant="body1" sx={{ color: '#cfefff', mb: 1.25, lineHeight: 1.6, maxWidth: 820 }}>
+                    <Box id="more" sx={{ p: 0, mb: 2.7, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mb: 0.675, fontSize: { xs: '1.8rem', sm: '2.025rem' } }}>More Information</Typography>
+                        <Typography variant="body1" sx={{ color: '#cfefff', mb: 1.125, lineHeight: 1.6, maxWidth: 738, fontSize: { xs: '0.9rem', sm: '0.95rem' } }}>
                             If you are interested in this digital badge, email Dr. Marin or Dr. Korah to be added to the Canvas course and begin submitting your work.
                         </Typography>
-                        <Box sx={{ display: 'flex', gap: 1.25, flexWrap: 'wrap', justifyContent: 'center' }}>
+                        <Box sx={{ display: 'flex', gap: 1.125, flexWrap: 'wrap', justifyContent: 'center' }}>
                             <Button href="mailto:santanamarin@cpp.edu" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Dr. Marin</Button>
                             <Button href="mailto:jkorah@cpp.edu" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Dr. Korah</Button>
                         </Box>
@@ -780,8 +783,8 @@ const BadgesContent = () => {
 
 
             {/* FAQ (Framer Motion Accordion) */}
-            <Box id="faq" sx={{ textAlign: 'center', mt: 3, mb: 1 }}>
-                <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mt: 6 }}>FAQ</Typography>
+            <Box id="faq" sx={{ textAlign: 'center', mt: 2.7, mb: 0.9 }}>
+                <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mt: 5.4, fontSize: { xs: '1.8rem', sm: '2.025rem' } }}>FAQ</Typography>
             </Box>
             <Box sx={{ border: '1px solid rgba(255,255,255,0.12)', borderRadius: 2, backgroundColor: '#14181e', overflow: 'hidden' }}>
                 {[{
@@ -803,7 +806,7 @@ const BadgesContent = () => {
                     <Box
                         key={idx}
                         sx={{
-                            p: 1.25,
+                            p: 1.125,
                             position: 'relative'
                         }}
                     >
@@ -817,8 +820,8 @@ const BadgesContent = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-between',
-                                p: 0.75,
-                                gap: 1,
+                                p: 0.675,
+                                gap: 0.9,
                                 borderRadius: 1,
                                 '&:hover': { backgroundColor: 'transparent' }
                             }}
@@ -826,7 +829,7 @@ const BadgesContent = () => {
                             <Typography
                                 variant="subtitle1"
                                 sx={{
-                                    mr: 1,
+                                    mr: 0.9,
                                     color: 'white',
                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                     fontWeight: 600,
@@ -852,12 +855,12 @@ const BadgesContent = () => {
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.25 }}
                                 >
-                                    <Box sx={{ p: 1.25, pt: 0 }}>
+                                    <Box sx={{ p: 1.125, pt: 0 }}>
                                         <Typography
                                             variant="body1"
                                             sx={{
                                                 color: 'white',
-                                                fontSize: '1.1rem',
+                                                fontSize: '0.99rem',
                                                 lineHeight: 1.6,
                                                 fontWeight: 300,
                                                 letterSpacing: '0.02em',
@@ -871,7 +874,7 @@ const BadgesContent = () => {
                             )}
                         </AnimatePresence>
                         {idx < 4 && (
-                            <Box sx={{ mt: 1.25, height: 1, position: 'relative' }}>
+                            <Box sx={{ mt: 1.125, height: 0.9, position: 'relative' }}>
                                 <Box sx={{ height: 1, background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 20%, rgba(255,255,255,0.12) 80%, transparent 100%)' }} />
                             </Box>
                         )}

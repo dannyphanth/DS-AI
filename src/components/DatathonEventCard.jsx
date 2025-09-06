@@ -12,7 +12,8 @@ const DatathonEventCard = () => {
             sx={{
                 background: 'transparent',
                 position: 'relative',
-                py: 2,
+                py: { xs: 4, md: 2 },
+                mt: { xs: 2, md: 0 },
                 '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -77,23 +78,29 @@ const DatathonEventCard = () => {
                                 }
                             }}
                         >
-                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 4, alignItems: { xs: 'stretch', md: 'center' } }}>
+                            <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: 4, sm: 2, md: 4 }, alignItems: { xs: 'stretch', sm: 'center' } }}>
                                 {/* Left Column - Image */}
                                 <Box
                                     sx={{
-                                        flex: { xs: 'none', md: 'none' },
-                                        width: { xs: '100%', md: 'auto' },
+                                        flex: { xs: 'none', sm: 'none' },
+                                        width: { xs: '100%', sm: 'auto' },
                                         maxWidth: {
                                             xs: imageRatio ? `${Math.round(imageRatio * 260)}px` : '100%',
+                                            sm: imageRatio ? `${Math.min(400, Math.round(imageRatio * 300))}px` : '400px',
                                             md: imageRatio ? `${Math.min(520, Math.round(imageRatio * 360))}px` : '520px'
                                         },
-                                        height: { xs: 260, md: 360 },
-                                        mx: { xs: 'auto', md: 0 },
-                                        mt: { xs: 2, md: 0 },
+                                        height: { xs: 260, sm: 300, md: 360 },
+                                        mx: { xs: 'auto', sm: 0 },
+                                        mt: { xs: 2, sm: 0 },
+                                        pl: { xs: 0, sm: 3, md: 0 },
+                                        pr: { xs: 0, sm: 3, md: 0 },
                                         position: 'relative',
                                         overflow: 'hidden',
                                         borderRadius: 1,
-                                        boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
+                                        backgroundColor: 'transparent',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
                                     }}
                                 >
                                     <img
@@ -103,6 +110,7 @@ const DatathonEventCard = () => {
                                             width: '100%',
                                             height: '100%',
                                             objectFit: 'contain',
+                                            objectPosition: 'center',
                                             display: 'block'
                                         }}
                                         onLoad={(e) => {
@@ -118,8 +126,8 @@ const DatathonEventCard = () => {
                                 </Box>
 
                                 {/* Right Column - Info */}
-                                <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: { xs: 3, md: 4 }, px: { xs: 3, md: 0 }, pr: { xs: 3, md: 4 } }}>
-                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+                                <Box sx={{ flex: { xs: 'none', sm: '1' }, width: { xs: '100%', sm: 'auto' }, py: { xs: 3, sm: 4 }, px: { xs: 3, sm: 0 }, pr: { xs: 3, sm: 2, md: 4 } }}>
+                                    <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 3, sm: 2, md: 3 } }}>
                                         {/* Coming Soon Badge */}
                                         <Box
                                             sx={{

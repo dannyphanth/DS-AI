@@ -212,7 +212,7 @@ const KaggleCard = () => {
                             position: 'relative',
                             width: { xs: '100%', md: 520 },
                             maxWidth: 520,
-                            height: { xs: 240, md: 320 },
+                            height: { xs: 240, sm: 280, md: 320 },
                             borderRadius: 4,
                             display: 'flex',
                             alignItems: 'center',

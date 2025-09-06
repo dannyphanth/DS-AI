@@ -17,9 +17,21 @@ const EventsCard = () => {
     const upcomingEvents = getUpcomingEventsForCTA();
     const theme = useTheme();
     const isXs = useMediaQuery(theme.breakpoints.only('xs'));
+    const isSm = useMediaQuery(theme.breakpoints.only('sm')); // 600px - 959px (tablet)
+    const isMd = useMediaQuery(theme.breakpoints.between('md', 'lg')); // 960px - 1279px
     const visibleEvents = isXs ? upcomingEvents.slice(0, 2) : upcomingEvents;
     const totalEvents = visibleEvents.length;
     const midIndex = (totalEvents - 1) / 2;
+
+    // Scale function for different screen sizes
+    const getScaleFactor = () => {
+        if (isXs) return 1; // No scaling for mobile
+        if (isSm) return 0.75; // Scale down for tablet screens (768px area)
+        if (isMd) return 0.85; // Scale down for medium screens (1024px area)
+        return 1; // Full size for large screens (1440px+)
+    };
+
+    const scaleFactor = getScaleFactor();
 
     const formatDateShort = (dateStr) => {
         if (!dateStr) return '';
@@ -242,18 +254,19 @@ const EventsCard = () => {
                         <Box sx={{
                             position: 'relative',
                             width: '100%',
-                            height: { xs: '280px', sm: '320px' },
-                            minHeight: { xs: '280px', sm: '320px' },
+                            height: { xs: '260px', sm: `${320 * scaleFactor}px` },
+                            minHeight: { xs: '260px', sm: `${320 * scaleFactor}px` },
                             display: 'flex',
                             justifyContent: 'center',
                             alignItems: 'flex-start',
                             overflow: 'visible',
                             perspective: '1200px',
                             transformStyle: 'preserve-3d',
-                            minWidth: { xs: '100%', sm: '720px' },
+                            minWidth: { xs: '100%', sm: `${720 * scaleFactor}px` },
                             pt: 0,
                             mt: 0,
                             paddingTop: 0,
+                            px: { xs: 2, sm: 0 },
                         }}>
                             {visibleEvents.map((event, index) => (
                                 <motion.div
@@ -268,17 +281,17 @@ const EventsCard = () => {
                                     }}
                                     animate={{
                                         rotateY: isXs ? 0 : (index === 0 ? 30 : index === 2 ? -30 : 0),
-                                        rotateZ: isXs ? ((index - midIndex) * 8) : ((index - 1) * 5),
-                                        x: isXs ? ((index - midIndex) * 185) : (index * 230 - 240),
-                                        y: isXs ? Math.abs(index - midIndex) * 12 : (index === 0 ? 8 : index === 2 ? 8 : 0),
+                                        rotateZ: isXs ? ((index - midIndex) * 6) : ((index - 1) * 5),
+                                        x: isXs ? ((index - midIndex) * 165) : (index * 230 * scaleFactor - 240 * scaleFactor),
+                                        y: isXs ? Math.abs(index - midIndex) * 8 : (index === 0 ? 8 : index === 2 ? 8 : 0),
                                         zIndex: index === 1 ? 1 : totalEvents - index,
                                         z: index === 1 ? -70 : 0,
                                         opacity: 1
                                     }}
                                     whileHover={{
                                         rotateY: isXs ? 0 : (index === 0 ? 20 : index === 2 ? -20 : 5),
-                                        rotateZ: isXs ? ((index - midIndex) * 10 + 2) : ((index - 1) * 5 + 2),
-                                        scale: isXs ? 1.03 : 1.08,
+                                        rotateZ: isXs ? ((index - midIndex) * 8 + 2) : ((index - 1) * 5 + 2),
+                                        scale: isXs ? 1.02 : 1.08,
                                         zIndex: 10,
                                         transition: { duration: 0.3 }
                                     }}
@@ -289,16 +302,16 @@ const EventsCard = () => {
                                     }}
                                     style={{
                                         position: 'absolute',
-                                        width: isXs ? 180 : 216,
-                                        height: isXs ? 220 : 260,
+                                        width: isXs ? 160 : 216 * scaleFactor,
+                                        height: isXs ? 200 : 260 * scaleFactor,
                                         transformStyle: 'preserve-3d',
                                     }}
                                 >
                                     <Card
                                         onClick={() => handleEventClick(event)}
                                         sx={{
-                                            width: { xs: '180px', sm: '216px' },
-                                            height: { xs: '220px', sm: '260px' },
+                                            width: { xs: '160px', sm: `${216 * scaleFactor}px` },
+                                            height: { xs: '200px', sm: `${260 * scaleFactor}px` },
                                             background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
                                             border: '1px solid rgb(48, 184, 199, 0.3)',
                                             borderRadius: 2,
@@ -337,7 +350,7 @@ const EventsCard = () => {
                                         <Box
                                             sx={{
                                                 width: '100%',
-                                                height: { xs: '160px', sm: '200px' },
+                                                height: '100%',
                                                 backgroundImage: `url(${event.image.startsWith('/') ? event.image : '/' + event.image})`,
                                                 backgroundSize: '100% 100%',
                                                 backgroundPosition: 'center',
@@ -356,41 +369,6 @@ const EventsCard = () => {
                                             }}
                                         />
 
-                                        <CardContent sx={{ p: 1, position: 'relative', zIndex: 3 }}>
-                                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 0 }}>
-                                                <Typography
-                                                    variant="subtitle2"
-                                                    sx={{
-                                                        color: 'white',
-                                                        fontWeight: 700,
-                                                        fontSize: '0.9rem',
-                                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                        mb: 0,
-                                                    }}
-                                                >
-                                                    {event.title}
-                                                </Typography>
-                                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                                                    <CalendarTodayIcon sx={{ fontSize: 14, color: '#9cebff' }} />
-                                                    <Typography
-                                                        variant="caption"
-                                                        sx={{
-                                                            background: 'linear-gradient(180deg, #e6fbff 0%, #9cebff 100%)',
-                                                            WebkitBackgroundClip: 'text',
-                                                            backgroundClip: 'text',
-                                                            WebkitTextFillColor: 'transparent',
-                                                            color: 'transparent',
-                                                            fontSize: '0.8rem',
-                                                            textShadow: '0 0 12px rgba(156, 235, 255, 0.35)',
-                                                            whiteSpace: { xs: 'nowrap', sm: 'normal' },
-                                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                        }}
-                                                    >
-                                                        {formatDateShort(event.date)} • {formatTimeCondensed(event.time)}
-                                                    </Typography>
-                                                </Box>
-                                            </Box>
-                                        </CardContent>
                                     </Card>
                                 </motion.div>
                             ))}

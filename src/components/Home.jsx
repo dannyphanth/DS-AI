@@ -27,7 +27,7 @@ const Home = () => {
     return (
         <Box sx={{ position: 'relative', background: { xs: '#0a192f' } }}>
             {/* Hero Top Section */}
-            <Box sx={{ position: 'relative', height: { xs: '60vh', md: '100vh' } }}>
+            <Box sx={{ position: 'relative', minHeight: { xs: '60vh', sm: '100vh', md: '100vh' }, height: { xs: 'auto', sm: '100vh', md: '100vh' } }}>
                 <Box
                     sx={{
                         position: 'absolute',
@@ -38,34 +38,41 @@ const Home = () => {
                         zIndex: 1,
                     }}
                 >
-                    <Box
-                        sx={{
-                            width: '100%',
-                            height: '100%',
-                            backgroundColor: { xs: '#0a192f', sm: 'transparent' },
-                            backgroundImage: {
-                                xs: 'none',
-                                sm: `linear-gradient(
-                                to bottom,
-                                rgba(0,0,0,0.3) 0%,
-                                rgba(0,0,0,0.3) 50%,
-                                rgba(0,0,0,0.9) 100%
-                            ), url('/Vanne.1Hero.png')`
-                            },
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            imageRendering: 'smooth',
-                            WebkitImageRendering: 'smooth',
-                            imageSmoothingQuality: 'high',
-                            WebkitImageSmoothingQuality: 'high',
-                            backgroundPosition: { xs: 'center', sm: 'center, 50% 20%' },
-                            backgroundSize: 'cover',
-                            backgroundRepeat: 'no-repeat',
-                        }}
-                    />
+                    <motion.div
+                        initial={{ opacity: 0, scale: 1.1 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.2, ease: 'easeOut' }}
+                        style={{ width: '100%', height: '100%' }}
+                    >
+                        <Box
+                            sx={{
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: { xs: '#0a192f', sm: 'transparent' },
+                                backgroundImage: {
+                                    xs: 'none',
+                                    sm: `linear-gradient(
+                                    to bottom,
+                                    rgba(0,0,0,0.3) 0%,
+                                    rgba(0,0,0,0.3) 50%,
+                                    rgba(0,0,0,0.9) 100%
+                                ), url('/Vanne.1Hero.png')`
+                                },
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                imageRendering: 'smooth',
+                                WebkitImageRendering: 'smooth',
+                                imageSmoothingQuality: 'high',
+                                WebkitImageSmoothingQuality: 'high',
+                                backgroundPosition: { xs: 'center', sm: 'center, 50% 20%' },
+                                backgroundSize: 'cover',
+                                backgroundRepeat: 'no-repeat',
+                            }}
+                        />
+                    </motion.div>
                 </Box>
                 <Container
                     maxWidth="lg"
@@ -75,38 +82,51 @@ const Home = () => {
                         height: '100%',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: { xs: 'flex-start', md: 'center' },
-                        alignItems: { xs: 'center', md: 'flex-start' },
-                        textAlign: { xs: 'center', md: 'left' },
+                        justifyContent: { xs: 'flex-start', sm: 'center', md: 'center' },
+                        alignItems: { xs: 'center', sm: 'flex-start', md: 'flex-start' },
+                        textAlign: { xs: 'center', sm: 'left', md: 'left' },
                         color: 'white',
-                        pt: { xs: 8, md: 0 }
+                        pt: { xs: 8, sm: 0, md: 0 },
+                        pb: { xs: 6, sm: 0, md: 0 }
                     }}
                 >
                     {/* Mobile-only hero: DSAI title, links list, and logo */}
                     <Box sx={{ display: { xs: 'flex', sm: 'none' }, flexDirection: 'column', alignItems: 'center', gap: 4 }}>
-                        <Typography
-                            variant="h3"
-                            sx={{
-                                fontWeight: '800',
-                                fontSize: { xs: '2.5rem', sm: '3rem' },
-                                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                lineHeight: 1.2,
-                                background: 'linear-gradient(90deg, #30a4c7, #46fff9)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                letterSpacing: '0.08em'
-                            }}
+                        <motion.div
+                            initial={{ opacity: 0, y: -30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            DS&AI
-                        </Typography>
-                        <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 1.5 }}>
-                            <Box sx={{ display: 'flex', flexWrap: 'nowrap', alignItems: 'center', justifyContent: 'center', gap: { xs: 1, sm: 1.5 } }}>
-                                <Button component={Link} to="/events" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>Events</Button>
-                                <Button component={Link} to="/resources" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>Resources</Button>
-                                <Button component={Link} to="/about" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>About</Button>
-                                <Button component={Link} to="/board" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>Team</Button>
+                            <Typography
+                                variant="h3"
+                                sx={{
+                                    fontWeight: '800',
+                                    fontSize: { xs: '2.5rem', sm: '3rem' },
+                                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                    lineHeight: 1.2,
+                                    background: 'linear-gradient(90deg, #30a4c7, #46fff9)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    letterSpacing: '0.08em'
+                                }}
+                            >
+                                DS&AI
+                            </Typography>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 1.5 }}>
+                                <Box sx={{ display: 'flex', flexWrap: 'nowrap', alignItems: 'center', justifyContent: 'center', gap: { xs: 1, sm: 1.5 } }}>
+                                    <Button component={Link} to="/events" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>Events</Button>
+                                    <Button component={Link} to="/resources" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>Resources</Button>
+                                    <Button component={Link} to="/about" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>About</Button>
+                                    <Button component={Link} to="/board" size="large" variant="text" sx={{ color: '#e6fbff', fontWeight: 600, letterSpacing: '0.08em' }}>Team</Button>
+                                </Box>
                             </Box>
-                        </Box>
+                        </motion.div>
                         <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 4 }}>
                             <motion.div
                                 animate={{
@@ -167,96 +187,121 @@ const Home = () => {
                                 </Box>
                             </motion.div>
 
-                            <Typography
-                                variant="body1"
-                                sx={{
-                                    color: 'white',
-                                    fontSize: '1.1rem',
-                                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                    lineHeight: 1.6,
-                                    fontWeight: 300,
-                                    letterSpacing: '0.02em',
-                                    textAlign: 'center',
-                                    maxWidth: '280px'
-                                }}
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.8, delay: 0.8 }}
                             >
-                                Empowering students through data science and artificial intelligence
-                            </Typography>
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        color: 'white',
+                                        fontSize: '1.1rem',
+                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                        lineHeight: 1.6,
+                                        fontWeight: 300,
+                                        letterSpacing: '0.02em',
+                                        textAlign: 'center',
+                                        maxWidth: '280px'
+                                    }}
+                                >
+                                    Empowering students through data science and artificial intelligence
+                                </Typography>
+                            </motion.div>
                         </Box>
                     </Box>
                     {/* Desktop hero content - hidden on mobile */}
-                    <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, gap: 1 }}>
-                        <Typography
-                            variant="h2"
-                            component="h2"
-                            sx={{
-                                fontWeight: 'bold',
-                                fontSize: { xs: '2.25rem', md: '4rem', lg: '3.5rem' },
-                                background: 'linear-gradient(90deg, rgb(48, 164, 199),rgba(255, 98, 41, 0.76))',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                            }}
+                    <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexDirection: 'column', alignItems: { sm: 'flex-start', md: 'flex-start' }, gap: 1, pl: { sm: 2, md: 4, lg: 2 } }}>
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
                         >
-                            Data Science & AI Club
-                        </Typography>
-                        <Typography
-                            variant="h5"
-                            sx={{
-                                lineHeight: 1.6,
-                                mb: 1.75,
-                                maxWidth: '500px',
-                                textShadow: '2px 2px 4px rgba(0,0,0,0.4)',
-                                fontWeight: '0',
-                                mr: { xs: 0, md: 'auto' },
-                                color: 'rgb(203, 203, 203)',
-                                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                fontSize: { xs: '1rem', md: '1.25rem' }
-                            }}
-                        >
-                            Empowering students with cutting-edge data science and artificial intelligence skills
-                        </Typography>
-                        <Box sx={{ display: 'flex', gap: { xs: 2, md: 3 }, justifyContent: { xs: 'center', md: 'flex-start' }, flexDirection: { xs: 'column', md: 'row' }, width: { xs: '100%', md: 'auto' } }}>
-                            <Button
-                                component={Link}
-                                to="/events"
-                                variant="contained"
-                                size="small"
+                            <Typography
+                                variant="h2"
+                                component="h2"
                                 sx={{
-                                    background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%,rgb(48, 164, 199) 100%)',
-                                    '&:hover': {
-                                        boxShadow: '0 0 10px #30a4c7',
-                                    },
-                                    fontWeight: 600,
-                                    fontSize: { xs: '0.85rem', md: '0.95rem' },
-                                    px: { xs: 2, md: 3 },
-                                    py: { xs: 1, md: 1.5 }
+                                    fontWeight: 'bold',
+
+                                    fontSize: 'clamp(1.6rem, 1.2rem + 1.8vw, 2.8rem)',
+                                    background: 'linear-gradient(90deg, rgb(48, 164, 199),rgba(255, 98, 41, 0.76))',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                 }}
                             >
-                                View Events
-                            </Button>
-                            <Button
-                                component={Link}
-                                to="/about"
-                                variant="outlined"
-                                size="small"
+                                Data Science & AI Club
+                            </Typography>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            <Typography
+                                variant="h5"
                                 sx={{
-                                    borderColor: '#30a4c7',
-                                    color: '#30a4c7',
-                                    '&:hover': {
-                                        borderColor: '#46fff9',
-                                        color: '#46fff9',
-                                        boxShadow: '0 0 10px #30a4c7',
-                                    },
-                                    fontWeight: 600,
-                                    fontSize: { xs: '0.85rem', md: '0.95rem' },
-                                    px: { xs: 2, md: 3 },
-                                    py: { xs: 1, md: 1.5 }
+                                    lineHeight: 1.6,
+                                    mb: 1.75,
+                                    maxWidth: '360px',
+                                    textShadow: '2px 2px 4px rgba(0,0,0,0.4)',
+                                    fontWeight: '0',
+                                    mr: { xs: 0, md: 'auto' },
+                                    color: 'rgb(203, 203, 203)',
+                                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                    fontSize: 'clamp(0.95rem, 0.8rem + 0.4vw, 1.15rem)'
                                 }}
                             >
-                                About
-                            </Button>
-                        </Box>
+                                Empowering students with cutting-edge data science and artificial intelligence skills
+                            </Typography>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                        >
+                            <Box sx={{ display: 'flex', gap: { xs: 2, sm: 3, md: 3 }, justifyContent: { xs: 'center', sm: 'flex-start', md: 'flex-start' }, flexDirection: { xs: 'column', sm: 'row', md: 'row' }, width: { xs: '100%', sm: 'auto', md: 'auto' } }}>
+                                <Button
+                                    component={Link}
+                                    to="/events"
+                                    variant="contained"
+                                    size="small"
+                                    sx={{
+                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%,rgb(48, 164, 199) 100%)',
+                                        '&:hover': {
+                                            boxShadow: '0 0 10px #30a4c7',
+                                        },
+                                        fontWeight: 600,
+                                        fontSize: 'clamp(0.7rem, 0.65rem + 0.25vw, 0.9rem)',
+                                        px: 'clamp(1.3rem, 1.1rem + 0.4vw, 2.5rem)',
+                                        py: 'clamp(0.7rem, 0.6rem + 0.25vw, 1.3rem)'
+                                    }}
+                                >
+                                    View Events
+                                </Button>
+                                <Button
+                                    component={Link}
+                                    to="/about"
+                                    variant="outlined"
+                                    size="small"
+                                    sx={{
+                                        borderColor: '#30a4c7',
+                                        color: '#30a4c7',
+                                        '&:hover': {
+                                            borderColor: '#46fff9',
+                                            color: '#46fff9',
+                                            boxShadow: '0 0 10px #30a4c7',
+                                        },
+                                        fontWeight: 600,
+                                        fontSize: 'clamp(0.7rem, 0.65rem + 0.25vw, 0.9rem)',
+                                        px: 'clamp(1.3rem, 1.1rem + 0.4vw, 2.5rem)',
+                                        py: 'clamp(0.7rem, 0.6rem + 0.25vw, 1.3rem)'
+                                    }}
+                                >
+                                    About
+                                </Button>
+                            </Box>
+                        </motion.div>
                     </Box>
                 </Container>
 
@@ -308,7 +353,8 @@ const Home = () => {
                     sx={{
                         position: 'relative',
                         zIndex: 2,
-                        py: { xs: 4, md: 8 },
+                        py: { xs: 6, md: 8 },
+                        pt: { xs: 8, md: 8 },
                         color: 'white'
                     }}
                 >
@@ -334,7 +380,7 @@ const Home = () => {
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: 0.05 }}
+                            transition={{ duration: 2, delay: 0.4 }}
                         >
                             <DatathonEventCard />
                         </motion.div>

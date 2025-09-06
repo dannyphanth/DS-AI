@@ -4,18 +4,6 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
-        id: 'dsai-advisors-talk',
-        title: 'DS&AI Advisor\'s Talk',
-        date: 'September 4, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 3, Room 1616',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/AdvisorTalk2.png',
-        description: 'Learn about cutting-edge research directly from our faculty advisors and discover opportunities to get involved in active research projects!',
-        registrationLink: '#'
-    },
-    {
         id: 'board-games-study',
         title: 'Board Games & Study',
         date: 'September 8, 2025',
@@ -41,7 +29,7 @@ export const upcomingEvents = [
     },
     {
         id: 'intro-regression',
-        title: 'Intro to Linear & Logistic Regression',
+        title: 'Linear & Logistic Regression',
         date: 'September 18, 2025',
         time: '12:00 PM - 1:00 PM',
         location: 'Building 3, Room 1616',
@@ -60,12 +48,24 @@ export const upcomingEvents = [
         type: 'General Meeting',
         iconType: 'SchoolIcon',
         image: '/REUs5.png',
-        description: 'Learn what REUs are and why they matter.',
+        description: 'Learn what REUs are and why they matter in opening doors to research, mentorship, and future opportunities',
         registrationLink: '#'
     }
 ];
 
 export const pastEvents = [
+    {
+        id: 'dsai-advisors-talk',
+        title: 'DS&AI Advisor\'s Talk',
+        date: 'September 4, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 1616',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/AdvisorTalk2.png',
+        description: 'Learn about cutting-edge research directly from our faculty advisors and discover opportunities to get involved in active research projects!',
+        registrationLink: '#'
+    },
     {
         id: 'fall-intro-meeting',
         title: 'Fall Intro Meeting',

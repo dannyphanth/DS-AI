@@ -52,7 +52,7 @@ const About = () => {
     };
 
     return (
-        <Box sx={{ py: { xs: 6, md: 10 }, backgroundColor: '#0a192f' }}>
+        <Box sx={{ py: { xs: 5.4, md: 9 }, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
                 <motion.div
                     initial="hidden"
@@ -74,7 +74,8 @@ const About = () => {
                                 component="h1"
                                 sx={{
                                     fontWeight: 'bold',
-                                    mb: 4,
+                                    mb: 3.6,
+                                    fontSize: { xs: '1.8rem', sm: '2.25rem', md: '2.7rem' },
                                     background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
@@ -97,15 +98,15 @@ const About = () => {
 
                     {/* Mission Statement Section */}
                     <motion.div variants={itemVariants}>
-                        <Box sx={{ mb: 8 }}>
+                        <Box sx={{ mb: 7.2 }}>
                             <Box
                                 sx={{
                                     background: 'linear-gradient(135deg, #0a192f 0%, #112240 50%, rgb(48, 164, 199, 0.4) 100%)',
-                                    borderRadius: 3,
+                                    borderRadius: 2.7,
                                     transition: 'all 0.3s ease'
                                 }}
                             >
-                                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 3 }}>
+                                <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, gap: 2.7 }}>
                                     {/* Left Column - Image Slideshow */}
                                     <Box
                                         sx={{
@@ -114,7 +115,7 @@ const About = () => {
                                             position: 'relative',
                                             aspectRatio: '4 / 3',
                                             overflow: 'hidden',
-                                            boxShadow: '0 4px 20px rgba(0,0,0,0.3)'
+                                            boxShadow: '0 3.6px 18px rgba(0,0,0,0.3)'
                                         }}
                                     >
                                         <AnimatePresence mode="wait">
@@ -128,7 +129,7 @@ const About = () => {
                                                     width: '100%',
                                                     height: '100%',
                                                     objectFit: 'cover',
-                                                    borderRadius: '12px'
+                                                    borderRadius: '10.8px'
                                                 }}
                                                 initial={{ opacity: 0, scale: 1.02 }}
                                                 animate={{ opacity: 1, scale: 1 }}
@@ -139,11 +140,11 @@ const About = () => {
                                         <Box
                                             sx={{
                                                 position: 'absolute',
-                                                bottom: 8,
+                                                bottom: 7.2,
                                                 left: '50%',
                                                 transform: 'translateX(-50%)',
                                                 display: 'flex',
-                                                gap: 1.5
+                                                gap: 1.35
                                             }}
                                         >
                                             <IconButton
@@ -176,8 +177,8 @@ const About = () => {
                                     </Box>
 
                                     {/* Right Column - Content */}
-                                    <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: { xs: 2.5, md: 3 }, pr: { xs: 0, md: 3 }, pl: { xs: 2, md: 0 }, display: 'flex', alignItems: 'center' }}>
-                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+                                    <Box sx={{ flex: { xs: 'none', md: '1' }, width: { xs: '100%', md: 'auto' }, py: { xs: 2.25, md: 2.7 }, pr: { xs: 0, md: 2.7 }, pl: { xs: 1.8, md: 0 }, display: 'flex', alignItems: 'center' }}>
+                                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1.8 }}>
                                             <Typography
                                                 variant="h5"
                                                 sx={{
@@ -186,7 +187,7 @@ const About = () => {
                                                     WebkitTextFillColor: 'transparent',
                                                     backgroundClip: 'text',
                                                     fontWeight: 'bold',
-                                                    fontSize: { xs: '1.35rem', sm: '1.5rem', md: '1.8rem' },
+                                                    fontSize: { xs: '1.215rem', sm: '1.35rem', md: '1.62rem' },
                                                     lineHeight: 1.2,
                                                     textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -199,10 +200,10 @@ const About = () => {
                                                 variant="body1"
                                                 sx={{
                                                     color: 'white',
-                                                    fontSize: { xs: '1rem', sm: '1.05rem', md: '1.1rem' },
+                                                    fontSize: { xs: '0.9rem', sm: '0.945rem', md: '0.99rem' },
                                                     lineHeight: 1.6,
                                                     fontWeight: 300,
-                                                    textShadow: '0 0 12px rgb(0, 0, 0)',
+                                                    textShadow: '0 0 10.8px rgb(0, 0, 0)',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                 }}
                                             >
@@ -216,7 +217,7 @@ const About = () => {
 
                     {/* Company Connections Section */}
                     <motion.div variants={itemVariants}>
-                        <Box sx={{ textAlign: 'center', mb: 6 }}>
+                        <Box sx={{ textAlign: 'center', mb: 5.4 }}>
                             <Typography
                                 variant="h4"
                                 component="h2"
@@ -227,14 +228,15 @@ const About = () => {
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
                                     textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
-                                    mb: 2
+                                    mb: 1.8,
+                                    fontSize: { xs: '1.8rem', sm: '2.025rem', md: '2.25rem' }
                                 }}
                             >
                                 Our Connections
                             </Typography>
                             <Typography
                                 variant="h6"
-                                sx={{ color: 'white', mb: 4 }}
+                                sx={{ color: 'white', mb: 3.6, fontSize: { xs: '1.08rem', sm: '1.17rem', md: '1.26rem' } }}
                             >
                                 Partnering with industry leaders to advance data science education
                             </Typography>
@@ -243,25 +245,25 @@ const About = () => {
                         <Box
                             sx={{
                                 background: 'linear-gradient(135deg, #0a192f 0%, #112240 50%, rgb(48, 164, 199, 0.4) 100%)',
-                                borderRadius: 3,
-                                p: { xs: 2, sm: 3, md: 4 },
+                                borderRadius: 2.7,
+                                p: { xs: 1.8, sm: 2.7, md: 3.6 },
                                 transition: 'all 0.3s ease'
                             }}
                         >
-                            <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} justifyContent="center" alignItems="center">
+                            <Grid container spacing={{ xs: 1.8, sm: 2.7, md: 3.6 }} justifyContent="center" alignItems="center">
                                 <Grid item xs={12} sm={6} md={4}>
                                     <Box
                                         sx={{
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
-                                            gap: 2,
-                                            p: 3,
-                                            borderRadius: 2,
+                                            gap: 1.8,
+                                            p: 2.7,
+                                            borderRadius: 1.8,
                                             transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                transform: 'translateY(-5px)',
-                                                boxShadow: '0 8px 25px rgba(48, 164, 199, 0.2)'
+                                                transform: 'translateY(-4.5px)',
+                                                boxShadow: '0 7.2px 22.5px rgba(48, 164, 199, 0.2)'
                                             }
                                         }}
                                     >
@@ -270,7 +272,7 @@ const About = () => {
                                             src="/oracleLogo.png"
                                             alt="Oracle"
                                             sx={{
-                                                height: { xs: 60, sm: 70, md: 80 },
+                                                height: { xs: 54, sm: 63, md: 72 },
                                                 width: 'auto',
                                                 objectFit: 'contain',
                                                 maxWidth: '200px'
@@ -285,7 +287,7 @@ const About = () => {
                                                 color: 'white',
                                                 fontWeight: 'bold',
                                                 textAlign: 'center',
-                                                fontSize: { xs: '1.05rem', sm: '1.1rem' }
+                                                fontSize: { xs: '0.945rem', sm: '0.99rem' }
                                             }}
                                         >
                                             Oracle
@@ -299,13 +301,13 @@ const About = () => {
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
-                                            gap: 2,
-                                            p: 3,
-                                            borderRadius: 2,
+                                            gap: 1.8,
+                                            p: 2.7,
+                                            borderRadius: 1.8,
                                             transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                transform: 'translateY(-5px)',
-                                                boxShadow: '0 8px 25px rgba(48, 164, 199, 0.2)'
+                                                transform: 'translateY(-4.5px)',
+                                                boxShadow: '0 7.2px 22.5px rgba(48, 164, 199, 0.2)'
                                             }
                                         }}
                                     >
@@ -314,7 +316,7 @@ const About = () => {
                                             src="/rhaiLogo.webp"
                                             alt="Resonant Health AI"
                                             sx={{
-                                                height: { xs: 60, sm: 70, md: 80 },
+                                                height: { xs: 54, sm: 63, md: 72 },
                                                 width: 'auto',
                                                 objectFit: 'contain',
                                                 maxWidth: '200px'
@@ -329,7 +331,7 @@ const About = () => {
                                                 color: 'white',
                                                 fontWeight: 'bold',
                                                 textAlign: 'center',
-                                                fontSize: { xs: '1.05rem', sm: '1.1rem' }
+                                                fontSize: { xs: '0.945rem', sm: '0.99rem' }
                                             }}
                                         >
                                             Resonant Health AI
@@ -343,13 +345,13 @@ const About = () => {
                                             display: 'flex',
                                             flexDirection: 'column',
                                             alignItems: 'center',
-                                            gap: 2,
-                                            p: 3,
-                                            borderRadius: 2,
+                                            gap: 1.8,
+                                            p: 2.7,
+                                            borderRadius: 1.8,
                                             transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                transform: 'translateY(-5px)',
-                                                boxShadow: '0 8px 25px rgba(48, 164, 199, 0.2)'
+                                                transform: 'translateY(-4.5px)',
+                                                boxShadow: '0 7.2px 22.5px rgba(48, 164, 199, 0.2)'
                                             }
                                         }}
                                     >
