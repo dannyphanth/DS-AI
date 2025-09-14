@@ -83,33 +83,27 @@ const DatathonEventCard = () => {
                                 <Box
                                     sx={{
                                         flex: { xs: 'none', sm: 'none' },
-                                        width: { xs: '100%', sm: 'auto' },
-                                        maxWidth: {
-                                            xs: imageRatio ? `${Math.round(imageRatio * 260)}px` : '100%',
-                                            sm: imageRatio ? `${Math.min(400, Math.round(imageRatio * 300))}px` : '400px',
-                                            md: imageRatio ? `${Math.min(520, Math.round(imageRatio * 360))}px` : '520px'
-                                        },
-                                        height: { xs: 260, sm: 300, md: 360 },
+                                        width: { xs: '100%', sm: '250px', md: '380px' },
+                                        maxWidth: { xs: '300px', sm: '250px', md: '350px' },
+                                        height: { xs: 'auto', sm: 'auto', md: 'auto' },
+                                        aspectRatio: imageRatio ? `${imageRatio}` : '4/3',
                                         mx: { xs: 'auto', sm: 0 },
-                                        mt: { xs: 2, sm: 0 },
+                                        mt: { xs: 0, sm: 0 },
                                         pl: { xs: 0, sm: 3, md: 0 },
                                         pr: { xs: 0, sm: 3, md: 0 },
                                         position: 'relative',
                                         overflow: 'hidden',
                                         borderRadius: 1,
-                                        backgroundColor: 'transparent',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center'
+                                        backgroundColor: 'transparent'
                                     }}
                                 >
                                     <img
-                                        src="/Social1.png"
-                                        alt="Board Games & Study Event"
+                                        src="/picbkeBallSocial.png"
+                                        alt="Pickleball & Tennis Social Event"
                                         style={{
                                             width: '100%',
                                             height: '100%',
-                                            objectFit: 'contain',
+                                            objectFit: 'cover',
                                             objectPosition: 'center',
                                             display: 'block'
                                         }}
@@ -128,31 +122,6 @@ const DatathonEventCard = () => {
                                 {/* Right Column - Info */}
                                 <Box sx={{ flex: { xs: 'none', sm: '1' }, width: { xs: '100%', sm: 'auto' }, py: { xs: 3, sm: 4 }, px: { xs: 3, sm: 0 }, pr: { xs: 3, sm: 2, md: 4 } }}>
                                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 3, sm: 2, md: 3 } }}>
-                                        {/* Coming Soon Badge */}
-                                        <Box
-                                            sx={{
-                                                display: 'inline-block',
-                                                background: '#2a2a2a',
-                                                px: 2,
-                                                py: 1,
-                                                borderRadius: 1,
-                                                width: 'fit-content'
-                                            }}
-                                        >
-                                            <Typography
-                                                variant="body2"
-                                                sx={{
-                                                    color: '#ffffff',
-                                                    fontWeight: 600,
-                                                    fontSize: '0.9rem',
-                                                    textTransform: 'uppercase',
-                                                    letterSpacing: '0.5px'
-                                                }}
-                                            >
-                                                Coming Soon!
-                                            </Typography>
-                                        </Box>
-
                                         {/* Event Title */}
                                         <Typography
                                             variant="h3"
@@ -168,7 +137,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Board Games & Study
+                                            🎾 Pickleball & Tennis Social 🏓
                                         </Typography>
 
                                         {/* Event Details */}
@@ -181,7 +150,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Sunday, September 8th | 5:30 PM - 8:00 PM
+                                            📅 September 15, 2025 | ⏰ 5:30PM - 8PM
                                         </Typography>
 
                                         {/* Event Description */}
@@ -195,7 +164,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            A perfect mix of fun and productivity! Meet new members, play games with friends, and study in a chill group setting.
+                                            Come hang out and play some pickleball and tennis with us! Other CS clubs will be there too, so it's a great chance to meet new people and chill.
                                         </Typography>
 
                                         {/* Location Info */}
@@ -209,8 +178,44 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Location: TBA - Check back soon for updates!
+                                            📍 On Campus
                                         </Typography>
+
+                                        {/* Additional Info */}
+                                        <Typography
+                                            variant="body1"
+                                            sx={{
+                                                color: '#9cebff',
+                                                fontSize: '1.1rem',
+                                                lineHeight: 1.6,
+                                                fontWeight: 300,
+                                                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            }}
+                                        >
+                                            No skill needed—just show up and join in. Everyone's welcome! ✨
+                                        </Typography>
+
+                                        {/* RSVP Button */}
+                                        <Button
+                                            component="a"
+                                            href="https://forms.gle/ujERw1wK4y1ab2Tm7"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            variant="contained"
+                                            sx={{
+                                                background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
+                                                color: '#white',
+                                                fontWeight: 600,
+                                                px: 3,
+                                                py: 1.2,
+                                                boxShadow: '0 0 12px rgba(10,25,47,0.8)',
+                                                alignSelf: 'flex-start',
+                                                mt: 1,
+                                                border: '1px solid rgba(70,255,249,0.12)',
+                                            }}
+                                        >
+                                            RSVP Here!
+                                        </Button>
                                     </Box>
                                 </Box>
                             </Box>

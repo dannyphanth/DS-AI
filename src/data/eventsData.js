@@ -4,30 +4,6 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
-        id: 'board-games-study',
-        title: 'Board Games & Study',
-        date: 'September 8, 2025',
-        time: '5:30 PM - 8:00 PM',
-        location: 'TBA',
-        type: 'Social',
-        iconType: 'GroupIcon',
-        image: '/Social1.png',
-        description: 'A perfect mix of fun and productivity - Meet new members, play games with friends, and study in a chill group setting',
-        registrationLink: '#'
-    },
-    {
-        id: 'intro-to-colab',
-        title: 'Intro to Colab',
-        date: 'September 11, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 3, Room 1616',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/IntroToColab3.png',
-        description: 'No setup, no stress. Explore coding ML projects in the cloud using Google Colab!',
-        registrationLink: '#'
-    },
-    {
         id: 'intro-regression',
         title: 'Linear & Logistic Regression',
         date: 'September 18, 2025',
@@ -54,6 +30,30 @@ export const upcomingEvents = [
 ];
 
 export const pastEvents = [
+    {
+        id: 'board-games-study',
+        title: 'Board Games & Study',
+        date: 'September 8, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'TBA',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/Social1.png',
+        description: 'A perfect mix of fun and productivity - Meet new members, play games with friends, and study in a chill group setting',
+        registrationLink: '#'
+    },
+    {
+        id: 'intro-to-colab',
+        title: 'Intro to Colab',
+        date: 'September 11, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 1616',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/IntroToColab3.png',
+        description: 'No setup, no stress. Explore coding ML projects in the cloud using Google Colab!',
+        registrationLink: '#'
+    },
     {
         id: 'dsai-advisors-talk',
         title: 'DS&AI Advisor\'s Talk',
