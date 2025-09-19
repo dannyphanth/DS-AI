@@ -98,8 +98,8 @@ const DatathonEventCard = () => {
                                     }}
                                 >
                                     <img
-                                        src="/picbkeBallSocial.png"
-                                        alt="Pickleball & Tennis Social Event"
+                                        src="/social3-board_game_and_study.png"
+                                        alt="Study Social Event"
                                         style={{
                                             width: '100%',
                                             height: '100%',
@@ -137,7 +137,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            🎾 Pickleball & Tennis Social 🏓
+                                            <span style={{ WebkitTextFillColor: 'initial', background: 'none' }}>📚</span> Study Social <span style={{ WebkitTextFillColor: 'initial', background: 'none' }}>🎲</span>
                                         </Typography>
 
                                         {/* Event Details */}
@@ -150,7 +150,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            📅 September 15, 2025 | ⏰ 5:30PM - 8PM
+                                            📅 September 22, 2025 | ⏰ 5:30PM - 8PM | 📍 Building 3, Room 2636
                                         </Typography>
 
                                         {/* Event Description */}
@@ -164,22 +164,9 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Come hang out and play some pickleball and tennis with us! Other CS clubs will be there too, so it's a great chance to meet new people and chill.
+                                            A perfect mix of fun and productivity - Meet new members, play games with friends, and study in a chill group setting
                                         </Typography>
 
-                                        {/* Location Info */}
-                                        <Typography
-                                            variant="body1"
-                                            sx={{
-                                                color: '#9cebff',
-                                                fontSize: '1.1rem',
-                                                lineHeight: 1.6,
-                                                fontWeight: 300,
-                                                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                            }}
-                                        >
-                                            📍 On Campus
-                                        </Typography>
 
                                         {/* Additional Info */}
                                         <Typography
@@ -192,7 +179,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            No skill needed—just show up and join in. Everyone's welcome! ✨
+                                            Bring your homework, grab some snacks, and enjoy great company! ✨
                                         </Typography>
 
                                         {/* RSVP Button */}

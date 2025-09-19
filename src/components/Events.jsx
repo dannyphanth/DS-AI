@@ -8,7 +8,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import SchoolIcon from '@mui/icons-material/School';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { upcomingEvents, pastEvents } from '../data/eventsData';
 
 const Events = () => {
@@ -45,13 +45,67 @@ const Events = () => {
 
     const [eventType, setEventType] = useState('upcoming');
 
+    // Determine the most upcoming Social event (based on array order)
+    const firstUpcomingSocialId = (() => {
+        const social = upcomingEvents.find(e => e.type === 'Social');
+        return social ? social.id : null;
+    })();
+
     const handleEventTypeChange = (event, newEventType) => {
         if (newEventType !== null) {
             setEventType(newEventType);
         }
     };
 
-    const EventCard = ({ event, isPast = false }) => {
+    // Auto-fit text to one line by reducing font-size until it fits (down to a min)
+    const AutoFitTypography = ({ children, maxRem, minRem, sx, ...props }) => {
+        const textRef = useRef(null);
+        const [fontSizeRem, setFontSizeRem] = useState(maxRem);
+
+        useLayoutEffect(() => {
+            const el = textRef.current;
+            if (!el) return;
+
+            const measureAndFit = () => {
+                let size = maxRem;
+                el.style.whiteSpace = 'nowrap';
+                el.style.display = 'block';
+                el.style.fontSize = `${size}rem`;
+
+                const parent = el.parentElement;
+                const parentWidth = parent ? parent.clientWidth : el.clientWidth;
+
+                // Reduce font-size until it fits on one line or hits minRem
+                while (el.scrollWidth > parentWidth && size > minRem) {
+                    size = Math.max(minRem, +(size - 0.05).toFixed(2));
+                    el.style.fontSize = `${size}rem`;
+                }
+                setFontSizeRem(size);
+            };
+
+            measureAndFit();
+            window.addEventListener('resize', measureAndFit);
+            return () => window.removeEventListener('resize', measureAndFit);
+        }, [children, maxRem, minRem]);
+
+        return (
+            <Typography
+                ref={textRef}
+                sx={{
+                    ...sx,
+                    fontSize: `${fontSizeRem}rem`,
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                }}
+                {...props}
+            >
+                {children}
+            </Typography>
+        );
+    };
+
+    const EventCard = ({ event, isPast = false, showRSVP = false }) => {
         const [expanded, setExpanded] = useState(false);
         const detailsRef = useRef(null);
 
@@ -91,12 +145,14 @@ const Events = () => {
             }
         };
 
+        const hasValidRegistrationLink = Boolean(event.registrationLink && event.registrationLink !== '#');
+
         return (
             <motion.div variants={itemVariants}>
                 <Card
                     elevation={0}
                     sx={{
-                        minHeight: 400,
+                        minHeight: 410,
                         maxWidth: 350,
                         width: '100%',
                         display: 'flex',
@@ -115,7 +171,7 @@ const Events = () => {
                 >
                     <CardMedia
                         component="img"
-                        height="340"
+                        height="350"
                         image={event.image}
                         alt={event.title}
                         sx={{
@@ -165,28 +221,37 @@ const Events = () => {
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
+                                    textAlign: 'left',
                                     '&:hover': {
                                         backgroundColor: 'rgba(48, 184, 199, 0.3)',
                                         borderColor: 'rgba(48, 184, 199, 0.7)',
                                     }
                                 }}
                             >
-                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 0.5 }}>
-                                    <Typography sx={{
-                                        fontSize: '1.2rem',
-                                        fontWeight: 'bold',
-                                        color: '#f5f5f5',
-                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-                                    }}>
+                                <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 0, width: '100%' }}>
+                                    <AutoFitTypography
+                                        maxRem={1.2}
+                                        minRem={0.9}
+                                        sx={{
+                                            fontWeight: 'bold',
+                                            color: '#f5f5f5',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            textAlign: 'left',
+                                        }}
+                                    >
                                         {event.type}
-                                    </Typography>
-                                    <Typography sx={{
-                                        fontSize: '1rem',
-                                        color: '#e8e8e8',
-                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
-                                    }}>
+                                    </AutoFitTypography>
+                                    <AutoFitTypography
+                                        maxRem={1.0}
+                                        minRem={0.85}
+                                        sx={{
+                                            color: '#e8e8e8',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            textAlign: 'left',
+                                        }}
+                                    >
                                         {event.title}
-                                    </Typography>
+                                    </AutoFitTypography>
                                 </Box>
                                 <ExpandMoreIcon
                                     sx={{
@@ -281,29 +346,41 @@ const Events = () => {
                                     {event.description}
                                 </Typography>
 
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    size="small"
-                                    fullWidth
-                                    component="a"
-                                    href={event.registrationLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    sx={{
-                                        backgroundColor: 'rgba(48, 184, 199, 0.2)',
-                                        color: 'white',
-                                        border: '1px solid rgba(48, 184, 199, 0.5)',
-                                        boxShadow: 'none',
-                                        '&:hover': {
-                                            backgroundColor: 'rgba(48, 184, 199, 0.3)',
-                                            borderColor: 'rgba(48, 184, 199, 0.7)',
-                                            boxShadow: 'none'
-                                        }
-                                    }}
-                                >
-                                    Register Now
-                                </Button>
+                                {showRSVP && (
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        size="small"
+                                        fullWidth
+                                        component={hasValidRegistrationLink ? 'a' : undefined}
+                                        href={hasValidRegistrationLink ? event.registrationLink : undefined}
+                                        target={hasValidRegistrationLink ? '_blank' : undefined}
+                                        rel={hasValidRegistrationLink ? 'noopener noreferrer' : undefined}
+                                        disabled={!hasValidRegistrationLink}
+                                        sx={{
+                                            backgroundColor: 'rgba(48, 184, 199, 0.2)',
+                                            color: 'white',
+                                            border: '1px solid rgba(48, 184, 199, 0.5)',
+                                            boxShadow: 'none',
+                                            textTransform: 'none',
+                                            fontWeight: 600,
+                                            '&:hover': {
+                                                backgroundColor: 'rgba(48, 184, 199, 0.3)',
+                                                borderColor: 'rgba(48, 184, 199, 0.7)',
+                                                boxShadow: 'none'
+                                            },
+                                            '&.Mui-disabled': {
+                                                backgroundColor: 'rgba(48, 184, 199, 0.2)',
+                                                color: 'white',
+                                                border: '1px solid rgba(48, 184, 199, 0.5)',
+                                                opacity: 0.6
+                                            }
+                                        }}
+                                        title={!hasValidRegistrationLink ? 'RSVP link coming soon' : undefined}
+                                    >
+                                        RSVP
+                                    </Button>
+                                )}
                             </Box>
                         </Collapse>
                     </CardContent>
@@ -379,7 +456,7 @@ const Events = () => {
                         {eventType === 'upcoming'
                             ? upcomingEvents.map((event, index) => (
                                 <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                                    <EventCard event={event} />
+                                    <EventCard event={event} showRSVP={firstUpcomingSocialId === event.id && event.type === 'Social'} />
                                 </Grid>
                             ))
                             : pastEvents.map((event, index) => (
