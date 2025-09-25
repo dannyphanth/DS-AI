@@ -3,9 +3,18 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Tilt from 'react-parallax-tilt';
 import { useState } from 'react';
+import { upcomingEvents } from '../data/eventsData';
 
-const DatathonEventCard = () => {
+const HighlightEventCard = () => {
     const [imageRatio, setImageRatio] = useState(null); // width / height
+
+    // Select the Dodgeball event as the featured event
+    const featured = upcomingEvents.find(e => e.id === 'dodgeball-social')
+        || upcomingEvents.find(e => e.type === 'Social')
+        || upcomingEvents[0];
+
+    // Keep RSVP link as the original hardcoded form link
+    const rsvpFormLink = 'https://forms.gle/ujERw1wK4y1ab2Tm7';
 
     return (
         <Box
@@ -98,8 +107,8 @@ const DatathonEventCard = () => {
                                     }}
                                 >
                                     <img
-                                        src="/social3-board_game_and_study.png"
-                                        alt="Study Social Event"
+                                        src={featured?.image}
+                                        alt={featured?.title || 'Featured Event'}
                                         style={{
                                             width: '100%',
                                             height: '100%',
@@ -137,7 +146,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            <span style={{ WebkitTextFillColor: 'initial', background: 'none' }}>📚</span> Study Social <span style={{ WebkitTextFillColor: 'initial', background: 'none' }}>🎲</span>
+                                            {featured?.title || 'Featured Event'}
                                         </Typography>
 
                                         {/* Event Details */}
@@ -150,7 +159,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            📅 September 22, 2025 | ⏰ 5:30PM - 8PM | 📍 Building 3, Room 2636
+                                            {featured ? `📅 ${featured.date} | ⏰ ${featured.time} | 📍 ${featured.location}` : ''}
                                         </Typography>
 
                                         {/* Event Description */}
@@ -164,7 +173,7 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            A perfect mix of fun and productivity - Meet new members, play games with friends, and study in a chill group setting
+                                            {featured?.description}
                                         </Typography>
 
 
@@ -179,13 +188,13 @@ const DatathonEventCard = () => {
                                                 fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                             }}
                                         >
-                                            Bring your homework, grab some snacks, and enjoy great company! ✨
+                                            {featured?.type === 'Social' ? 'Come out, team up, and have fun together! ✨' : ''}
                                         </Typography>
 
-                                        {/* RSVP Button */}
+                                        {/* RSVP Button (kept as original link) */}
                                         <Button
                                             component="a"
-                                            href="https://forms.gle/ujERw1wK4y1ab2Tm7"
+                                            href={rsvpFormLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             variant="contained"
@@ -214,4 +223,4 @@ const DatathonEventCard = () => {
     );
 };
 
-export default DatathonEventCard; 
+export default HighlightEventCard; 

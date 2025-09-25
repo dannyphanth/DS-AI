@@ -264,7 +264,7 @@ const EventsCard = () => {
                             gap: isTwoCards ? 2 : 0,
                             overflow: 'visible',
                             perspective: '1200px',
-                            transformStyle: 'preserve-3d',
+                            // transformStyle: 'preserve-3d',
                             minWidth: { xs: '100%', sm: isTwoCards ? '800px' : `${720 * scaleFactor}px` },
                             pt: 0,
                             mt: 0,
@@ -279,7 +279,7 @@ const EventsCard = () => {
                                         rotateZ: isTwoCards ? 0 : -8,
                                         x: isTwoCards ? 0 : -60 * index,
                                         y: isTwoCards ? 0 : -20 * index,
-                                        zIndex: (isTwoCards || totalEvents === 1) ? (totalEvents - index) : (totalEvents - index),
+                                        zIndex: totalEvents - index,
                                         opacity: 0.7
                                     }}
                                     animate={{
@@ -287,7 +287,7 @@ const EventsCard = () => {
                                         rotateZ: isTwoCards ? ((index - midIndex) * 6) : ((isXs || isTwoCards) ? ((index - midIndex) * 6) : ((index - 1) * 5)),
                                         x: isTwoCards ? 0 : (isXs ? ((index - midIndex) * 165) : (index * 230 * scaleFactor - 240 * scaleFactor)),
                                         y: isTwoCards ? Math.abs(index - midIndex) * 8 : ((isXs || isTwoCards) ? Math.abs(index - midIndex) * 8 : (index === 0 ? 8 : index === 2 ? 8 : 0)),
-                                        zIndex: (isTwoCards || totalEvents === 1) ? (totalEvents - index) : (index === 1 ? 1 : totalEvents - index),
+                                        zIndex: totalEvents - index,
                                         z: isTwoCards ? 0 : (index === 1 ? -70 : 0),
                                         opacity: 1
                                     }}

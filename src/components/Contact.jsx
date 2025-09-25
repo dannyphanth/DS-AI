@@ -121,7 +121,7 @@ const Contact = () => {
         },
         {
             name: 'Anthony',
-            position: 'Kaggle Team Co-Director',
+            position: 'External Affairs',
             image: '/Anthony.png',
             message: "Hey there! I'm currently a senior studying computer information systems with a minor is data science! I enjoy using descriptive analytics and machine learning algorithms to coach my own performance and others when it comes to games or sales. Aside from studies, I enjoy video games and road-tripping around Cali to explore all kinds of nature. Feel free to reach out to talk about any interests about data or hobbies; I'd love to get to know everyone!",
             email: 'anthony@dsai-club.edu',

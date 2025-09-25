@@ -656,11 +656,10 @@ const BadgesContent = () => {
                     <Box id="more" sx={{ p: 0, mb: 2.7, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mb: 0.675, fontSize: { xs: '1.8rem', sm: '2.025rem' } }}>More Information</Typography>
                         <Typography variant="body1" sx={{ color: '#cfefff', mb: 1.125, lineHeight: 1.6, maxWidth: 738, fontSize: { xs: '0.9rem', sm: '0.95rem' } }}>
-                            If you are interested in this digital badge, email Dr. Marin or Dr. Korah to be added to the Canvas course and begin submitting your work.
+                            If you are interested in this digital badge, email us to be added to the Canvas course and begin submitting your work.
                         </Typography>
                         <Box sx={{ display: 'flex', gap: 1.125, flexWrap: 'wrap', justifyContent: 'center' }}>
-                            <Button href="mailto:santanamarin@cpp.edu" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Dr. Marin</Button>
-                            <Button href="mailto:jkorah@cpp.edu" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Dr. Korah</Button>
+                            <Button href="mailto:cppdsai@gmail.com" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Us</Button>
                         </Box>
                     </Box>
                 </>
@@ -771,11 +770,10 @@ const BadgesContent = () => {
                     <Box id="more" sx={{ p: 0, mb: 3, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mb: 0.75 }}>More Information</Typography>
                         <Typography variant="body1" sx={{ color: '#cfefff', mb: 1.25, lineHeight: 1.6, maxWidth: 820 }}>
-                            If you are interested in this digital badge, email Dr. Marin or Dr. Korah to be added to the Canvas course and begin submitting your work.
+                            If you are interested in this digital badge, email us to be added to the Canvas course and begin submitting your work.
                         </Typography>
                         <Box sx={{ display: 'flex', gap: 1.25, flexWrap: 'wrap', justifyContent: 'center' }}>
-                            <Button href="mailto:santanamarin@cpp.edu" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Dr. Marin</Button>
-                            <Button href="mailto:jkorah@cpp.edu" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Dr. Korah</Button>
+                            <Button href="mailto:cppdsai@gmail.com" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Us</Button>
                         </Box>
                     </Box>
                 </>

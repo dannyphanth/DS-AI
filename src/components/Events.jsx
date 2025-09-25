@@ -45,11 +45,8 @@ const Events = () => {
 
     const [eventType, setEventType] = useState('upcoming');
 
-    // Determine the most upcoming Social event (based on array order)
-    const firstUpcomingSocialId = (() => {
-        const social = upcomingEvents.find(e => e.type === 'Social');
-        return social ? social.id : null;
-    })();
+    // Highlight the dodgeball social event
+    const firstUpcomingSocialId = 'dodgeball-social';
 
     const handleEventTypeChange = (event, newEventType) => {
         if (newEventType !== null) {

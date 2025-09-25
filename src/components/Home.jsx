@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import MembershipCard from './MembershipCard';
 import KaggleCard from './KaggleCard';
 import DatathonCard from './DatathonCard';
-import DatathonEventCard from './DatathonEventCard';
+import HighlightEventCard from './DatathonEventCard';
 import EventsCard from './EventsCard';
 import DigitalBadgesCard from './DigitalBadgesCard';
 
@@ -382,7 +382,7 @@ const Home = () => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 2, delay: 0.4 }}
                         >
-                            <DatathonEventCard />
+                            <HighlightEventCard />
                         </motion.div>
                         <Divider
                             sx={{
