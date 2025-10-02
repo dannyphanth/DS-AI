@@ -4,6 +4,69 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
+        id: 'intro-regression',
+        title: 'Linear & Logistic Regression',
+        date: 'October 9, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/IntroToLinearAndLogisticRegression4.png',
+        description: 'Build intuition for regression, interpret results, and see how these models power data-driven predictions',
+        registrationLink: '#'
+    },
+    {
+        id: 'gm8-matlab',
+        title: 'MATLAB Workshop',
+        date: 'October 16, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Virtual Zoom',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm8-mathlab.png',
+        description: 'Learn the fundamentals of MATLAB for data analysis and visualization. Perfect for beginners looking to expand their toolset.',
+        registrationLink: '#'
+    },
+    {
+        id: 'gm9-linear-regression-neural-networks',
+        title: 'Creating Linear Regression Neural Networks',
+        date: 'October 23, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm9-creating_linear_regression_neural_networks.png',
+        description: 'Dive deep into neural networks by building linear regression models from scratch. Understand the mathematics and implementation behind these powerful algorithms.',
+        registrationLink: '#'
+    },
+    {
+        id: 'halloween-social',
+        title: 'Halloween Social',
+        date: 'October 30, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'BSC URSA MINOR',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-halloween.png',
+        description: 'Join us for a spooky Halloween social! Come dressed in costume, enjoy treats, and celebrate Halloween with your DS&AI community.',
+        registrationLink: '#'
+    }
+];
+
+export const pastEvents = [
+    {
+        id: 'gm6-what-is-data',
+        title: 'What is Data?',
+        date: 'October 2, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm6-what_is_data.png',
+        description: 'Explore the fundamentals of data science and learn what makes data valuable for analysis and insights.',
+        registrationLink: '#'
+    },
+    {
         id: 'dodgeball-social',
         title: 'Dodgeball Social',
         date: 'September 29, 2025',
@@ -15,21 +78,6 @@ export const upcomingEvents = [
         description: 'We\'re teaming up with MISSA, SheCodes, CSS, FAST, SWIFT, SEA, SOC, GameDev, and GDGC for a joint dodgeball social. Come out, play a few games, and team up with members across the CS community!',
         registrationLink: 'https://forms.gle/dodgeball2025'
     },
-    {
-        id: 'intro-regression',
-        title: 'Linear & Logistic Regression',
-        date: 'October 9, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 3, Room 2636',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/IntroToLinearAndLogisticRegression4.png',
-        description: 'Build intuition for regression, interpret results, and see how these models power data-driven predictions',
-        registrationLink: '#'
-    }
-];
-
-export const pastEvents = [
     {
         id: 'reus-101',
         title: 'REUs 101',

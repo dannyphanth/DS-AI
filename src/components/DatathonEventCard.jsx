@@ -191,13 +191,14 @@ const HighlightEventCard = () => {
                                             {featured?.type === 'Social' ? 'Come out, team up, and have fun together! ✨' : ''}
                                         </Typography>
 
-                                        {/* RSVP Button (kept as original link) */}
+                                        {/* RSVP Button - disabled for social events */}
                                         <Button
                                             component="a"
                                             href={rsvpFormLink}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             variant="contained"
+                                            disabled={featured?.type === 'Social'}
                                             sx={{
                                                 background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
                                                 color: '#white',
@@ -208,6 +209,12 @@ const HighlightEventCard = () => {
                                                 alignSelf: 'flex-start',
                                                 mt: 1,
                                                 border: '1px solid rgba(70,255,249,0.12)',
+                                                '&.Mui-disabled': {
+                                                    background: 'rgba(10, 25, 47, 0.3)',
+                                                    color: 'rgba(255, 255, 255, 0.5)',
+                                                    border: '1px solid rgba(70,255,249,0.05)',
+                                                    boxShadow: 'none',
+                                                },
                                             }}
                                         >
                                             RSVP Here!
