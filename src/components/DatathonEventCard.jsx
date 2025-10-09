@@ -8,10 +8,8 @@ import { upcomingEvents } from '../data/eventsData';
 const HighlightEventCard = () => {
     const [imageRatio, setImageRatio] = useState(null); // width / height
 
-    // Select the Dodgeball event as the featured event
-    const featured = upcomingEvents.find(e => e.id === 'dodgeball-social')
-        || upcomingEvents.find(e => e.type === 'Social')
-        || upcomingEvents[0];
+    // Feature the first upcoming social event
+    const featured = upcomingEvents.find(e => e.type === 'Social') || upcomingEvents[0];
 
     // Keep RSVP link as the original hardcoded form link
     const rsvpFormLink = 'https://forms.gle/ujERw1wK4y1ab2Tm7';
@@ -198,7 +196,7 @@ const HighlightEventCard = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             variant="contained"
-                                            disabled={featured?.type === 'Social'}
+                                            // disabled={featured?.type === 'Social'}
                                             sx={{
                                                 background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
                                                 color: '#white',

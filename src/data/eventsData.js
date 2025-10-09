@@ -4,15 +4,15 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
-        id: 'intro-regression',
-        title: 'Linear & Logistic Regression',
-        date: 'October 9, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 3, Room 2636',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/IntroToLinearAndLogisticRegression4.png',
-        description: 'Build intuition for regression, interpret results, and see how these models power data-driven predictions',
+        id: 'pool-day-social',
+        title: 'Pool Day Social',
+        date: 'October 13, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'BRIC Pool Area',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-pool_day.png',
+        description: 'Join us for our Pool Day Social, a refreshing break from the semester rush. Relax, connect, and enjoy the sunshine with other club members—because balance and community are just as important!',
         registrationLink: '#'
     },
     {
@@ -54,6 +54,30 @@ export const upcomingEvents = [
 ];
 
 export const pastEvents = [
+    {
+        id: 'intro-regression',
+        title: 'Linear & Logistic Regression',
+        date: 'October 9, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/IntroToLinearAndLogisticRegression4.png',
+        description: 'Build intuition for regression, interpret results, and see how these models power data-driven predictions',
+        registrationLink: '#'
+    },
+    {
+        id: 'movie-trivia-social',
+        title: 'Movie Trivia Social',
+        date: 'October 6, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'SCI Building 3, Room 2636',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-movie_trivia.png',
+        description: 'Think you know your movies? Team up and put your film knowledge to the test with trivia rounds covering everything from cult classics to box office hits. At the same time, 📚 + 🎬 = the perfect night—bring your homework, kick back with friends, and enjoy a relaxed evening of studying, snacks, and trivia breaks. A fun way to unwind while still staying productive!',
+        registrationLink: '#'
+    },
     {
         id: 'gm6-what-is-data',
         title: 'What is Data?',

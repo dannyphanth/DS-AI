@@ -45,8 +45,8 @@ const Events = () => {
 
     const [eventType, setEventType] = useState('upcoming');
 
-    // Highlight the dodgeball social event
-    const firstUpcomingSocialId = 'dodgeball-social';
+    // Find the first upcoming social event
+    const firstUpcomingSocial = upcomingEvents.find(e => e.type === 'Social');
 
     const handleEventTypeChange = (event, newEventType) => {
         if (newEventType !== null) {
@@ -141,8 +141,6 @@ const Events = () => {
                     return <GroupIcon sx={{ fontSize: 24, color: '#64ffda' }} />;
             }
         };
-
-        const hasValidRegistrationLink = Boolean(event.registrationLink && event.registrationLink !== '#');
 
         return (
             <motion.div variants={itemVariants}>
@@ -349,11 +347,10 @@ const Events = () => {
                                         color="primary"
                                         size="small"
                                         fullWidth
-                                        component={hasValidRegistrationLink ? 'a' : undefined}
-                                        href={hasValidRegistrationLink ? event.registrationLink : undefined}
-                                        target={hasValidRegistrationLink ? '_blank' : undefined}
-                                        rel={hasValidRegistrationLink ? 'noopener noreferrer' : undefined}
-                                        disabled={!hasValidRegistrationLink}
+                                        component="a"
+                                        href={event.registrationLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         sx={{
                                             backgroundColor: 'rgba(48, 184, 199, 0.2)',
                                             color: 'white',
@@ -365,15 +362,8 @@ const Events = () => {
                                                 backgroundColor: 'rgba(48, 184, 199, 0.3)',
                                                 borderColor: 'rgba(48, 184, 199, 0.7)',
                                                 boxShadow: 'none'
-                                            },
-                                            '&.Mui-disabled': {
-                                                backgroundColor: 'rgba(48, 184, 199, 0.2)',
-                                                color: 'white',
-                                                border: '1px solid rgba(48, 184, 199, 0.5)',
-                                                opacity: 0.6
                                             }
                                         }}
-                                        title={!hasValidRegistrationLink ? 'RSVP link coming soon' : undefined}
                                     >
                                         RSVP
                                     </Button>
@@ -453,7 +443,7 @@ const Events = () => {
                         {eventType === 'upcoming'
                             ? upcomingEvents.map((event, index) => (
                                 <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                                    <EventCard event={event} showRSVP={firstUpcomingSocialId === event.id && event.type === 'Social'} />
+                                    <EventCard event={event} showRSVP={firstUpcomingSocial && firstUpcomingSocial.id === event.id} />
                                 </Grid>
                             ))
                             : pastEvents.map((event, index) => (
