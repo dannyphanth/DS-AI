@@ -85,8 +85,8 @@ const KaggleCard = () => {
                     mb: 4,
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(10,25,47,0.45) 0%, rgba(17,37,64,0.40) 50%, rgba(48,164,199,0.07) 100%)',
-                    border: '1px solid rgba(48,164,199,0.14)',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.15) 100%)',
+                    border: '1px solid rgba(48,164,199,0.25)',
                     '&::before': {
                         content: '""',
                         position: 'absolute',
