@@ -4,27 +4,15 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
-        id: 'pool-day-social',
-        title: 'Pool Day Social',
-        date: 'October 13, 2025',
-        time: '5:30 PM - 8:00 PM',
-        location: 'BRIC Pool Area',
+        id: 'boba-social-fundraiser',
+        title: 'Boba Social + Fundraiser',
+        date: 'October 20, 2025',
+        time: '5:00 PM - 8:00 PM',
+        location: 'Gooma Boba Tea Shop',
         type: 'Social',
         iconType: 'GroupIcon',
-        image: '/social-pool_day.png',
-        description: 'Join us for our Pool Day Social, a refreshing break from the semester rush. Relax, connect, and enjoy the sunshine with other club members—because balance and community are just as important!',
-        registrationLink: '#'
-    },
-    {
-        id: 'gm8-matlab',
-        title: 'MATLAB Workshop',
-        date: 'October 16, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Virtual Zoom',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/gm8-mathlab.png',
-        description: 'Learn the fundamentals of MATLAB for data analysis and visualization. Perfect for beginners looking to expand their toolset.',
+        image: '/Social-Boba_Social.png',
+        description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
         registrationLink: '#'
     },
     {
@@ -54,6 +42,30 @@ export const upcomingEvents = [
 ];
 
 export const pastEvents = [
+    {
+        id: 'gm8-matlab',
+        title: 'MATLAB Workshop',
+        date: 'October 16, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Virtual Zoom',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm8-mathlab.png',
+        description: 'Learn the fundamentals of MATLAB for data analysis and visualization. Perfect for beginners looking to expand their toolset.',
+        registrationLink: '#'
+    },
+    {
+        id: 'pool-day-social',
+        title: 'Pool Day Social',
+        date: 'October 13, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'BRIC Pool Area',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-pool_day.png',
+        description: 'Join us for our Pool Day Social, a refreshing break from the semester rush. Relax, connect, and enjoy the sunshine with other club members—because balance and community are just as important!',
+        registrationLink: '#'
+    },
     {
         id: 'intro-regression',
         title: 'Linear & Logistic Regression',
