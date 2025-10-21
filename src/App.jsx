@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { ThemeProvider, createTheme, CssBaseline, Box } from '@mui/material'
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer.jsx'
 import Home from './components/Home'
@@ -136,6 +137,7 @@ function App() {
         <ScrollToTop />
         <AppShell />
       </Router>
+      <Analytics />
     </ThemeProvider>
   )
 }
