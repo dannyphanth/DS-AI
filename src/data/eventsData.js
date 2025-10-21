@@ -4,18 +4,6 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
-        id: 'boba-social-fundraiser',
-        title: 'Boba Social + Fundraiser',
-        date: 'October 20, 2025',
-        time: '5:00 PM - 8:00 PM',
-        location: 'Gooma Boba Tea Shop',
-        type: 'Social',
-        iconType: 'GroupIcon',
-        image: '/Social-Boba_Social.png',
-        description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
-        registrationLink: '#'
-    },
-    {
         id: 'gm9-linear-regression-neural-networks',
         title: 'Creating Linear Regression Neural Networks',
         date: 'October 23, 2025',
@@ -42,6 +30,18 @@ export const upcomingEvents = [
 ];
 
 export const pastEvents = [
+    {
+        id: 'boba-social-fundraiser',
+        title: 'Boba Social + Fundraiser',
+        date: 'October 20, 2025',
+        time: '5:00 PM - 8:00 PM',
+        location: 'Gooma Boba Tea Shop',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/Social-Boba_Social.png',
+        description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
+        registrationLink: '#'
+    },
     {
         id: 'gm8-matlab',
         title: 'MATLAB Workshop',
