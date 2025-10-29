@@ -782,9 +782,14 @@ const BadgesContent = () => {
 
             {/* FAQ (Framer Motion Accordion) */}
             <Box id="faq" sx={{ textAlign: 'center', mt: 2.7, mb: 0.9 }}>
-                <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mt: 5.4, fontSize: { xs: '1.8rem', sm: '2.025rem' } }}>FAQ</Typography>
+                <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, mt: 5.4, fontSize: { xs: '1.8rem', sm: '2.025rem' } }}>Frequently Asked Questions</Typography>
             </Box>
-            <Box sx={{ border: '1px solid rgba(255,255,255,0.12)', borderRadius: 2, backgroundColor: '#14181e', overflow: 'hidden' }}>
+            <Box sx={{
+                border: '1px solid rgba(48, 184, 199, 0.3)',
+                borderRadius: 2,
+                background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.15) 100%)',
+                overflow: 'hidden'
+            }}>
                 {[{
                     q: 'Where are all of these tasks submissions held? How would I track my progress?',
                     a: 'You can track the completion of your tasks and submit them for the badge through the Canvas page.'
@@ -796,18 +801,12 @@ const BadgesContent = () => {
                     a: 'No! They can be completed whenever you get around to them.'
                 }, {
                     q: 'What if I complete some of the Advanced badge tasks before obtaining my Practitioner badge?',
-                    a: 'That’s fine. Once you complete the Practitioner badge, you will gain access to the Advanced tasks and can submit the completion of the courses then.'
+                    a: 'That is fine. Once you complete the Practitioner badge, you will gain access to the Advanced tasks and can submit the completion of the courses then.'
                 }, {
                     q: 'Can I obtain the Advanced badge before the Practitioner badge?',
                     a: 'No. A requirement for the Advanced badge is the Practitioner badge, and you will not have access to the correct Canvas modules until then.'
                 }].map((item, idx) => (
-                    <Box
-                        key={idx}
-                        sx={{
-                            p: 1.125,
-                            position: 'relative'
-                        }}
-                    >
+                    <Box key={idx}>
                         <Box
                             role="button"
                             tabIndex={0}
@@ -818,31 +817,27 @@ const BadgesContent = () => {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'space-between',
-                                p: 0.675,
-                                gap: 0.9,
-                                borderRadius: 1,
-                                '&:hover': { backgroundColor: 'transparent' }
+                                p: 2,
+                                gap: 2,
+                                '&:hover': { backgroundColor: 'rgba(48, 164, 199, 0.05)' }
                             }}
                         >
                             <Typography
-                                variant="subtitle1"
                                 sx={{
-                                    mr: 0.9,
                                     color: 'white',
-                                    fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                     fontWeight: 600,
-                                    letterSpacing: '0.02em'
+                                    fontSize: '1.05rem'
                                 }}
                             >
                                 {item.q}
                             </Typography>
-                            <motion.span
-                                animate={{ rotate: openFaqIndex === idx ? 180 : 0 }}
-                                transition={{ duration: 0.2 }}
-                                style={{ display: 'inline-flex' }}
-                            >
-                                <ExpandMoreIcon />
-                            </motion.span>
+                            <ExpandMoreIcon
+                                sx={{
+                                    color: 'rgb(48, 164, 199)',
+                                    transform: openFaqIndex === idx ? 'rotate(180deg)' : 'rotate(0deg)',
+                                    transition: 'transform 0.3s'
+                                }}
+                            />
                         </Box>
                         <AnimatePresence initial={false}>
                             {openFaqIndex === idx && (
@@ -853,16 +848,12 @@ const BadgesContent = () => {
                                     exit={{ height: 0, opacity: 0 }}
                                     transition={{ duration: 0.25 }}
                                 >
-                                    <Box sx={{ p: 1.125, pt: 0 }}>
+                                    <Box sx={{ px: 2, pb: 2 }}>
                                         <Typography
-                                            variant="body1"
                                             sx={{
-                                                color: 'white',
-                                                fontSize: '0.99rem',
-                                                lineHeight: 1.6,
-                                                fontWeight: 300,
-                                                letterSpacing: '0.02em',
-                                                fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                                                color: 'rgba(255, 255, 255, 0.85)',
+                                                lineHeight: 1.8,
+                                                fontSize: '1rem'
                                             }}
                                         >
                                             {item.a}
@@ -872,9 +863,7 @@ const BadgesContent = () => {
                             )}
                         </AnimatePresence>
                         {idx < 4 && (
-                            <Box sx={{ mt: 1.125, height: 0.9, position: 'relative' }}>
-                                <Box sx={{ height: 1, background: 'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.12) 20%, rgba(255,255,255,0.12) 80%, transparent 100%)' }} />
-                            </Box>
+                            <Box sx={{ mx: 2, height: 1, background: 'rgba(48, 164, 199, 0.2)' }} />
                         )}
                     </Box>
                 ))}

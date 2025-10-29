@@ -37,9 +37,9 @@ const Navbar = () => {
 
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 2 }}>
-                <img src="/dsai%20logo.png" alt="DS&AI Logo" style={{ height: 40, marginRight: 8 }} />
-                <Typography variant="h6" sx={{ fontWeight: 'bold', letterSpacing: 2, fontFamily: '"Syncopate", "Chakra Petch", "Exo 2", monospace' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', py: 1.8 }}>
+                <img src="/dsai%20logo.png" alt="DS&AI Logo" style={{ height: 36, marginRight: 7 }} />
+                <Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.08rem', letterSpacing: 1.8, fontFamily: '"Syncopate", "Chakra Petch", "Exo 2", monospace' }}>
                     DS&AI
                 </Typography>
             </Box>
@@ -62,10 +62,10 @@ const Navbar = () => {
                                     width: '100%',
                                     textDecoration: 'none',
                                     color: 'inherit',
-                                    borderRadius: 1.5,
-                                    px: 2,
-                                    py: 1.1,
-                                    minHeight: 48,
+                                    borderRadius: 1.35,
+                                    px: 1.8,
+                                    py: 1,
+                                    minHeight: 43,
                                     background: isActive ? 'rgba(156,235,255,0.12)' : 'transparent',
                                     border: isActive ? '1px solid rgba(156,235,255,0.25)' : '1px solid transparent',
                                     transition: 'background 160ms ease, transform 160ms ease',
@@ -75,9 +75,9 @@ const Navbar = () => {
                                 <ListItemText
                                     primary={item.name}
                                     primaryTypographyProps={{
-                                        fontSize: '1rem',
+                                        fontSize: '0.9rem',
                                         fontWeight: 600,
-                                        letterSpacing: 0.5,
+                                        letterSpacing: 0.45,
                                         textAlign: 'center',
                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
                                     }}
@@ -98,19 +98,19 @@ const Navbar = () => {
                 sx={{ background: 'transparent', boxShadow: 'none', p: 1, zIndex: 1400, color: 'white' }}
             >
                 <Container maxWidth="xl">
-                    <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 1, md: 4 } }}>
+                    <Toolbar sx={{ justifyContent: 'space-between', px: { xs: 0.9, md: 3.6 } }}>
                         <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <img src="/dsai%20logo.png" alt="DS&AI Logo" style={{ height: 40, marginRight: 12 }} />
+                            <img src="/dsai%20logo.png" alt="DS&AI Logo" style={{ height: 36, marginRight: 11 }} />
                             <Typography
                                 variant="h6"
                                 component={Link}
                                 to="/"
                                 sx={{
                                     fontWeight: 'bold',
-                                    letterSpacing: 2,
+                                    letterSpacing: 1.8,
                                     color: 'white',
                                     textDecoration: 'none',
-                                    fontSize: { xs: '1.2rem', md: '1.5rem' },
+                                    fontSize: { xs: '1.08rem', md: '1.35rem' },
                                     transition: 'color 0.2s',
                                     fontFamily: '"Syncopate", "Chakra Petch", "Exo 2", monospace',
                                     '&:hover': { color: '#00c8ff' },
@@ -119,7 +119,7 @@ const Navbar = () => {
                                 DS&AI
                             </Typography>
                         </Box>
-                        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: { sm: 0.5 } }}>
+                        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: { sm: 0.45 } }}>
                             {navItems.map((item) => (
                                 <Button
                                     key={item.name}
@@ -128,9 +128,9 @@ const Navbar = () => {
                                     sx={{
                                         color: 'white',
                                         fontWeight: 500,
-                                        fontSize: '1rem',
-                                        letterSpacing: 1,
-                                        px: 2,
+                                        fontSize: '0.9rem',
+                                        letterSpacing: 0.9,
+                                        px: 1.8,
                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         textShadow: '0 0 10px rgba(0, 0, 0, 0.4)',
                                         '&:hover': { color: '#00c8ff' }
@@ -165,7 +165,7 @@ const Navbar = () => {
                     '& .MuiDrawer-paper': {
                         background: '#0a192f',
                         color: 'white',
-                        width: 280,
+                        width: 252,
                         borderRight: '1px solid rgba(156,235,255,0.15)',
                         zIndex: 1500
                     }

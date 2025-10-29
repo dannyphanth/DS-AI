@@ -12,6 +12,7 @@ import Board from './components/Contact.jsx'
 import Projects from './components/Projects'
 import Resources from './components/Resources'
 import Contact from './components/Contact'
+import DatathonPopup from './components/DatathonPopup'
 import './App.css'
 
 const theme = createTheme({
@@ -125,6 +126,7 @@ function AppShell() {
         </Routes>
       </Box>
       <Footer />
+      <DatathonPopup />
     </Box>
   )
 }

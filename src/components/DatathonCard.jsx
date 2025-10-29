@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import { Link } from 'react-router-dom';
 
 const DatathonCard = () => {
     const slideshowImages = [
@@ -178,27 +179,49 @@ const DatathonCard = () => {
                             transition={{ duration: 1.6, ease: 'easeOut', delay: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <Button
-                                variant="contained"
-                                endIcon={<InfoIcon />}
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSfEgm23ZsKO_wm6ezc3MrTdqh8i-05aGE8lsoE-MhxARnMdhw/closedform"
-                                sx={{
-                                    background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
-                                    color: '#white',
-                                    fontWeight: 600,
-                                    px: 3,
-                                    py: 1.2,
-                                    boxShadow: '0 0 12px rgba(10,25,47,0.8)',
-                                    alignSelf: 'flex-start',
-                                    mt: 1,
-                                    border: '1px solid rgba(70,255,249,0.12)',
-                                    '&:hover': {
-                                        boxShadow: '0 0 12px rgba(10,25,47,0.95)',
-                                    },
-                                }}
-                            >
-                                Sign Up!
-                            </Button>
+                            <Box sx={{ display: 'flex', gap: 2, mt: 1, flexWrap: 'wrap' }}>
+                                <Button
+                                    variant="contained"
+                                    endIcon={<InfoIcon />}
+                                    href="https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    sx={{
+                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
+                                        color: '#white',
+                                        fontWeight: 600,
+                                        px: 3,
+                                        py: 1.2,
+                                        boxShadow: '0 0 12px rgba(10,25,47,0.8)',
+                                        border: '1px solid rgba(70,255,249,0.12)',
+                                        '&:hover': {
+                                            boxShadow: '0 0 12px rgba(10,25,47,0.95)',
+                                        },
+                                    }}
+                                >
+                                    Sign Up!
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    component={Link}
+                                    to="/resources?tab=datathon"
+                                    endIcon={<InfoIcon />}
+                                    sx={{
+                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
+                                        color: '#white',
+                                        fontWeight: 600,
+                                        px: 3,
+                                        py: 1.2,
+                                        boxShadow: '0 0 12px rgba(10,25,47,0.8)',
+                                        border: '1px solid rgba(70,255,249,0.12)',
+                                        '&:hover': {
+                                            boxShadow: '0 0 12px rgba(10,25,47,0.95)',
+                                        },
+                                    }}
+                                >
+                                    Learn More!
+                                </Button>
+                            </Box>
                         </motion.div>
                     </Box>
                     {/* Right Column: Datathon Slideshow */}

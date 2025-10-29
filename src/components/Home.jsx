@@ -7,7 +7,6 @@ import DatathonCard from './DatathonCard';
 import HighlightEventCard from './HighlightEventCard';
 import EventsCard from './EventsCard';
 import DigitalBadgesCard from './DigitalBadgesCard';
-import DatathonPopup from './DatathonPopup';
 
 const Home = () => {
     const ctaSections = [
@@ -27,9 +26,6 @@ const Home = () => {
 
     return (
         <Box sx={{ position: 'relative', background: { xs: '#0a192f' } }}>
-            {/* Datathon Popup */}
-            <DatathonPopup />
-
             {/* Hero Top Section */}
             <Box sx={{ position: 'relative', minHeight: { xs: '60vh', sm: '100vh', md: '100vh' }, height: { xs: 'auto', sm: '100vh', md: '100vh' } }}>
                 <Box

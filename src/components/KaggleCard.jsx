@@ -191,7 +191,7 @@ const KaggleCard = () => {
                                     },
                                 }}
                             >
-                                Sign Up
+                                Sign Up!
                             </Button>
                         </motion.div>
                     </Box>

@@ -14,7 +14,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import SlideshowIcon from '@mui/icons-material/Slideshow';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import VerifiedIcon from '@mui/icons-material/Verified';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import BadgesContent from './BadgesContent';
+import DatathonContent from './DatathonContent';
 
 const Resources = () => {
     const [value, setValue] = useState(0);
@@ -106,7 +108,8 @@ const Resources = () => {
     const categories = [
         { label: 'Meeting Slides', icon: <SlideshowIcon />, key: 'slides' },
         { label: 'Videos', icon: <VideoLibraryIcon />, key: 'videos' },
-        { label: 'Digital Badges', icon: <VerifiedIcon />, key: 'badges' }
+        { label: 'Digital Badges', icon: <VerifiedIcon />, key: 'badges' },
+        { label: 'Datathon', icon: <EmojiEventsIcon />, key: 'datathon' }
     ];
 
     const containerVariants = {
@@ -141,7 +144,7 @@ const Resources = () => {
     return (
         <Box sx={{ py: 9, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
-                <Box sx={{ textAlign: 'center', mb: { xs: 3, sm: 0.45 } }}>
+                <Box sx={{ textAlign: 'center', mb: { xs: 2.7, sm: 2.7, md: 1 } }}>
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -155,12 +158,12 @@ const Resources = () => {
                             component="h1"
                             sx={{
                                 fontWeight: 'bold',
-                                fontSize: { xs: '2.2rem', sm: '2.25rem', md: '2.7rem' },
+                                fontSize: { xs: '2rem', sm: '2rem', md: '2.45rem' },
                                 background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
                                 WebkitBackgroundClip: 'text',
                                 WebkitTextFillColor: 'transparent',
                                 backgroundClip: 'text',
-                                textShadow: '0 0 10.8px rgba(70,255,249,0.25), 0 0 21.6px rgba(41,105,157,0.2)'
+                                textShadow: '0 0 9.7px rgba(70,255,249,0.15), 0 0 19.4px rgba(41,105,157,0.2)'
                             }}
                         >
                             Learn by Doing
@@ -168,7 +171,7 @@ const Resources = () => {
                     </motion.div>
                 </Box>
 
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: { xs: 4, sm: 1.8 } }}>
+                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: { xs: 3.6, sm: 1.6 } }}>
                     <Tabs
                         value={value}
                         onChange={handleChange}
@@ -176,8 +179,8 @@ const Resources = () => {
                         scrollButtons="auto"
                         sx={{
                             '& .MuiTab-root': {
-                                minHeight: { xs: 43.2, sm: 50.4, md: 57.6 },
-                                fontSize: { xs: '0.81rem', sm: '0.9rem' },
+                                minHeight: { xs: 39, sm: 45, md: 52 },
+                                fontSize: { xs: '0.73rem', sm: '0.81rem' },
                                 color: 'white',
                                 '&.Mui-selected': {
                                     color: 'white'
@@ -202,7 +205,9 @@ const Resources = () => {
                     variants={containerVariants}
                 >
                     <AnimatePresence mode="wait" key={value}>
-                        {categories[value].key === 'badges' ? (
+                        {categories[value].key === 'datathon' ? (
+                            <DatathonContent />
+                        ) : categories[value].key === 'badges' ? (
                             <BadgesContent />
                         ) : (
                             <Grid container spacing={{ xs: 2.7, sm: 3.6, md: 5.4 }} justifyContent="center">
