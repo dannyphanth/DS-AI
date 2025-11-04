@@ -4,6 +4,45 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
+        id: 'datathon-prep-workshop',
+        title: 'Datathon Prep Workshop',
+        date: 'November 6, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm11-datathon_prep_workshop.png',
+        description: 'This Datathon Prep Workshop covers key tools, competition prep, and teamwork tips to help you crush it at Data Royale.',
+        registrationLink: '#'
+    },
+    {
+        id: 'data-royale-datathon',
+        title: 'Data Royale Datathon',
+        date: 'November 10-14, 2025',
+        time: 'Opening - Nov 11 @ 9 AM',
+        location: 'BSC Ursa Minor',
+        type: 'Datathon',
+        iconType: 'EmojiEventsIcon',
+        image: '/cr_datathon1.png',
+        description: 'Join us for Data Royale, our semiannual 5-day datathon where competition meets learning! Whether you\'re a beginner or seasoned data scientist, compete with teams on analyzing and gaining insights on a given dataset, learn from industry professionals, and clash your way to become the data champion!',
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform'
+    },
+    {
+        id: 'clash-royale-tournament',
+        title: 'Clash Royale Tournament',
+        date: 'November 10, 2025',
+        time: '2:00 PM - 4:00 PM',
+        location: 'BSC Ursa Minor',
+        type: 'Datathon',
+        iconType: 'EmojiEventsIcon',
+        image: '/datathonEvent-clash_royale_tournament.png',
+        description: 'After the Data Royale kickoff, we\'re hosting a Mini Clash Royale Tournament to close out the evening. Expect quick matches, friendly competition, and a chance to recharge with the community before the rest of Datathon week.',
+        registrationLink: '#'
+    }
+];
+
+export const pastEvents = [
+    {
         id: 'gm9-linear-regression-neural-networks',
         title: 'Creating Linear Regression Neural Networks',
         date: 'October 23, 2025',
@@ -26,10 +65,7 @@ export const upcomingEvents = [
         image: '/social-halloween.png',
         description: 'Join us for a spooky Halloween social! Come dressed in costume, enjoy treats, and celebrate Halloween with your DS&AI community.',
         registrationLink: '#'
-    }
-];
-
-export const pastEvents = [
+    },
     {
         id: 'boba-social-fundraiser',
         title: 'Boba Social + Fundraiser',

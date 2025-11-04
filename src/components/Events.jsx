@@ -341,7 +341,7 @@ const Events = () => {
                                     {event.description}
                                 </Typography>
 
-                                {showRSVP && (
+                                {(showRSVP || (event.registrationLink && event.registrationLink !== '#')) && (
                                     <Button
                                         variant="contained"
                                         color="primary"
@@ -365,7 +365,7 @@ const Events = () => {
                                             }
                                         }}
                                     >
-                                        RSVP
+                                        {event.type === 'Datathon' ? 'Register Now' : 'RSVP'}
                                     </Button>
                                 )}
                             </Box>

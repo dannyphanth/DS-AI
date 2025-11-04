@@ -75,7 +75,7 @@ const Navbar = () => {
                                 <ListItemText
                                     primary={item.name}
                                     primaryTypographyProps={{
-                                        fontSize: '0.9rem',
+                                        fontSize: '0.99rem',
                                         fontWeight: 600,
                                         letterSpacing: 0.45,
                                         textAlign: 'center',
@@ -128,7 +128,7 @@ const Navbar = () => {
                                     sx={{
                                         color: 'white',
                                         fontWeight: 500,
-                                        fontSize: '0.9rem',
+                                        fontSize: '0.99rem',
                                         letterSpacing: 0.9,
                                         px: 1.8,
                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
