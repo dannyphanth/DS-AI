@@ -37,7 +37,7 @@ export const upcomingEvents = [
         iconType: 'EmojiEventsIcon',
         image: '/datathonEvent-clash_royale_tournament.png',
         description: 'After the Data Royale kickoff, we\'re hosting a Mini Clash Royale Tournament to close out the evening. Expect quick matches, friendly competition, and a chance to recharge with the community before the rest of Datathon week.',
-        registrationLink: '#'
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSefUxzK239EJhDfK04EShKj6RZu-d2tR-rzRMGvM79FPVl3mg/viewform'
     }
 ];
 
