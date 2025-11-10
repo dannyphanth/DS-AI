@@ -10,10 +10,24 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { upcomingEvents, pastEvents } from '../data/eventsData';
+import { useEventTimer } from '../hooks/useEventTimer';
+import EventQRCodeBadge from './EventQRCodeBadge';
+import EventQRCodePopup from './EventQRCodePopup';
+
+// Global configuration for QR code and sign-in form
+const SIGN_IN_FORM_URL = 'https://forms.gle/placeholder-signin-url'; // TODO: Replace with actual sign-in form URL
+const QR_CODE_IMAGE_PATH = ''; // Path to the QR code image
 
 const Events = () => {
     const [searchParams] = useSearchParams();
     const expandedEventId = searchParams.get('event');
+
+    // Internal clock system - updates every minute and categorizes events
+    const { ongoingEvents, upcomingEvents: categorizedUpcoming, pastEvents: categorizedPast } = useEventTimer(upcomingEvents, pastEvents);
+
+    // QR Code popup state
+    const [qrPopupOpen, setQrPopupOpen] = useState(false);
+    const [selectedEventForQR, setSelectedEventForQR] = useState(null);
 
     // Remove previous global scroll-to-top; per-card scroll is implemented below
     // useEffect(() => {
@@ -45,13 +59,29 @@ const Events = () => {
 
     const [eventType, setEventType] = useState('upcoming');
 
+    // Determine which events to display based on selected type
+    const displayEvents = eventType === 'upcoming'
+        ? [...ongoingEvents, ...categorizedUpcoming] // Show ongoing + upcoming
+        : categorizedPast;
+
     // Find the first upcoming social event
-    const firstUpcomingSocial = upcomingEvents.find(e => e.type === 'Social');
+    const firstUpcomingSocial = categorizedUpcoming.find(e => e.type === 'Social') || ongoingEvents.find(e => e.type === 'Social');
 
     const handleEventTypeChange = (event, newEventType) => {
         if (newEventType !== null) {
             setEventType(newEventType);
         }
+    };
+
+    // Handle QR code badge click
+    const handleQRCodeClick = (event) => {
+        setSelectedEventForQR(event);
+        setQrPopupOpen(true);
+    };
+
+    // Check if event is ongoing and is a General Meeting
+    const isOngoingGeneralMeeting = (event) => {
+        return ongoingEvents.some(ongoing => ongoing.id === event.id) && event.type === 'General Meeting';
     };
 
     // Auto-fit text to one line by reducing font-size until it fits (down to a min)
@@ -102,7 +132,7 @@ const Events = () => {
         );
     };
 
-    const EventCard = ({ event, isPast = false, showRSVP = false }) => {
+    const EventCard = ({ event, isPast = false, showRSVP = false, isOngoing = false, onQRCodeClick }) => {
         const [expanded, setExpanded] = useState(false);
         const detailsRef = useRef(null);
 
@@ -158,12 +188,22 @@ const Events = () => {
                         boxShadow: '0 4px 20px rgb(1, 0, 0)',
                         transition: 'transform 0.2s',
                         opacity: isPast ? 0.8 : 1,
+                        position: 'relative', // Needed for absolute positioning of badge
+                        overflow: 'visible', // Allow badge to extend beyond card border
                         '&:hover': {
                             transform: 'translateY(-8px)',
                             boxShadow: '0 8px 30px rgba(41, 105, 157, 0.8)'
                         }
                     }}
                 >
+                    {/* QR Code Badge - only show for ongoing General Meetings */}
+                    {isOngoing && onQRCodeClick && (
+                        <EventQRCodeBadge onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            onQRCodeClick(event);
+                        }} />
+                    )}
                     <CardMedia
                         component="img"
                         height="350"
@@ -440,20 +480,32 @@ const Events = () => {
                     variants={containerVariants}
                 >
                     <Grid container spacing={3} justifyContent="center">
-                        {eventType === 'upcoming'
-                            ? upcomingEvents.map((event, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                                    <EventCard event={event} showRSVP={firstUpcomingSocial && firstUpcomingSocial.id === event.id} />
+                        {displayEvents.map((event, index) => {
+                            const isPast = categorizedPast.some(past => past.id === event.id);
+                            const isOngoing = isOngoingGeneralMeeting(event);
+                            return (
+                                <Grid item xs={12} sm={6} md={4} key={event.id || index} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                    <EventCard
+                                        event={event}
+                                        isPast={isPast}
+                                        isOngoing={isOngoing}
+                                        showRSVP={firstUpcomingSocial && firstUpcomingSocial.id === event.id}
+                                        onQRCodeClick={handleQRCodeClick}
+                                    />
                                 </Grid>
-                            ))
-                            : pastEvents.map((event, index) => (
-                                <Grid item xs={12} sm={6} md={4} key={index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                                    <EventCard event={event} isPast={true} />
-                                </Grid>
-                            ))
-                        }
+                            );
+                        })}
                     </Grid>
                 </motion.div>
+
+                {/* QR Code Popup Modal */}
+                <EventQRCodePopup
+                    open={qrPopupOpen}
+                    onClose={() => setQrPopupOpen(false)}
+                    event={selectedEventForQR}
+                    qrCodeImagePath={QR_CODE_IMAGE_PATH}
+                    signInFormUrl={SIGN_IN_FORM_URL}
+                />
             </Container>
         </Box>
     );

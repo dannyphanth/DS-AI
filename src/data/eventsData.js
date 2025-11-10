@@ -4,18 +4,6 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export const upcomingEvents = [
     {
-        id: 'datathon-prep-workshop',
-        title: 'Datathon Prep Workshop',
-        date: 'November 6, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 3, Room 2636',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/gm11-datathon_prep_workshop.png',
-        description: 'This Datathon Prep Workshop covers key tools, competition prep, and teamwork tips to help you crush it at Data Royale.',
-        registrationLink: '#'
-    },
-    {
         id: 'data-royale-datathon',
         title: 'Data Royale Datathon',
         date: 'November 10-14, 2025',
@@ -26,6 +14,18 @@ export const upcomingEvents = [
         image: '/cr_datathon1.png',
         description: 'Join us for Data Royale, our semiannual 5-day datathon where competition meets learning! Whether you\'re a beginner or seasoned data scientist, compete with teams on analyzing and gaining insights on a given dataset, learn from industry professionals, and clash your way to become the data champion!',
         registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform'
+    },
+    {
+        id: 'boba-fundraiser-nov14',
+        title: 'Boba Fundraiser',
+        date: 'November 14, 2025',
+        time: '11:00 AM - 11:00 PM',
+        location: 'Goomo Tea Shop',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-boba2.png',
+        description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
+        registrationLink: '#'
     },
     {
         id: 'clash-royale-tournament',
@@ -42,6 +42,18 @@ export const upcomingEvents = [
 ];
 
 export const pastEvents = [
+    {
+        id: 'datathon-prep-workshop',
+        title: 'Datathon Prep Workshop',
+        date: 'November 6, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm11-datathon_prep_workshop.png',
+        description: 'This Datathon Prep Workshop covers key tools, competition prep, and teamwork tips to help you crush it at Data Royale.',
+        registrationLink: '#'
+    },
     {
         id: 'gm9-linear-regression-neural-networks',
         title: 'Creating Linear Regression Neural Networks',
@@ -123,7 +135,7 @@ export const pastEvents = [
         type: 'Social',
         iconType: 'GroupIcon',
         image: '/social-movie_trivia.png',
-        description: 'Think you know your movies? Team up and put your film knowledge to the test with trivia rounds covering everything from cult classics to box office hits. At the same time, 📚 + 🎬 = the perfect night—bring your homework, kick back with friends, and enjoy a relaxed evening of studying, snacks, and trivia breaks. A fun way to unwind while still staying productive!',
+        description: 'Think you know your movies? Team up and put your film knowledge to the test with trivia rounds covering everything from cult classics to box office hits. At the same time, 🎒 + 🎬 = the perfect night—bring your homework, kick back with friends, and enjoy a relaxed evening of studying, snacks, and trivia breaks. A fun way to unwind while still staying productive!',
         registrationLink: '#'
     },
     {
@@ -152,7 +164,7 @@ export const pastEvents = [
     },
     {
         id: 'reus-101',
-        title: 'REUs 101',
+        title: 'DS&AI Advisor\'s Talk',
         date: 'September 25, 2025',
         time: '12:00 PM - 1:00 PM',
         location: 'Building 3, Room 2636',
