@@ -16,6 +16,18 @@ export const upcomingEvents = [
         registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform'
     },
     {
+        id: 'sql-workshop-nov13',
+        title: 'SQL Workshop',
+        date: 'November 13, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 8, Room 302',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm12-sql.png',
+        description: 'Sharpen your database skills with a guided walkthrough of core SQL concepts, live query demos, and collaborative practice problems you can take back to your projects.',
+        registrationLink: '#'
+    },
+    {
         id: 'boba-fundraiser-nov14',
         title: 'Boba Fundraiser',
         date: 'November 14, 2025',
