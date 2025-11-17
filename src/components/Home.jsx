@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import MembershipCard from './MembershipCard';
 import KaggleCard from './KaggleCard';
 import DatathonCard from './DatathonCard';
-import HighlightEventCard from './HighlightEventCard';
+// import HighlightEventCard from './HighlightEventCard';
 import EventsCard from './EventsCard';
 import DigitalBadgesCard from './DigitalBadgesCard';
 
@@ -377,13 +377,8 @@ const Home = () => {
                         />
                     </Box>
                     <Box>
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 2, delay: 0.4 }}
-                        >
-                            <HighlightEventCard />
-                        </motion.div>
+                        {/* <HighlightEventCard /> */}
+                        {/* TODO: Re-enable HighlightEventCard when next highlight event is ready */}
                         <Divider
                             sx={{
                                 borderColor: 'rgba(156, 235, 255, 0.2)',

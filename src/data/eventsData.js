@@ -1,6 +1,7 @@
 import GroupIcon from '@mui/icons-material/Group';
 import SchoolIcon from '@mui/icons-material/School';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import { parseEventDateTime } from '../utils/eventHelpers';
 
 export const upcomingEvents = [
     {
@@ -37,7 +38,7 @@ export const upcomingEvents = [
         iconType: 'GroupIcon',
         image: '/social-boba2.png',
         description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
-        registrationLink: '#'
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYXAEzvb3t6tbha2VMdx6q-xozjqrfelQq6LlCVzx-PMriuA/viewform'
     },
     {
         id: 'clash-royale-tournament',
@@ -50,6 +51,54 @@ export const upcomingEvents = [
         image: '/datathonEvent-clash_royale_tournament.png',
         description: 'After the Data Royale kickoff, we\'re hosting a Mini Clash Royale Tournament to close out the evening. Expect quick matches, friendly competition, and a chance to recharge with the community before the rest of Datathon week.',
         registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSefUxzK239EJhDfK04EShKj6RZu-d2tR-rzRMGvM79FPVl3mg/viewform'
+    },
+    {
+        id: 'volleyball-social-nov17',
+        title: 'Volleyball Social',
+        date: 'November 17, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'BRIC Court 1 (MAC)',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social9-volleyball.png',
+        description: "Bump, set, hang out! It's volleyball night with DS&AI!",
+        registrationLink: '#'
+    },
+    {
+        id: 'picnic-games-nov24',
+        title: 'Picnic and Games',
+        date: 'November 24, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'TBA',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social10-picnic.png',
+        description: 'Pack a blanket, grab some friends, and wind down with lawn games, snacks, and DS&AI community vibes.',
+        registrationLink: '#'
+    },
+    {
+        id: 'board-games-study-dec1',
+        title: 'Board Games + Study',
+        date: 'December 1, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social11-games&study.png',
+        description: 'Bring homework, grab a game, and unwind with friends before finals.',
+        registrationLink: '#'
+    },
+    {
+        id: 'kaggle-presentations-dec4',
+        title: 'Kaggle Presentations',
+        date: 'December 4, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm14-kagglepresentations.png',
+        description: "Watch how our Kaggle teams transformed data into discovery! Join us for their presentations and learn how to get involved in next year's team.",
+        registrationLink: '#'
     }
 ];
 
@@ -274,5 +323,28 @@ export const pastEvents = [
 
 // Get the 3 most upcoming events for the CTA section
 export const getUpcomingEventsForCTA = () => {
-    return upcomingEvents.slice(0, 3);
+    const now = new Date();
+
+    const sorted = [...upcomingEvents]
+        .map(event => {
+            const dateInfo = parseEventDateTime(event);
+            return {
+                event,
+                startDate: dateInfo?.startDate ?? null
+            };
+        })
+        .sort((a, b) => {
+            if (!a.startDate && !b.startDate) return 0;
+            if (!a.startDate) return 1;
+            if (!b.startDate) return -1;
+            return a.startDate.getTime() - b.startDate.getTime();
+        });
+
+    return sorted
+        .filter(({ startDate }) => {
+            if (!startDate) return true;
+            return startDate >= now;
+        })
+        .slice(0, 3)
+        .map(({ event }) => event);
 }; 
