@@ -65,6 +65,18 @@ export const upcomingEvents = [
         registrationLink: '#'
     },
     {
+        id: 'interview-prep-nov20',
+        title: 'Interview Prep',
+        date: 'November 20, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm13-interviewprep.png',
+        description: 'Join us for our meeting covering interview preparation. Learn how to succeed in interviews, develop a portfolio, highlight strengths, and get the job you want!',
+        registrationLink: '#'
+    },
+    {
         id: 'picnic-games-nov24',
         title: 'Picnic and Games',
         date: 'November 24, 2025',
