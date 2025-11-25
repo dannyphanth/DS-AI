@@ -13,7 +13,6 @@ import {
     ToggleButton,
     ToggleButtonGroup
 } from '@mui/material';
-import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -42,9 +41,9 @@ const Contact = () => {
             message: "Hi! I'm a Senior majoring in Computer Science with a minor in Data Science. While I'm passionate about Data Science and AI, I also love working with embedded software and UAVs. If you ever have questions about CPP, computer science, or just want to chat, feel free to reach out! You can find me on Instagram @meganbee4, and if you're feeling extra adventurous, you can also connect with me on LinkedIn @megan-bee. Bonus points if you want to rally on the tennis court! 🎾",
             email: 'megan@dsai-club.edu',
             socials: {
-                linkedin: 'https://linkedin.com/in/megan',
-                github: 'https://github.com/megan',
-                instagram: 'https://instagram.com/megan'
+                linkedin: 'https://www.linkedin.com/in/megan-bee/',
+                github: 'https://github.com/Mbee0',
+                instagram: 'https://www.instagram.com/meganbee4'
             }
         },
         {
@@ -52,10 +51,10 @@ const Contact = () => {
             position: 'Vice President',
             image: '/JosieWeb.JPG',
             message: "Hello! I'm a junior majoring in Computer Science with a concentration in Data Science. I'm still dabbling in the different areas, but I really like web design and utilizing knowledge bases. I like playing video games, listening to music, and drinking coffee (sorry, I'm a matcha disliker). You can catch me doom-scrolling on Instagram @joseliiiiiine or attempting to look professional on LinkedIn as Joseline Ly! Feel free to drop any recs or fun games that you enjoy!",
-            email: 'joseline@dsai-club.edu',
+            email: 'joseline.cly@gmail.com',
             socials: {
-                linkedin: 'https://linkedin.com/in/joseline',
-                github: 'https://github.com/joseline',
+                linkedin: 'https://www.linkedin.com/in/joseline-ly/',
+                github: 'https://github.com/totoraemon',
                 instagram: 'https://instagram.com/joseline'
             }
         },
@@ -66,9 +65,9 @@ const Contact = () => {
             message: 'Hey! I’m a 5th-year Computer Science undergrad minoring in Data Science and Cybersecurity. I’m interested in where those two areas overlap, whether that’s applying machine learning to security processes or rethinking how we handle data in secure spaces.  Outside of school, you’ll usually find me at a concert or festival, adding to my vinyl collection, or exploring new food spots.',
             email: 'erika@dsai-club.edu',
             socials: {
-                linkedin: 'https://linkedin.com/in/erika',
-                github: 'https://github.com/erika',
-                instagram: 'https://instagram.com/erika'
+                linkedin: 'https://www.linkedin.com/in/arminerika',
+                github: '',
+                instagram: ''
             }
         },
         {
@@ -78,9 +77,9 @@ const Contact = () => {
             message: 'Hello reader! I’m a junior majoring in Computer Science, focusing on the topic of machine learning. In my free time, I enjoy playing video games, sports such as volleyball and tennis, and netflixing. You can find me on Instagram @myunwon_  or look on my LinkedIn as Paul Myung. Hmu to play any fps game or PEAK games!',
             email: 'paul@dsai-club.edu',
             socials: {
-                linkedin: 'https://linkedin.com/in/paul',
-                github: 'https://github.com/paul',
-                instagram: 'https://instagram.com/paul'
+                linkedin: 'https://www.linkedin.com/in/paul-myung/',
+                github: 'https://github.com/Myunwon',
+                instagram: 'https://www.instagram.com/myunwon_'
             }
         },
         {
@@ -102,9 +101,9 @@ const Contact = () => {
             message: "Hi! I am a 5th year studying Computer Science with a minor in Data Science. I plan to strengthen my skills in ML and AI, and bring impact into various fields such as business, retail, and finance industries. Aside from studies, I really enjoy watching sports (NBA, MLB, UFC, F1), eating food, playing clash royale, drinking abnormal amounts of caffeine, working out, and listening to EDM. My door is always open to chat about projects, career, or hobbies! :3",
             email: 'brandon@dsai-club.edu',
             socials: {
-                linkedin: 'https://linkedin.com/in/brandon',
-                github: 'https://github.com/brandon',
-                instagram: 'https://instagram.com/barndon'
+                linkedin: 'https://www.linkedin.com/in/brandon-btang/',
+                github: 'https://github.com/BrandonTang95',
+                instagram: ''
             }
         },
         {
@@ -114,9 +113,9 @@ const Contact = () => {
             message: "Hello! I'm currently a senior majoring in Computer Science. My inspiration has always been to make a difference at the frontiers of technology. From gaming to creating real-world applications, I've discovered a passion for combining creativity and problem-solving while making something impactful. I absolutely love everything sci-fi and cyberpunk themed, with Ready Player One being one of my favorites.",
             email: 'daniel@dsai-club.edu',
             socials: {
-                linkedin: 'https://linkedin.com/in/daniel',
-                github: 'https://github.com/daniel',
-                instagram: 'https://instagram.com/daniel'
+                linkedin: 'https://www.linkedin.com/in/daniel-caceres-7703b121b/',
+                github: 'https://github.com/dannyphanth',
+                instagram: 'https://www.instagram.com/dannyphanth'
             }
         },
         {
@@ -338,18 +337,6 @@ const Contact = () => {
                                         </Typography>
 
                                         <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mt: 'auto', mb: 1 }}>
-                                            <IconButton
-                                                href={`mailto:${member.email}`}
-                                                sx={{
-                                                    color: 'rgb(48, 164, 199)',
-                                                    filter: 'drop-shadow(0 0 10.8px rgb(0, 0, 0))',
-                                                    '&:hover': {
-                                                        backgroundColor: 'rgba(48, 184, 199, 0.1)'
-                                                    }
-                                                }}
-                                            >
-                                                <EmailIcon />
-                                            </IconButton>
                                             {member.socials.linkedin && (
                                                 <IconButton
                                                     href={member.socials.linkedin}
