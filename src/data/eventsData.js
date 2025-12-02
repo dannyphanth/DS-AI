@@ -5,100 +5,16 @@ import { parseEventDateTime } from '../utils/eventHelpers';
 
 export const upcomingEvents = [
     {
-        id: 'data-royale-datathon',
-        title: 'Data Royale Datathon',
-        date: 'November 10-14, 2025',
-        time: 'Opening - Nov 11 @ 9 AM',
+        id: 'cs-club-winter-wonderland-dec3',
+        title: 'CS Club’s Winter Wonderland',
+        date: 'December 3, 2025',
+        time: '5:30 PM - 8:00 PM',
         location: 'BSC Ursa Minor',
-        type: 'Datathon',
-        iconType: 'EmojiEventsIcon',
-        image: '/cr_datathon1.png',
-        description: 'Join us for Data Royale, our semiannual 5-day datathon where competition meets learning! Whether you\'re a beginner or seasoned data scientist, compete with teams on analyzing and gaining insights on a given dataset, learn from industry professionals, and clash your way to become the data champion!',
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform'
-    },
-    {
-        id: 'sql-workshop-nov13',
-        title: 'SQL Workshop',
-        date: 'November 13, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 8, Room 302',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/gm12-sql.png',
-        description: 'Sharpen your database skills with a guided walkthrough of core SQL concepts, live query demos, and collaborative practice problems you can take back to your projects.',
-        registrationLink: '#'
-    },
-    {
-        id: 'boba-fundraiser-nov14',
-        title: 'Boba Fundraiser',
-        date: 'November 14, 2025',
-        time: '11:00 AM - 11:00 PM',
-        location: 'Goomo Tea Shop',
         type: 'Social',
         iconType: 'GroupIcon',
-        image: '/social-boba2.png',
-        description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYXAEzvb3t6tbha2VMdx6q-xozjqrfelQq6LlCVzx-PMriuA/viewform'
-    },
-    {
-        id: 'clash-royale-tournament',
-        title: 'Clash Royale Tournament',
-        date: 'November 10, 2025',
-        time: '2:00 PM - 4:00 PM',
-        location: 'BSC Ursa Minor',
-        type: 'Datathon',
-        iconType: 'EmojiEventsIcon',
-        image: '/datathonEvent-clash_royale_tournament.png',
-        description: 'After the Data Royale kickoff, we\'re hosting a Mini Clash Royale Tournament to close out the evening. Expect quick matches, friendly competition, and a chance to recharge with the community before the rest of Datathon week.',
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSefUxzK239EJhDfK04EShKj6RZu-d2tR-rzRMGvM79FPVl3mg/viewform'
-    },
-    {
-        id: 'volleyball-social-nov17',
-        title: 'Volleyball Social',
-        date: 'November 17, 2025',
-        time: '5:30 PM - 8:00 PM',
-        location: 'BRIC Court 1 (MAC)',
-        type: 'Social',
-        iconType: 'GroupIcon',
-        image: '/social9-volleyball.png',
-        description: "Bump, set, hang out! It's volleyball night with DS&AI!",
-        registrationLink: '#'
-    },
-    {
-        id: 'interview-prep-nov20',
-        title: 'Interview Prep',
-        date: 'November 20, 2025',
-        time: '12:00 PM - 1:00 PM',
-        location: 'Building 3, Room 2636',
-        type: 'General Meeting',
-        iconType: 'SchoolIcon',
-        image: '/gm13-interviewprep.png',
-        description: 'Join us for our meeting covering interview preparation. Learn how to succeed in interviews, develop a portfolio, highlight strengths, and get the job you want!',
-        registrationLink: '#'
-    },
-    {
-        id: 'picnic-games-nov24',
-        title: 'Picnic and Games',
-        date: 'November 24, 2025',
-        time: '5:30 PM - 8:00 PM',
-        location: 'TBA',
-        type: 'Social',
-        iconType: 'GroupIcon',
-        image: '/social10-picnic.png',
-        description: 'Pack a blanket, grab some friends, and wind down with lawn games, snacks, and DS&AI community vibes.',
-        registrationLink: '#'
-    },
-    {
-        id: 'board-games-study-dec1',
-        title: 'Board Games + Study',
-        date: 'December 1, 2025',
-        time: '5:30 PM - 8:00 PM',
-        location: 'Building 3, Room 2636',
-        type: 'Social',
-        iconType: 'GroupIcon',
-        image: '/social11-games&study.png',
-        description: 'Bring homework, grab a game, and unwind with friends before finals.',
-        registrationLink: '#'
+        image: '/csclub-winterwonderland.png',
+        description: 'Step into the holiday season with us at CS Winter Wonderland. This end-of-semester hangout brings together the CS clubs for movies, games, activities, snacks, and good company.',
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScFb-MLt0hdgzeS0jL5eNU_607IN5MmFAdboVe-fNLc2tz19w/viewform'
     },
     {
         id: 'kaggle-presentations-dec4',
@@ -115,6 +31,102 @@ export const upcomingEvents = [
 ];
 
 export const pastEvents = [
+    {
+        id: 'board-games-study-dec1',
+        title: 'Board Games + Study',
+        date: 'December 1, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social11-games&study.png',
+        description: 'Bring homework, grab a game, and unwind with friends before finals.',
+        registrationLink: '#'
+    },
+    {
+        id: 'picnic-games-nov24',
+        title: 'Picnic and Games',
+        date: 'November 24, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'TBA',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social10-picnic.png',
+        description: 'Pack a blanket, grab some friends, and wind down with lawn games, snacks, and DS&AI community vibes.',
+        registrationLink: '#'
+    },
+    {
+        id: 'interview-prep-nov20',
+        title: 'Interview Prep',
+        date: 'November 20, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm13-interviewprep.png',
+        description: 'Join us for our meeting covering interview preparation. Learn how to succeed in interviews, develop a portfolio, highlight strengths, and get the job you want!',
+        registrationLink: '#'
+    },
+    {
+        id: 'volleyball-social-nov17',
+        title: 'Volleyball Social',
+        date: 'November 17, 2025',
+        time: '5:30 PM - 8:00 PM',
+        location: 'BRIC Court 1 (MAC)',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social9-volleyball.png',
+        description: "Bump, set, hang out! It's volleyball night with DS&AI!",
+        registrationLink: '#'
+    },
+    {
+        id: 'boba-fundraiser-nov14',
+        title: 'Boba Fundraiser',
+        date: 'November 14, 2025',
+        time: '11:00 AM - 11:00 PM',
+        location: 'Goomo Tea Shop',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-boba2.png',
+        description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYXAEzvb3t6tbha2VMdx6q-xozjqrfelQq6LlCVzx-PMriuA/viewform'
+    },
+    {
+        id: 'sql-workshop-nov13',
+        title: 'SQL Workshop',
+        date: 'November 13, 2025',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 8, Room 302',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm12-sql.png',
+        description: 'Sharpen your database skills with a guided walkthrough of core SQL concepts, live query demos, and collaborative practice problems you can take back to your projects.',
+        registrationLink: '#'
+    },
+    {
+        id: 'clash-royale-tournament',
+        title: 'Clash Royale Tournament',
+        date: 'November 10, 2025',
+        time: '2:00 PM - 4:00 PM',
+        location: 'BSC Ursa Minor',
+        type: 'Datathon',
+        iconType: 'EmojiEventsIcon',
+        image: '/datathonEvent-clash_royale_tournament.png',
+        description: 'After the Data Royale kickoff, we\'re hosting a Mini Clash Royale Tournament to close out the evening. Expect quick matches, friendly competition, and a chance to recharge with the community before the rest of Datathon week.',
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSefUxzK239EJhDfK04EShKj6RZu-d2tR-rzRMGvM79FPVl3mg/viewform'
+    },
+    {
+        id: 'data-royale-datathon',
+        title: 'Data Royale Datathon',
+        date: 'November 10-14, 2025',
+        time: 'Opening - Nov 11 @ 9 AM',
+        location: 'BSC Ursa Minor',
+        type: 'Datathon',
+        iconType: 'EmojiEventsIcon',
+        image: '/cr_datathon1.png',
+        description: 'Join us for Data Royale, our semiannual 5-day datathon where competition meets learning! Whether you\'re a beginner or seasoned data scientist, compete with teams on analyzing and gaining insights on a given dataset, learn from industry professionals, and clash your way to become the data champion!',
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform'
+    },
     {
         id: 'datathon-prep-workshop',
         title: 'Datathon Prep Workshop',
