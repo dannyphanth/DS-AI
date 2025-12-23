@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Box, Modal, IconButton } from '@mui/material';
+import { Box, Modal, IconButton, Button, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
 /**
  * Modal popup component that displays the QR code for event sign-in
@@ -39,6 +40,7 @@ const EventQRCodePopup = ({ open, onClose, event, qrCodeImagePath, signInFormUrl
                     width: '100%',
                     outline: 'none',
                     display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'center',
                     alignItems: 'center',
                     backgroundColor: 'white',
@@ -91,6 +93,33 @@ const EventQRCodePopup = ({ open, onClose, event, qrCodeImagePath, signInFormUrl
                     >
                         QR Code image not found
                     </Box>
+                )}
+
+                {/* Sign In Link Button */}
+                {signInFormUrl && (
+                    <Button
+                        component="a"
+                        href={signInFormUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="contained"
+                        endIcon={<OpenInNewIcon />}
+                        sx={{
+                            mt: 2,
+                            backgroundColor: '#0a192f',
+                            color: 'white',
+                            textTransform: 'none',
+                            fontWeight: 600,
+                            px: 3,
+                            py: 1,
+                            borderRadius: 2,
+                            '&:hover': {
+                                backgroundColor: '#112240',
+                            },
+                        }}
+                    >
+                        Sign In Here
+                    </Button>
                 )}
             </Box>
         </Modal>

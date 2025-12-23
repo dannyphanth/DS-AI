@@ -253,6 +253,76 @@ const EventsCard = () => {
                             Upcoming Events
                         </Typography>
 
+                        {visibleEvents.length === 0 ? (
+                            /* No Upcoming Events State */
+                            <Box sx={{
+                                width: '100%',
+                                height: { xs: '260px', sm: `${320 * scaleFactor}px` },
+                                minHeight: { xs: '260px', sm: `${320 * scaleFactor}px` },
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'flex-start',
+                                alignItems: 'center',
+                                gap: 1.5,
+                                px: 3,
+                                pt: { xs: 2, sm: 3 },
+                            }}>
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.8 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                                >
+                                    <Box sx={{
+                                        width: 80,
+                                        height: 80,
+                                        borderRadius: '50%',
+                                        background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.2) 0%, rgba(70, 255, 249, 0.1) 100%)',
+                                        border: '2px solid rgba(48, 164, 199, 0.3)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        mb: 1,
+                                    }}>
+                                        <CalendarTodayIcon sx={{ fontSize: 36, color: 'rgba(156, 235, 255, 0.7)' }} />
+                                    </Box>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.2 }}
+                                >
+                                    <Typography
+                                        variant="h6"
+                                        sx={{
+                                            color: 'rgba(156, 235, 255, 0.9)',
+                                            fontWeight: 600,
+                                            textAlign: 'center',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                        }}
+                                    >
+                                        No Upcoming Events
+                                    </Typography>
+                                </motion.div>
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, delay: 0.3 }}
+                                >
+                                    <Typography
+                                        variant="body2"
+                                        sx={{
+                                            color: 'rgba(156, 235, 255, 0.6)',
+                                            textAlign: 'center',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            maxWidth: 280,
+                                            lineHeight: 1.5,
+                                        }}
+                                    >
+                                        We're on winter break! Check back soon for exciting events next semester.
+                                    </Typography>
+                                </motion.div>
+                            </Box>
+                        ) : (
                         <Box sx={{
                             position: 'relative',
                             width: '100%',
@@ -376,6 +446,7 @@ const EventsCard = () => {
                                 </motion.div>
                             ))}
                         </Box>
+                        )}
                     </Box>
                 </Box>
             </Box>

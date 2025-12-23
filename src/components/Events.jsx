@@ -8,6 +8,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import SchoolIcon from '@mui/icons-material/School';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import AcUnitIcon from '@mui/icons-material/AcUnit';
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { upcomingEvents, pastEvents } from '../data/eventsData';
 import { useEventTimer } from '../hooks/useEventTimer';
@@ -15,8 +16,8 @@ import EventQRCodeBadge from './EventQRCodeBadge';
 import EventQRCodePopup from './EventQRCodePopup';
 
 // Global configuration for QR code and sign-in form
-const SIGN_IN_FORM_URL = 'https://forms.gle/placeholder-signin-url'; // TODO: Replace with actual sign-in form URL
-const QR_CODE_IMAGE_PATH = ''; // Path to the QR code image
+const SIGN_IN_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSedenKpxqNruUZzU81JdiCcwcz8tiKWx1zN-i3ccBFqJKdXzQ/viewform';
+const QR_CODE_IMAGE_PATH = '/DSAI_Sign-In_QR_Code.png'; // Path to the QR code image
 
 const Events = () => {
     const [searchParams] = useSearchParams();
@@ -479,23 +480,111 @@ const Events = () => {
                     animate="visible"
                     variants={containerVariants}
                 >
-                    <Grid container spacing={3} justifyContent="center">
-                        {displayEvents.map((event, index) => {
-                            const isPast = categorizedPast.some(past => past.id === event.id);
-                            const isOngoing = isOngoingGeneralMeeting(event);
-                            return (
-                                <Grid item xs={12} sm={6} md={4} key={event.id || index} sx={{ display: 'flex', justifyContent: 'center' }}>
-                                    <EventCard
-                                        event={event}
-                                        isPast={isPast}
-                                        isOngoing={isOngoing}
-                                        showRSVP={firstUpcomingSocial && firstUpcomingSocial.id === event.id}
-                                        onQRCodeClick={handleQRCodeClick}
-                                    />
-                                </Grid>
-                            );
-                        })}
-                    </Grid>
+                    {displayEvents.length === 0 ? (
+                        /* No Events Empty State */
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'flex-start',
+                                pt: { xs: 4, md: 6 },
+                                pb: { xs: 8, md: 10 },
+                                px: 3,
+                            }}
+                        >
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                                animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                                transition={{ duration: 0.8, ease: 'easeOut' }}
+                            >
+                                <Box
+                                    sx={{
+                                        width: 100,
+                                        height: 100,
+                                        borderRadius: '50%',
+                                        background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.15) 0%, rgba(70, 255, 249, 0.08) 100%)',
+                                        border: '2px solid rgba(48, 164, 199, 0.25)',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        mb: 2.5,
+                                        position: 'relative',
+                                        '&::before': {
+                                            content: '""',
+                                            position: 'absolute',
+                                            inset: -8,
+                                            borderRadius: '50%',
+                                            border: '1px solid rgba(48, 164, 199, 0.1)',
+                                        },
+                                    }}
+                                >
+                                    {eventType === 'upcoming' ? (
+                                        <AcUnitIcon sx={{ fontSize: 44, color: 'rgba(156, 235, 255, 0.7)' }} />
+                                    ) : (
+                                        <CalendarTodayIcon sx={{ fontSize: 40, color: 'rgba(156, 235, 255, 0.7)' }} />
+                                    )}
+                                </Box>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                            >
+                                <Typography
+                                    variant="h4"
+                                    sx={{
+                                        color: 'rgba(156, 235, 255, 0.95)',
+                                        fontWeight: 700,
+                                        textAlign: 'center',
+                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                        mb: 1.5,
+                                    }}
+                                >
+                                    {eventType === 'upcoming' ? 'No Upcoming Events' : 'No Past Events'}
+                                </Typography>
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: 0.35 }}
+                            >
+                                <Typography
+                                    variant="body1"
+                                    sx={{
+                                        color: 'rgba(156, 235, 255, 0.6)',
+                                        textAlign: 'center',
+                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                        maxWidth: 420,
+                                        lineHeight: 1.7,
+                                        fontSize: '1.1rem',
+                                    }}
+                                >
+                                    {eventType === 'upcoming'
+                                        ? "We're currently on winter break! Stay tuned for exciting workshops, socials, and meetings when we return next semester."
+                                        : "No past events to show yet. Check back after our first events!"}
+                                </Typography>
+                            </motion.div>
+                        </Box>
+                    ) : (
+                        <Grid container spacing={3} justifyContent="center">
+                            {displayEvents.map((event, index) => {
+                                const isPast = categorizedPast.some(past => past.id === event.id);
+                                const isOngoing = isOngoingGeneralMeeting(event);
+                                return (
+                                    <Grid item xs={12} sm={6} md={4} key={event.id || index} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                        <EventCard
+                                            event={event}
+                                            isPast={isPast}
+                                            isOngoing={isOngoing}
+                                            showRSVP={firstUpcomingSocial && firstUpcomingSocial.id === event.id}
+                                            onQRCodeClick={handleQRCodeClick}
+                                        />
+                                    </Grid>
+                                );
+                            })}
+                        </Grid>
+                    )}
                 </motion.div>
 
                 {/* QR Code Popup Modal */}
