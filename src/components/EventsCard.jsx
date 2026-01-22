@@ -22,6 +22,7 @@ const EventsCard = () => {
     const visibleEvents = isXs ? upcomingEvents.slice(0, 2) : upcomingEvents;
     const totalEvents = visibleEvents.length;
     const midIndex = (totalEvents - 1) / 2;
+    const isSingleCard = totalEvents === 1;
     const isTwoCards = totalEvents === 2;
 
     // Scale function for different screen sizes
@@ -328,14 +329,14 @@ const EventsCard = () => {
                             width: '100%',
                             height: { xs: '260px', sm: `${320 * scaleFactor}px` },
                             minHeight: { xs: '260px', sm: `${320 * scaleFactor}px` },
-                            display: isTwoCards ? 'flex' : 'flex',
-                            justifyContent: isTwoCards ? 'center' : 'center',
-                            alignItems: 'flex-start',
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: isSingleCard ? 'center' : 'flex-start',
                             gap: isTwoCards ? 2 : 0,
                             overflow: 'visible',
                             perspective: '1200px',
                             // transformStyle: 'preserve-3d',
-                            minWidth: { xs: '100%', sm: isTwoCards ? '800px' : `${720 * scaleFactor}px` },
+                            minWidth: { xs: '100%', sm: isSingleCard ? 'auto' : (isTwoCards ? '800px' : `${720 * scaleFactor}px`) },
                             pt: 0,
                             mt: 0,
                             paddingTop: 0,
@@ -345,26 +346,26 @@ const EventsCard = () => {
                                 <motion.div
                                     key={event.title}
                                     initial={{
-                                        rotateY: isTwoCards ? 0 : -25,
-                                        rotateZ: isTwoCards ? 0 : -8,
-                                        x: isTwoCards ? 0 : -60 * index,
-                                        y: isTwoCards ? 0 : -20 * index,
+                                        rotateY: (isSingleCard || isTwoCards) ? 0 : -25,
+                                        rotateZ: (isSingleCard || isTwoCards) ? 0 : -8,
+                                        x: (isSingleCard || isTwoCards) ? 0 : -60 * index,
+                                        y: (isSingleCard || isTwoCards) ? 0 : -20 * index,
                                         zIndex: totalEvents - index,
                                         opacity: 0.7
                                     }}
                                     animate={{
-                                        rotateY: isTwoCards ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 30 : index === 2 ? -30 : 0)),
-                                        rotateZ: isTwoCards ? ((index - midIndex) * 6) : ((isXs || isTwoCards) ? ((index - midIndex) * 6) : ((index - 1) * 5)),
-                                        x: isTwoCards ? 0 : (isXs ? ((index - midIndex) * 165) : (index * 230 * scaleFactor - 240 * scaleFactor)),
-                                        y: isTwoCards ? Math.abs(index - midIndex) * 8 : ((isXs || isTwoCards) ? Math.abs(index - midIndex) * 8 : (index === 0 ? 8 : index === 2 ? 8 : 0)),
+                                        rotateY: (isSingleCard || isTwoCards) ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 30 : index === 2 ? -30 : 0)),
+                                        rotateZ: isSingleCard ? 0 : (isTwoCards ? ((index - midIndex) * 6) : ((isXs || isTwoCards) ? ((index - midIndex) * 6) : ((index - 1) * 5))),
+                                        x: (isSingleCard || isTwoCards) ? 0 : (isXs ? ((index - midIndex) * 165) : (index * 230 * scaleFactor - 240 * scaleFactor)),
+                                        y: isSingleCard ? 0 : (isTwoCards ? Math.abs(index - midIndex) * 8 : ((isXs || isTwoCards) ? Math.abs(index - midIndex) * 8 : (index === 0 ? 8 : index === 2 ? 8 : 0))),
                                         zIndex: totalEvents - index,
-                                        z: isTwoCards ? 0 : (index === 1 ? -70 : 0),
+                                        z: (isSingleCard || isTwoCards) ? 0 : (index === 1 ? -70 : 0),
                                         opacity: 1
                                     }}
                                     whileHover={{
-                                        rotateY: isTwoCards ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 20 : index === 2 ? -20 : 5)),
-                                        rotateZ: isTwoCards ? ((index - midIndex) * 8 + 2) : ((isXs || isTwoCards) ? ((index - midIndex) * 8 + 2) : ((index - 1) * 5 + 2)),
-                                        scale: isTwoCards ? 1.02 : ((isXs || isTwoCards) ? 1.02 : 1.08),
+                                        rotateY: (isSingleCard || isTwoCards) ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 20 : index === 2 ? -20 : 5)),
+                                        rotateZ: isSingleCard ? 0 : (isTwoCards ? ((index - midIndex) * 8 + 2) : ((isXs || isTwoCards) ? ((index - midIndex) * 8 + 2) : ((index - 1) * 5 + 2))),
+                                        scale: (isSingleCard || isTwoCards) ? 1.02 : ((isXs || isTwoCards) ? 1.02 : 1.08),
                                         zIndex: 10,
                                         transition: { duration: 0.3 }
                                     }}
@@ -374,7 +375,7 @@ const EventsCard = () => {
                                         ease: "easeOut"
                                     }}
                                     style={{
-                                        position: isTwoCards ? 'relative' : 'absolute',
+                                        position: (isSingleCard || isTwoCards) ? 'relative' : 'absolute',
                                         width: isXs ? 160 : 216 * scaleFactor,
                                         height: isXs ? 200 : 260 * scaleFactor,
                                         transformStyle: 'preserve-3d',

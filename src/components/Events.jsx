@@ -1,4 +1,6 @@
 import { Box, Container, Typography, Grid, Card, CardContent, CardMedia, Button, Chip, ToggleButton, ToggleButtonGroup, Collapse, IconButton } from '@mui/material';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -59,11 +61,20 @@ const Events = () => {
     };
 
     const [eventType, setEventType] = useState('upcoming');
+    const [currentPage, setCurrentPage] = useState(1);
+    const EVENTS_PER_PAGE = 9;
+
+    // Calculate pagination for past events
+    const totalPastPages = Math.ceil(categorizedPast.length / EVENTS_PER_PAGE);
+    const paginatedPastEvents = categorizedPast.slice(
+        (currentPage - 1) * EVENTS_PER_PAGE,
+        currentPage * EVENTS_PER_PAGE
+    );
 
     // Determine which events to display based on selected type
     const displayEvents = eventType === 'upcoming'
         ? [...ongoingEvents, ...categorizedUpcoming] // Show ongoing + upcoming
-        : categorizedPast;
+        : paginatedPastEvents;
 
     // Find the first upcoming social event
     const firstUpcomingSocial = categorizedUpcoming.find(e => e.type === 'Social') || ongoingEvents.find(e => e.type === 'Social');
@@ -71,7 +82,21 @@ const Events = () => {
     const handleEventTypeChange = (event, newEventType) => {
         if (newEventType !== null) {
             setEventType(newEventType);
+            setCurrentPage(1); // Reset to first page when switching tabs
         }
+    };
+
+    // Pagination handlers
+    const handlePrevPage = () => {
+        setCurrentPage(prev => Math.max(1, prev - 1));
+    };
+
+    const handleNextPage = () => {
+        setCurrentPage(prev => Math.min(totalPastPages, prev + 1));
+    };
+
+    const handlePageClick = (page) => {
+        setCurrentPage(page);
     };
 
     // Handle QR code badge click
@@ -409,6 +434,26 @@ const Events = () => {
                                         {event.type === 'Datathon' ? 'Register Now' : 'RSVP'}
                                     </Button>
                                 )}
+
+                                {/* Semester Label */}
+                                {event.semester && (
+                                    <Typography
+                                        variant="caption"
+                                        sx={{
+                                            display: 'block',
+                                            textAlign: 'center',
+                                            mt: 2,
+                                            pt: 1.5,
+                                            borderTop: '1px solid rgba(48, 184, 199, 0.2)',
+                                            color: 'rgba(156, 235, 255, 0.6)',
+                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                            fontSize: '0.75rem',
+                                            letterSpacing: '0.5px',
+                                        }}
+                                    >
+                                        {event.semester}
+                                    </Typography>
+                                )}
                             </Box>
                         </Collapse>
                     </CardContent>
@@ -584,6 +629,106 @@ const Events = () => {
                                 );
                             })}
                         </Grid>
+                    )}
+
+                    {/* Pagination Controls - Only show for past events with multiple pages */}
+                    {eventType === 'past' && totalPastPages > 1 && (
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                mt: 5,
+                                gap: 2,
+                            }}
+                        >
+                            {/* Arrow Controls & Page Number */}
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: 2,
+                                }}
+                            >
+                                <IconButton
+                                    onClick={handlePrevPage}
+                                    disabled={currentPage === 1}
+                                    sx={{
+                                        color: currentPage === 1 ? 'rgba(156, 235, 255, 0.3)' : 'rgba(156, 235, 255, 0.9)',
+                                        border: '1px solid',
+                                        borderColor: currentPage === 1 ? 'rgba(48, 184, 199, 0.2)' : 'rgba(48, 184, 199, 0.5)',
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(48, 184, 199, 0.1)',
+                                        },
+                                        '&.Mui-disabled': {
+                                            color: 'rgba(156, 235, 255, 0.3)',
+                                        },
+                                    }}
+                                >
+                                    <ChevronLeftIcon />
+                                </IconButton>
+
+                                <Typography
+                                    sx={{
+                                        color: 'rgba(156, 235, 255, 0.8)',
+                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                                        fontSize: '0.95rem',
+                                        minWidth: '100px',
+                                        textAlign: 'center',
+                                    }}
+                                >
+                                    Page {currentPage} of {totalPastPages}
+                                </Typography>
+
+                                <IconButton
+                                    onClick={handleNextPage}
+                                    disabled={currentPage === totalPastPages}
+                                    sx={{
+                                        color: currentPage === totalPastPages ? 'rgba(156, 235, 255, 0.3)' : 'rgba(156, 235, 255, 0.9)',
+                                        border: '1px solid',
+                                        borderColor: currentPage === totalPastPages ? 'rgba(48, 184, 199, 0.2)' : 'rgba(48, 184, 199, 0.5)',
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(48, 184, 199, 0.1)',
+                                        },
+                                        '&.Mui-disabled': {
+                                            color: 'rgba(156, 235, 255, 0.3)',
+                                        },
+                                    }}
+                                >
+                                    <ChevronRightIcon />
+                                </IconButton>
+                            </Box>
+
+                            {/* Dot Indicators */}
+                            <Box
+                                sx={{
+                                    display: 'flex',
+                                    gap: 1,
+                                }}
+                            >
+                                {Array.from({ length: totalPastPages }, (_, i) => i + 1).map((page) => (
+                                    <Box
+                                        key={page}
+                                        onClick={() => handlePageClick(page)}
+                                        sx={{
+                                            width: currentPage === page ? 24 : 10,
+                                            height: 10,
+                                            borderRadius: currentPage === page ? '5px' : '50%',
+                                            backgroundColor: currentPage === page
+                                                ? 'rgba(48, 184, 199, 0.9)'
+                                                : 'rgba(48, 184, 199, 0.3)',
+                                            cursor: 'pointer',
+                                            transition: 'all 0.3s ease',
+                                            '&:hover': {
+                                                backgroundColor: currentPage === page
+                                                    ? 'rgba(48, 184, 199, 1)'
+                                                    : 'rgba(48, 184, 199, 0.5)',
+                                            },
+                                        }}
+                                    />
+                                ))}
+                            </Box>
+                        </Box>
                     )}
                 </motion.div>
 
