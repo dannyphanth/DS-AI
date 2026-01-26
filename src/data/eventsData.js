@@ -5,6 +5,10 @@ import { parseEventDateTime } from '../utils/eventHelpers';
 
 export const upcomingEvents = [
 
+
+];
+
+export const pastEvents = [
     {
         id: 'spring-intro-meeting-jan22',
         title: 'Spring Intro Meeting',
@@ -17,11 +21,7 @@ export const upcomingEvents = [
         description: "Ready to dive into data? Come and join us at our semester kickoff this Thursday! We'll give you the lowdown on what the club is all about, share what we've got on the calendar, and introduce you to a community of passionate students.",
         registrationLink: '#',
         semester: "Spring '26"
-    }
-
-];
-
-export const pastEvents = [
+    },
     {
         id: 'kaggle-presentations-dec4',
         title: 'Kaggle Presentations',
