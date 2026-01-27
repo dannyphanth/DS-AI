@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button, Grid, Accordion, AccordionSummary, AccordionDetails, Divider, Tabs, Tab, IconButton } from '@mui/material';
+import { Box, Container, Typography, Button, Grid, Accordion, AccordionSummary, AccordionDetails, Divider, Tabs, Tab } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -8,10 +8,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import PresentToAllIcon from '@mui/icons-material/PresentToAll';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-import Tilt from 'react-parallax-tilt';
 
 const DatathonContent = () => {
     const containerVariants = {
@@ -65,6 +62,27 @@ const DatathonContent = () => {
     // Memories/Gallery data structure per year
     const pastDatathons = [
         {
+            year: 'Fall 2025',
+            title: 'Data Royale Datathon',
+            dataset: 'Clash Royale Game Data',
+            datasetDescription:
+                'Participants analyzed Clash Royale match data including card usage, win rates, battle outcomes, and player strategies to discover insights about competitive gameplay and deck building.',
+            flyer: '/datathonFall2025.png',
+            photos: [
+                { src: '/fall25_datathon1.png' },
+                { src: '/fall25_datathon2.png' },
+                { src: '/fall25_datathon3.png' },
+                { src: '/fall25_datathon4.png' },
+                { src: '/fall25_datathon5.png' },
+                { src: '/fall25_datathon6.png' },
+                { src: '/fall25_datathon7.png' },
+                { src: '/fall25_datathon8.png' },
+                { src: '/fall25_datathon9.png' },
+                { src: '/fall25_datathon10.png' },
+                { src: '/fall25_datathon11.png' },
+            ],
+        },
+        {
             year: 'Spring 2024',
             title: 'Bronco Datathon',
             dataset: 'Movie Industry Data',
@@ -72,32 +90,23 @@ const DatathonContent = () => {
                 'Participants analyzed movie industry data including box office performance, ratings, cast information, and genre trends to uncover insights about what makes movies successful.',
             flyer: '/datathonSpring2024.png',
             photos: [
-                { src: '/datathon1.jpg', },
-                { src: '/datathon2.jpg', },
-                { src: '/datathon3.jpg', },
-                { src: '/datathon4.jpg', },
-                { src: '/datathon5.jpg', },
-                { src: '/datathon1.jpg', },
-                { src: '/datathon2.jpg', },
-                { src: '/datathon3.jpg', },
-                { src: '/datathon4.jpg', },
-                { src: '/datathon5.jpg', },
-                { src: '/datathon1.jpg', },
-                { src: '/datathon2.jpg', },
-                { src: '/datathon3.jpg', },
-                { src: '/datathon4.jpg', },
-                { src: '/datathon5.jpg', },
+                { src: '/spring24_datathon1.jpg' },
+                { src: '/spring24_datathon2.jpg' },
+                { src: '/spring24_datathon3.jpg' },
+                { src: '/spring24_datathon4.jpg' },
+                { src: '/spring24_datathon5.jpg' },
+                { src: '/spring24_datathon1.jpg' },
+                { src: '/spring24_datathon2.jpg' },
+                { src: '/spring24_datathon3.jpg' },
+                { src: '/spring24_datathon4.jpg' },
+                { src: '/spring24_datathon5.jpg' },
+                { src: '/spring24_datathon1.jpg' },
+                { src: '/spring24_datathon2.jpg' },
+                { src: '/spring24_datathon3.jpg' },
+                { src: '/spring24_datathon4.jpg' },
+                { src: '/spring24_datathon5.jpg' },
             ],
         },
-        // Future entries can be appended here
-        // {
-        //   year: '2025',
-        //   title: 'Data Royale: Spring 2025',
-        //   dataset: 'Clash Royale Match Data',
-        //   datasetDescription: '...',
-        //   flyer: '/datathon-2025-flyer.png',
-        //   photos: [...],
-        // }
     ];
 
     // UI state for gallery section
@@ -105,338 +114,16 @@ const DatathonContent = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const [enlargedImage, setEnlargedImage] = useState(null);
     const [openFaqIndex, setOpenFaqIndex] = useState(null);
-    const [imageRatio, setImageRatio] = useState(null);
-    const [currentSlide, setCurrentSlide] = useState(0);
     const photosPerPage = 6;
-
-    // Datathon hero data
-    const datathonHero = {
-        title: 'Data Royale Datathon Fall 2025',
-        date: 'Nov 10-14',
-        time: 'Opening - Nov 11 @ 9 AM',
-        location: 'BSC Ursa Minor',
-        description1: 'Welcome to the Data Royale, our semesterly datathon hosted by the CPP DS&AI Club!',
-        description2: 'This year\'s theme takes inspiration from Clash Royale, combining strategy, creativity, and data science into one exciting week-long event. Whether you\'re a seasoned competitor or new to data, Data Royale is your chance to learn, collaborate, and show what you can do in the arena of analytics.',
-        images: [
-            '/cr_datathon1.png',
-            '/cr_datathon2.png',
-            '/cr_datathon3.png',
-            '/cr_datathon4.png',
-            '/cr_datathon5.png',
-        ],
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform',
-    };
-
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % datathonHero.images.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + datathonHero.images.length) % datathonHero.images.length);
-    };
-
-    const goToSlide = (index) => {
-        setCurrentSlide(index);
-    };
 
     return (
         <Box sx={{ backgroundColor: '#0a192f', minHeight: '100vh' }}>
-            {/* Hero Section with Event Card */}
-            <Box sx={{ pt: { xs: 0, md: 0 }, pb: { xs: 4, md: 6 } }}>
-                <Box
-                    sx={{
-                        background: 'transparent',
-                        position: 'relative',
-                        py: { xs: 2, md: 2 },
-                        mt: { xs: 0, md: 0 },
-                        '&::before': {
-                            position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            right: 0,
-                            bottom: 0,
-                            zIndex: 1,
-                        }
-                    }}
-                >
-                    <Container
-                        maxWidth="lg"
-                        sx={{
-                            position: 'relative',
-                            zIndex: 2,
-                            color: 'white',
-                        }}
-                    >
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0 }}
-                        >
-                            <Tilt
-                                tiltMaxAngleX={2}
-                                tiltMaxAngleY={2}
-                                perspective={1000}
-                                glareEnable={true}
-                                glareMaxOpacity={0.05}
-                                glareColor="#46fff9"
-                                glarePosition="all"
-                                glareBorderRadius="20px"
-                                scale={1.01}
-                                transitionSpeed={2000}
-                            >
-                                <Box
-                                    sx={{
-                                        background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.15) 100%)',
-                                        border: '1px solid rgba(12, 71, 89, 0.25)',
-                                        borderRadius: 2,
-                                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)',
-                                        position: 'relative',
-                                        overflow: 'hidden',
-                                        '&::before': {
-                                            content: '""',
-                                            position: 'absolute',
-                                            inset: 0,
-                                            borderRadius: 'inherit',
-                                            pointerEvents: 'none',
-                                            background: `
-                                                radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
-                                                radial-gradient(700px 200px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
-                                            `,
-                                            opacity: 1
-                                        },
-                                        transition: 'transform 0.3s, box-shadow 0.3s',
-                                        '&:hover': {
-                                            transform: 'translateY(-5px)',
-                                            boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
-                                        }
-                                    }}
-                                >
-                                    <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, gap: { xs: 2, sm: 1.8, md: 3.5 }, alignItems: { xs: 'stretch', sm: 'center' } }}>
-                                        {/* Left Column - Image Carousel */}
-                                        <Box
-                                            sx={{
-                                                flex: { xs: 'none', sm: 'none' },
-                                                width: { xs: '100%', sm: '225px', md: '340px' },
-                                                maxWidth: { xs: '240px', sm: '225px', md: '315px' },
-                                                height: { xs: 'auto', sm: 'auto', md: 'auto' },
-                                                aspectRatio: imageRatio ? `${imageRatio}` : '4/3',
-                                                mx: { xs: 'auto', sm: 0 },
-                                                mt: { xs: 4, sm: 0 },
-                                                pl: { xs: 0, sm: 3, md: 0 },
-                                                pr: { xs: 0, sm: 3, md: 0 },
-                                                position: 'relative',
-                                                overflow: 'hidden',
-                                                borderRadius: 1,
-                                                backgroundColor: 'transparent'
-                                            }}
-                                        >
-                                            <img
-                                                src={datathonHero.images[currentSlide]}
-                                                alt={datathonHero.title}
-                                                style={{
-                                                    width: '100%',
-                                                    height: '100%',
-                                                    objectFit: 'cover',
-                                                    objectPosition: 'center',
-                                                    display: 'block',
-                                                    transition: 'opacity 0.3s ease-in-out',
-                                                }}
-                                                onLoad={(e) => {
-                                                    const { naturalWidth, naturalHeight } = e.currentTarget;
-                                                    if (naturalWidth && naturalHeight) {
-                                                        const ratio = naturalWidth / naturalHeight;
-                                                        if (Number.isFinite(ratio)) {
-                                                            setImageRatio(ratio);
-                                                        }
-                                                    }
-                                                }}
-                                            />
-
-                                            {/* Navigation Arrows */}
-                                            <IconButton
-                                                onClick={prevSlide}
-                                                size="small"
-                                                sx={{
-                                                    position: 'absolute',
-                                                    left: 10,
-                                                    top: '50%',
-                                                    transform: 'translateY(-50%)',
-                                                    bgcolor: 'rgba(0, 0, 0, 0.6)',
-                                                    color: 'white',
-                                                    padding: '6px',
-                                                    '&:hover': {
-                                                        bgcolor: 'rgba(0, 0, 0, 0.8)',
-                                                    },
-                                                }}
-                                            >
-                                                <ArrowBackIosNewIcon sx={{ fontSize: '16px' }} />
-                                            </IconButton>
-                                            <IconButton
-                                                onClick={nextSlide}
-                                                size="small"
-                                                sx={{
-                                                    position: 'absolute',
-                                                    right: 10,
-                                                    top: '50%',
-                                                    transform: 'translateY(-50%)',
-                                                    bgcolor: 'rgba(0, 0, 0, 0.6)',
-                                                    color: 'white',
-                                                    padding: '6px',
-                                                    '&:hover': {
-                                                        bgcolor: 'rgba(0, 0, 0, 0.8)',
-                                                    },
-                                                }}
-                                            >
-                                                <ArrowForwardIosIcon sx={{ fontSize: '16px' }} />
-                                            </IconButton>
-
-                                            {/* Dots Navigation */}
-                                            <Box
-                                                sx={{
-                                                    position: 'absolute',
-                                                    bottom: 10,
-                                                    left: '50%',
-                                                    transform: 'translateX(-50%)',
-                                                    display: 'flex',
-                                                    gap: 1,
-                                                }}
-                                            >
-                                                {datathonHero.images.map((_, index) => (
-                                                    <Box
-                                                        key={index}
-                                                        onClick={() => goToSlide(index)}
-                                                        sx={{
-                                                            width: currentSlide === index ? 24 : 8,
-                                                            height: 8,
-                                                            borderRadius: 4,
-                                                            bgcolor: currentSlide === index ? 'rgb(48, 164, 199)' : 'rgba(255, 255, 255, 0.5)',
-                                                            cursor: 'pointer',
-                                                            transition: 'all 0.3s',
-                                                            '&:hover': {
-                                                                bgcolor: currentSlide === index ? 'rgb(48, 164, 199)' : 'rgba(255, 255, 255, 0.8)',
-                                                            },
-                                                        }}
-                                                    />
-                                                ))}
-                                            </Box>
-                                        </Box>
-
-                                        {/* Right Column - Info */}
-                                        <Box sx={{ flex: { xs: 'none', sm: '1' }, width: { xs: '100%', sm: 'auto' }, py: { xs: 3, sm: 3.6 }, px: { xs: 3, sm: 0 }, pr: { xs: 3, sm: 1.8, md: 3.6 } }}>
-                                            <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 1.2, sm: 1.35, md: 1.8 } }}>
-                                                {/* Event Title */}
-                                                <Box sx={{ display: 'flex', alignItems: 'center', mb: 0 }}>
-                                                    <Typography
-                                                        variant="h4"
-                                                        sx={{
-                                                            color: 'white',
-                                                            fontWeight: 'bold',
-                                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
-                                                            fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                            fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' }
-                                                        }}
-                                                    >
-                                                        {datathonHero.title}
-                                                    </Typography>
-                                                    <Typography
-                                                        sx={{
-                                                            fontSize: { xs: '1.25rem', sm: '1.35rem' },
-                                                            ml: 0.9,
-                                                        }}
-                                                    >
-                                                        🏆
-                                                    </Typography>
-                                                </Box>
-
-                                                {/* Event Details */}
-                                                <Typography
-                                                    variant="body1"
-                                                    sx={{
-                                                        color: 'white',
-                                                        fontSize: { xs: '0.85rem', sm: '1rem' },
-                                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                        lineHeight: 1.6,
-                                                        fontWeight: 300,
-                                                        letterSpacing: '0.02em',
-                                                    }}
-                                                >
-                                                    📅 {datathonHero.date} | ⏰ {datathonHero.time} | 📍 {datathonHero.location} | ⏳ Sign-ups close Nov 7
-                                                </Typography>
-
-                                                {/* Event Description 1 */}
-                                                <Typography
-                                                    variant="body1"
-                                                    sx={{
-                                                        color: 'white',
-                                                        fontSize: { xs: '0.85rem', sm: '1rem' },
-                                                        lineHeight: 1.6,
-                                                        fontWeight: 300,
-                                                        letterSpacing: '0.02em',
-                                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                    }}
-                                                >
-                                                    {datathonHero.description1}
-                                                </Typography>
-
-                                                {/* Event Description 2 */}
-                                                <Typography
-                                                    variant="body1"
-                                                    sx={{
-                                                        color: 'white',
-                                                        fontSize: { xs: '0.85rem', sm: '1rem' },
-                                                        lineHeight: 1.6,
-                                                        fontWeight: 300,
-                                                        letterSpacing: '0.02em',
-                                                        fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                                                    }}
-                                                >
-                                                    {datathonHero.description2}
-                                                </Typography>
-
-                                                {/* Register Button */}
-                                                <Button
-                                                    component="a"
-                                                    href={datathonHero.registrationLink}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    variant="contained"
-                                                    sx={{
-                                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
-                                                        color: '#white',
-                                                        fontWeight: 600,
-                                                        fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                                                        px: { xs: 2.4, sm: 2.7 },
-                                                        py: { xs: 1, sm: 1.1 },
-                                                        boxShadow: '0 0 12px rgba(10,25,47,0.8)',
-                                                        alignSelf: 'flex-start',
-                                                        mt: { xs: 0.5, sm: 0.9 },
-                                                        border: '1px solid rgba(70,255,249,0.12)',
-                                                        '&:hover': {
-                                                            boxShadow: '0 0 16px rgba(10,25,47,0.95)',
-                                                        },
-                                                    }}
-                                                >
-                                                    Register Now!
-                                                </Button>
-                                            </Box>
-                                        </Box>
-                                    </Box>
-                                </Box>
-                            </Tilt>
-                        </motion.div>
-                    </Container>
-                </Box>
-            </Box>
-
-            <Container maxWidth="lg" sx={{ pb: 8 }}>
+            <Container maxWidth="lg" sx={{ pb: 8, pt: { xs: 2, md: 3 } }}>
                 <motion.div
                     initial="hidden"
                     animate="visible"
                     variants={containerVariants}
                 >
-                    <Divider sx={{ borderColor: 'rgba(48, 184, 199, 0.3)', mb: 8 }} />
-
                     {/* What Is a Datathon */}
                     <motion.div variants={itemVariants}>
                         <Box sx={{ mb: 7.2 }}>
