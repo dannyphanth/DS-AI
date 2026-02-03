@@ -8,8 +8,18 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 const KaggleCard = () => {
     const slideshowImages = [
-        '/Kaggle1.png',
-        '/Kaggle2.png'
+        //'/Kaggle1.png',
+        //'/Kaggle2.png',
+        '/Kaggle F2025-1.jpg',
+        '/Kaggle F2025-2.jpg',
+        '/Kaggle F2025-3.jpg',
+        '/Kaggle F2025-4.jpg',
+        '/Kaggle F2025-5.jpg',
+        '/Kaggle F2025-6.jpg',
+        '/Kaggle F2025-7.jpg',
+        '/Kaggle F2025-8.jpg',
+        '/Kaggle F2025-9.jpg',
+        '/Kaggle F2025-10.JPG'
     ];
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isInView, setIsInView] = useState(true);
