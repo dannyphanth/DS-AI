@@ -8,7 +8,7 @@
  */
 export const parseDate = (dateStr) => {
     if (!dateStr) return null;
-    
+
     try {
         // Handle date ranges (e.g., "November 10-14, 2025")
         const dateRangeMatch = dateStr.match(/(\w+)\s+(\d+)(?:\s*-\s*(\d+))?,\s*(\d+)/);
@@ -25,13 +25,13 @@ export const parseDate = (dateStr) => {
                 return new Date(parseInt(year), month, parseInt(startDay));
             }
         }
-        
+
         // Try direct parsing
         const parsed = new Date(dateStr);
         if (!isNaN(parsed.getTime())) {
             return parsed;
         }
-        
+
         return null;
     } catch (error) {
         console.warn('Error parsing date:', dateStr, error);
@@ -46,13 +46,13 @@ export const parseDate = (dateStr) => {
  */
 export const parseTime = (timeStr, baseDate) => {
     if (!timeStr || !baseDate) return null;
-    
+
     try {
         // Handle standard format: "12:00 PM - 1:00 PM"
         const timeRangeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)\s*-\s*(\d{1,2}):(\d{2})\s*(AM|PM)/i);
         if (timeRangeMatch) {
             const [, startHour, startMin, startPeriod, endHour, endMin, endPeriod] = timeRangeMatch;
-            
+
             const parseTimeToDate = (hour, min, period, date) => {
                 let hour24 = parseInt(hour);
                 if (period.toUpperCase() === 'PM' && hour24 !== 12) {
@@ -64,13 +64,13 @@ export const parseTime = (timeStr, baseDate) => {
                 result.setHours(hour24, parseInt(min), 0, 0);
                 return result;
             };
-            
+
             const startTime = parseTimeToDate(startHour, startMin, startPeriod, baseDate);
             const endTime = parseTimeToDate(endHour, endMin, endPeriod, baseDate);
-            
+
             return { startTime, endTime };
         }
-        
+
         // Handle single time with duration assumption (default 1 hour)
         const singleTimeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s*(AM|PM)/i);
         if (singleTimeMatch) {
@@ -81,16 +81,16 @@ export const parseTime = (timeStr, baseDate) => {
             } else if (period.toUpperCase() === 'AM' && hour24 === 12) {
                 hour24 = 0;
             }
-            
+
             const startTime = new Date(baseDate);
             startTime.setHours(hour24, parseInt(min), 0, 0);
-            
+
             const endTime = new Date(startTime);
             endTime.setHours(hour24 + 1, parseInt(min), 0, 0);
-            
+
             return { startTime, endTime };
         }
-        
+
         // Handle special formats like "Opening - Nov 11 @ 9 AM"
         const specialMatch = timeStr.match(/@\s*(\d{1,2})\s*(AM|PM)/i);
         if (specialMatch) {
@@ -101,16 +101,16 @@ export const parseTime = (timeStr, baseDate) => {
             } else if (period.toUpperCase() === 'AM' && hour24 === 12) {
                 hour24 = 0;
             }
-            
+
             const startTime = new Date(baseDate);
             startTime.setHours(hour24, 0, 0, 0);
-            
+
             const endTime = new Date(startTime);
             endTime.setHours(hour24 + 2, 0, 0, 0); // Default 2 hours for special events
-            
+
             return { startTime, endTime };
         }
-        
+
         return null;
     } catch (error) {
         console.warn('Error parsing time:', timeStr, error);
@@ -123,10 +123,10 @@ export const parseTime = (timeStr, baseDate) => {
  */
 export const parseEventDateTime = (event) => {
     const { date, time } = event;
-    
+
     const baseDate = parseDate(date);
     if (!baseDate) return null;
-    
+
     const timeRange = parseTime(time, baseDate);
     if (!timeRange) {
         // If time parsing fails, default to all day (start of day to end of day)
@@ -136,7 +136,7 @@ export const parseEventDateTime = (event) => {
         endDate.setHours(23, 59, 59, 999);
         return { startDate: startDate, endDate: endDate };
     }
-    
+
     return {
         startDate: timeRange.startTime,
         endDate: timeRange.endTime
@@ -149,7 +149,7 @@ export const parseEventDateTime = (event) => {
 export const isEventOngoing = (event, currentTime) => {
     const dateTime = parseEventDateTime(event);
     if (!dateTime) return false;
-    
+
     return currentTime >= dateTime.startDate && currentTime <= dateTime.endDate;
 };
 
@@ -159,7 +159,7 @@ export const isEventOngoing = (event, currentTime) => {
 export const isEventPast = (event, currentTime) => {
     const dateTime = parseEventDateTime(event);
     if (!dateTime) return false;
-    
+
     return currentTime > dateTime.endDate;
 };
 
@@ -177,7 +177,7 @@ export const categorizeEvents = (upcomingEvents, pastEvents, currentTime) => {
     const ongoing = [];
     const upcoming = [];
     const past = [...pastEvents];
-    
+
     upcomingEvents.forEach(event => {
         if (isEventOngoing(event, currentTime)) {
             ongoing.push(event);
@@ -187,7 +187,15 @@ export const categorizeEvents = (upcomingEvents, pastEvents, currentTime) => {
             upcoming.push(event);
         }
     });
-    
+
+    // Sort past events by date (most recent first)
+    past.sort((a, b) => {
+        const dateA = parseDate(a.date);
+        const dateB = parseDate(b.date);
+        if (!dateA || !dateB) return 0;
+        return dateB - dateA; // Descending order (most recent first)
+    });
+
     return { ongoing, upcoming, past };
 };
 
