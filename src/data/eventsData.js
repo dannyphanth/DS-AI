@@ -4,8 +4,32 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { parseEventDateTime } from '../utils/eventHelpers';
 
 export const upcomingEvents = [
-
-
+    {
+        id: 'understanding-datasets-feb5',
+        title: "Understanding a Dataset's Potential",
+        date: 'February 5, 2026',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm-understanding_datasets.png',
+        description: "Join us in learning how to discover problem statements from a dataset and understand the main goals when working with data. Perfect for beginners and those looking to strengthen their data analysis fundamentals!",
+        registrationLink: '#',
+        semester: "Spring '26"
+    },
+    {
+        id: 'board-games-study-feb5',
+        title: 'Board Games & Study Social',
+        date: 'February 5, 2026',
+        time: '4:00 PM - 7:00 PM',
+        location: 'Building 163, Room 2026',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social-board_games_study_feb26.png',
+        description: "Enjoy an evening full of relaxing games or a nice session of studying. At the same time, you can get to know us and connect with peers around you! Hope to see you there~",
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfkrzyS9sC2jyDp1DEfmYqIyH0pW0pIzoenGrjqUcoTgVH0vA/viewform',
+        semester: "Spring '26"
+    },
 ];
 
 export const pastEvents = [
