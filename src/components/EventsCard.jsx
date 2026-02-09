@@ -319,118 +319,89 @@ const EventsCard = () => {
                                             lineHeight: 1.5,
                                         }}
                                     >
-                                        We're on winter break! Check back soon for exciting events next semester.
+                                        No upcoming events at the moment! Check back soon for exciting events.
                                     </Typography>
                                 </motion.div>
                             </Box>
                         ) : (
-                        <Box sx={{
-                            position: 'relative',
-                            width: '100%',
-                            height: { xs: '260px', sm: `${320 * scaleFactor}px` },
-                            minHeight: { xs: '260px', sm: `${320 * scaleFactor}px` },
-                            display: 'flex',
-                            justifyContent: 'center',
-                            alignItems: isSingleCard ? 'center' : 'flex-start',
-                            gap: isTwoCards ? 2 : 0,
-                            overflow: 'visible',
-                            perspective: '1200px',
-                            // transformStyle: 'preserve-3d',
-                            minWidth: { xs: '100%', sm: isSingleCard ? 'auto' : (isTwoCards ? '800px' : `${720 * scaleFactor}px`) },
-                            pt: 0,
-                            mt: 0,
-                            paddingTop: 0,
-                            px: { xs: 2, sm: 0 },
-                        }}>
-                            {visibleEvents.map((event, index) => (
-                                <motion.div
-                                    key={event.title}
-                                    initial={{
-                                        rotateY: (isSingleCard || isTwoCards) ? 0 : -25,
-                                        rotateZ: (isSingleCard || isTwoCards) ? 0 : -8,
-                                        x: (isSingleCard || isTwoCards) ? 0 : -60 * index,
-                                        y: (isSingleCard || isTwoCards) ? 0 : -20 * index,
-                                        zIndex: totalEvents - index,
-                                        opacity: 0.7
-                                    }}
-                                    animate={{
-                                        rotateY: (isSingleCard || isTwoCards) ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 30 : index === 2 ? -30 : 0)),
-                                        rotateZ: isSingleCard ? 0 : (isTwoCards ? ((index - midIndex) * 6) : ((isXs || isTwoCards) ? ((index - midIndex) * 6) : ((index - 1) * 5))),
-                                        x: (isSingleCard || isTwoCards) ? 0 : (isXs ? ((index - midIndex) * 165) : (index * 230 * scaleFactor - 240 * scaleFactor)),
-                                        y: isSingleCard ? 0 : (isTwoCards ? Math.abs(index - midIndex) * 8 : ((isXs || isTwoCards) ? Math.abs(index - midIndex) * 8 : (index === 0 ? 8 : index === 2 ? 8 : 0))),
-                                        zIndex: totalEvents - index,
-                                        z: (isSingleCard || isTwoCards) ? 0 : (index === 1 ? -70 : 0),
-                                        opacity: 1
-                                    }}
-                                    whileHover={{
-                                        rotateY: (isSingleCard || isTwoCards) ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 20 : index === 2 ? -20 : 5)),
-                                        rotateZ: isSingleCard ? 0 : (isTwoCards ? ((index - midIndex) * 8 + 2) : ((isXs || isTwoCards) ? ((index - midIndex) * 8 + 2) : ((index - 1) * 5 + 2))),
-                                        scale: (isSingleCard || isTwoCards) ? 1.02 : ((isXs || isTwoCards) ? 1.02 : 1.08),
-                                        zIndex: 10,
-                                        transition: { duration: 0.3 }
-                                    }}
-                                    transition={{
-                                        duration: 0.8,
-                                        delay: index * 0.3,
-                                        ease: "easeOut"
-                                    }}
-                                    style={{
-                                        position: (isSingleCard || isTwoCards) ? 'relative' : 'absolute',
-                                        width: isXs ? 160 : 216 * scaleFactor,
-                                        height: isXs ? 200 : 260 * scaleFactor,
-                                        transformStyle: 'preserve-3d',
-                                    }}
-                                >
-                                    <Card
-                                        onClick={() => handleEventClick(event)}
-                                        sx={{
-                                            width: isXs ? '160px' : `${216 * scaleFactor}px`,
-                                            height: isXs ? '200px' : `${260 * scaleFactor}px`,
-                                            background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
-                                            border: '1px solid rgb(48, 184, 199, 0.3)',
-                                            borderRadius: 2,
-                                            boxShadow: '0 4px 20px rgb(1, 0, 0)',
-                                            overflow: 'hidden',
-                                            cursor: 'pointer',
-                                            position: 'relative',
+                            <Box sx={{
+                                position: 'relative',
+                                width: '100%',
+                                height: { xs: '260px', sm: `${320 * scaleFactor}px` },
+                                minHeight: { xs: '260px', sm: `${320 * scaleFactor}px` },
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: isSingleCard ? 'center' : 'flex-start',
+                                gap: isTwoCards ? 2 : 0,
+                                overflow: 'visible',
+                                perspective: '1200px',
+                                // transformStyle: 'preserve-3d',
+                                minWidth: { xs: '100%', sm: isSingleCard ? 'auto' : (isTwoCards ? '800px' : `${720 * scaleFactor}px`) },
+                                pt: 0,
+                                mt: 0,
+                                paddingTop: 0,
+                                px: { xs: 2, sm: 0 },
+                            }}>
+                                {visibleEvents.map((event, index) => (
+                                    <motion.div
+                                        key={event.title}
+                                        initial={{
+                                            rotateY: (isSingleCard || isTwoCards) ? 0 : -25,
+                                            rotateZ: (isSingleCard || isTwoCards) ? 0 : -8,
+                                            x: (isSingleCard || isTwoCards) ? 0 : -60 * index,
+                                            y: (isSingleCard || isTwoCards) ? 0 : -20 * index,
+                                            zIndex: totalEvents - index,
+                                            opacity: 0.7
+                                        }}
+                                        animate={{
+                                            rotateY: (isSingleCard || isTwoCards) ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 30 : index === 2 ? -30 : 0)),
+                                            rotateZ: isSingleCard ? 0 : (isTwoCards ? ((index - midIndex) * 6) : ((isXs || isTwoCards) ? ((index - midIndex) * 6) : ((index - 1) * 5))),
+                                            x: (isSingleCard || isTwoCards) ? 0 : (isXs ? ((index - midIndex) * 165) : (index * 230 * scaleFactor - 240 * scaleFactor)),
+                                            y: isSingleCard ? 0 : (isTwoCards ? Math.abs(index - midIndex) * 8 : ((isXs || isTwoCards) ? Math.abs(index - midIndex) * 8 : (index === 0 ? 8 : index === 2 ? 8 : 0))),
+                                            zIndex: totalEvents - index,
+                                            z: (isSingleCard || isTwoCards) ? 0 : (index === 1 ? -70 : 0),
+                                            opacity: 1
+                                        }}
+                                        whileHover={{
+                                            rotateY: (isSingleCard || isTwoCards) ? 0 : ((isXs || isTwoCards) ? 0 : (index === 0 ? 20 : index === 2 ? -20 : 5)),
+                                            rotateZ: isSingleCard ? 0 : (isTwoCards ? ((index - midIndex) * 8 + 2) : ((isXs || isTwoCards) ? ((index - midIndex) * 8 + 2) : ((index - 1) * 5 + 2))),
+                                            scale: (isSingleCard || isTwoCards) ? 1.02 : ((isXs || isTwoCards) ? 1.02 : 1.08),
+                                            zIndex: 10,
+                                            transition: { duration: 0.3 }
+                                        }}
+                                        transition={{
+                                            duration: 0.8,
+                                            delay: index * 0.3,
+                                            ease: "easeOut"
+                                        }}
+                                        style={{
+                                            position: (isSingleCard || isTwoCards) ? 'relative' : 'absolute',
+                                            width: isXs ? 160 : 216 * scaleFactor,
+                                            height: isXs ? 200 : 260 * scaleFactor,
                                             transformStyle: 'preserve-3d',
-                                            '&:hover': {
-                                                boxShadow: `
+                                        }}
+                                    >
+                                        <Card
+                                            onClick={() => handleEventClick(event)}
+                                            sx={{
+                                                width: isXs ? '160px' : `${216 * scaleFactor}px`,
+                                                height: isXs ? '200px' : `${260 * scaleFactor}px`,
+                                                background: 'linear-gradient(135deg, rgb(10, 25, 47) 0%, rgb(17, 37, 64) 50%, rgb(48, 164, 199) 120%)',
+                                                border: '1px solid rgb(48, 184, 199, 0.3)',
+                                                borderRadius: 2,
+                                                boxShadow: '0 4px 20px rgb(1, 0, 0)',
+                                                overflow: 'hidden',
+                                                cursor: 'pointer',
+                                                position: 'relative',
+                                                transformStyle: 'preserve-3d',
+                                                '&:hover': {
+                                                    boxShadow: `
                                                     0 8px 30px rgba(41, 105, 157, 0.8),
                                                     0 16px 64px rgba(0,0,0,0.4),
                                                     0 32px 128px rgba(0,0,0,0.3)
                                                 `,
-                                                borderColor: 'rgb(17, 29, 64)',
-                                            },
-                                            '&::before': {
-                                                content: '""',
-                                                position: 'absolute',
-                                                top: 0,
-                                                left: 0,
-                                                right: 0,
-                                                bottom: 0,
-                                                background: index === 0 ?
-                                                    'linear-gradient(135deg, rgba(70,255,249,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)' :
-                                                    index === 2 ?
-                                                        'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 50%, rgba(70,255,249,0.1) 100%)' :
-                                                        'linear-gradient(135deg, rgba(70,255,249,0.05) 0%, transparent 50%, rgba(70,255,249,0.05) 100%)',
-                                                pointerEvents: 'none',
-                                                zIndex: 2,
-                                            },
-                                        }}
-                                        elevation={0}
-                                    >
-                                        {/* Event Image */}
-                                        <Box
-                                            sx={{
-                                                width: '100%',
-                                                height: '100%',
-                                                backgroundImage: `url(${event.image.startsWith('/') ? event.image : '/' + event.image})`,
-                                                backgroundSize: '100% 100%',
-                                                backgroundPosition: 'center',
-                                                backgroundRepeat: 'no-repeat',
-                                                position: 'relative',
-                                                zIndex: 1,
+                                                    borderColor: 'rgb(17, 29, 64)',
+                                                },
                                                 '&::before': {
                                                     content: '""',
                                                     position: 'absolute',
@@ -438,15 +409,44 @@ const EventsCard = () => {
                                                     left: 0,
                                                     right: 0,
                                                     bottom: 0,
-                                                    background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4))',
-                                                }
+                                                    background: index === 0 ?
+                                                        'linear-gradient(135deg, rgba(70,255,249,0.1) 0%, transparent 50%, rgba(0,0,0,0.1) 100%)' :
+                                                        index === 2 ?
+                                                            'linear-gradient(135deg, rgba(0,0,0,0.1) 0%, transparent 50%, rgba(70,255,249,0.1) 100%)' :
+                                                            'linear-gradient(135deg, rgba(70,255,249,0.05) 0%, transparent 50%, rgba(70,255,249,0.05) 100%)',
+                                                    pointerEvents: 'none',
+                                                    zIndex: 2,
+                                                },
                                             }}
-                                        />
+                                            elevation={0}
+                                        >
+                                            {/* Event Image */}
+                                            <Box
+                                                sx={{
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    backgroundImage: `url(${event.image.startsWith('/') ? event.image : '/' + event.image})`,
+                                                    backgroundSize: '100% 100%',
+                                                    backgroundPosition: 'center',
+                                                    backgroundRepeat: 'no-repeat',
+                                                    position: 'relative',
+                                                    zIndex: 1,
+                                                    '&::before': {
+                                                        content: '""',
+                                                        position: 'absolute',
+                                                        top: 0,
+                                                        left: 0,
+                                                        right: 0,
+                                                        bottom: 0,
+                                                        background: 'linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.4))',
+                                                    }
+                                                }}
+                                            />
 
-                                    </Card>
-                                </motion.div>
-                            ))}
-                        </Box>
+                                        </Card>
+                                    </motion.div>
+                                ))}
+                            </Box>
                         )}
                     </Box>
                 </Box>

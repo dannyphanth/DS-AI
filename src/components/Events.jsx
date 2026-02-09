@@ -10,7 +10,7 @@ import GroupIcon from '@mui/icons-material/Group';
 import SchoolIcon from '@mui/icons-material/School';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import AcUnitIcon from '@mui/icons-material/AcUnit';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { upcomingEvents, pastEvents } from '../data/eventsData';
 import { useEventTimer } from '../hooks/useEventTimer';
@@ -565,7 +565,7 @@ const Events = () => {
                                     }}
                                 >
                                     {eventType === 'upcoming' ? (
-                                        <AcUnitIcon sx={{ fontSize: 44, color: 'rgba(156, 235, 255, 0.7)' }} />
+                                        <EventNoteIcon sx={{ fontSize: 44, color: 'rgba(156, 235, 255, 0.7)' }} />
                                     ) : (
                                         <CalendarTodayIcon sx={{ fontSize: 40, color: 'rgba(156, 235, 255, 0.7)' }} />
                                     )}
@@ -606,7 +606,7 @@ const Events = () => {
                                     }}
                                 >
                                     {eventType === 'upcoming'
-                                        ? "We're currently on winter break! Stay tuned for exciting workshops, socials, and meetings when we return next semester."
+                                        ? "No upcoming events at the moment! Stay tuned for exciting workshops, socials, and meetings coming soon."
                                         : "No past events to show yet. Check back after our first events!"}
                                 </Typography>
                             </motion.div>
