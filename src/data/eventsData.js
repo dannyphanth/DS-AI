@@ -5,6 +5,19 @@ import { parseEventDateTime } from '../utils/eventHelpers';
 
 export const upcomingEvents = [
     {
+        id: 'making-model-from-scratch-feb12',
+        title: 'Making a Model From Scratch',
+        date: 'February 12, 2026',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm3-creating_model_from_scratch_spring26.png',
+        description: "Come join us as we begin to go over the machine learning model building process together! We'll cover data preparation, model training, and more in a beginner-friendly, hands-on demo.",
+        registrationLink: '#',
+        semester: "Spring '26"
+    },
+    {
         id: 'understanding-datasets-feb5',
         title: "Understanding a Dataset's Potential",
         date: 'February 5, 2026',
