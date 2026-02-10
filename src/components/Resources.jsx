@@ -4,17 +4,11 @@ import {
     Box,
     Container,
     Typography,
-    Tabs,
-    Tab,
     Card,
     Button,
     Grid
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
-import SlideshowIcon from '@mui/icons-material/Slideshow';
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
-import VerifiedIcon from '@mui/icons-material/Verified';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import BadgesContent from './BadgesContent';
 import DatathonContent from './DatathonContent';
 
@@ -31,10 +25,6 @@ const Resources = () => {
             setValue(index);
         }
     }, [tabParam]);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
 
     const resources = {
         slides: [
@@ -106,10 +96,10 @@ const Resources = () => {
     };
 
     const categories = [
-        { label: 'Meeting Slides', icon: <SlideshowIcon />, key: 'slides' },
-        { label: 'Videos', icon: <VideoLibraryIcon />, key: 'videos' },
-        { label: 'Digital Badges', icon: <VerifiedIcon />, key: 'badges' },
-        { label: 'Datathon', icon: <EmojiEventsIcon />, key: 'datathon' }
+        { label: 'Meeting Slides', key: 'slides' },
+        { label: 'Videos', key: 'videos' },
+        { label: 'Digital Badges', key: 'badges' },
+        { label: 'Datathon', key: 'datathon' }
     ];
 
     const containerVariants = {
@@ -142,62 +132,36 @@ const Resources = () => {
     };
 
     return (
-        <Box sx={{ py: 9, backgroundColor: '#0a192f' }}>
+        <Box sx={{ py: 9, pt: (categories[value].key === 'datathon' || categories[value].key === 'badges') ? 12 : 9, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
-                <Box sx={{ textAlign: 'center', mb: { xs: 2.7, sm: 2.7, md: 1 } }}>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{
-                            duration: 1.2,
-                            ease: "easeOut"
-                        }}
-                    >
-                        <Typography
-                            variant="h3"
-                            component="h1"
-                            sx={{
-                                fontWeight: 'bold',
-                                fontSize: { xs: '2rem', sm: '2rem', md: '2.45rem' },
-                                background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                backgroundClip: 'text',
-                                textShadow: '0 0 9.7px rgba(70,255,249,0.15), 0 0 19.4px rgba(41,105,157,0.2)'
+                {categories[value].key !== 'datathon' && categories[value].key !== 'badges' && (
+                    <Box sx={{ textAlign: 'center', mb: { xs: 3, sm: 3.5, md: 4 } }}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{
+                                duration: 1.2,
+                                ease: "easeOut"
                             }}
                         >
-                            Learn by Doing
-                        </Typography>
-                    </motion.div>
-                </Box>
-
-                <Box sx={{ borderBottom: 1, borderColor: 'divider', mb: { xs: 3.6, sm: 1.6 } }}>
-                    <Tabs
-                        value={value}
-                        onChange={handleChange}
-                        variant="scrollable"
-                        scrollButtons="auto"
-                        sx={{
-                            '& .MuiTab-root': {
-                                minHeight: { xs: 39, sm: 45, md: 52 },
-                                fontSize: { xs: '0.73rem', sm: '0.81rem' },
-                                color: 'white',
-                                '&.Mui-selected': {
-                                    color: 'white'
-                                }
-                            }
-                        }}
-                    >
-                        {categories.map((category, index) => (
-                            <Tab
-                                key={index}
-                                icon={category.icon}
-                                label={category.label}
-                                iconPosition="start"
-                            />
-                        ))}
-                    </Tabs>
-                </Box>
+                            <Typography
+                                variant="h3"
+                                component="h1"
+                                sx={{
+                                    fontWeight: 800,
+                                    fontSize: { xs: '2rem', sm: '2.2rem', md: '2.6rem' },
+                                    background: 'linear-gradient(135deg, #e6fbff 0%, rgb(48, 164, 199) 50%, rgb(100, 200, 230) 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                    letterSpacing: '-0.02em',
+                                }}
+                            >
+                                Learn by Doing
+                            </Typography>
+                        </motion.div>
+                    </Box>
+                )}
 
                 <motion.div
                     initial="hidden"

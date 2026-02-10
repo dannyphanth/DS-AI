@@ -9,14 +9,15 @@ import { Link } from 'react-router-dom';
 
 const DatathonCard = () => {
     const slideshowImages = [
-        '/datathon1.jpg',
-        '/datathon222.jpg',
-        '/datathon2.jpg',
-        '/datathon3.jpg',
-        '/datathon444.jpg',
-        '/datathon4.jpg',
-        '/datathon5.jpg',
-        '/datathonlast.jpg'
+        '/fall25_datathon1.png',
+        '/fall25_datathon3.png',
+        '/fall25_datathon5.png',
+        '/fall25_datathon7.png',
+        '/fall25_datathon9.png',
+        '/fall25_datathon11.png',
+        '/spring24_datathon1.jpg',
+        '/spring24_datathon3.jpg',
+        '/spring24_datathon5.jpg',
     ];
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isInView, setIsInView] = useState(true);
@@ -92,7 +93,7 @@ const DatathonCard = () => {
                     mb: 4,
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.15) 100%)',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.05) 100%)',
                     border: '1px solid rgba(48,164,199,0.25)',
                     '&::before': {
                         content: '""',
@@ -104,12 +105,14 @@ const DatathonCard = () => {
                             radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
                             radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
                         `,
-                        opacity: 1
+                        opacity: 0,
+                        transition: 'opacity 0.4s ease'
                     },
                     transition: 'transform 0.3s, box-shadow 0.3s',
                     '&:hover': {
                         transform: 'translateY(-5px)',
-                        boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
+                        boxShadow: '0 8px 30px rgba(41, 105, 157, 0.35)',
+                        '&::before': { opacity: 1 }
                     },
                 }}
             >
@@ -182,40 +185,21 @@ const DatathonCard = () => {
                             <Box sx={{ display: 'flex', gap: 2, mt: 1, flexWrap: 'wrap' }}>
                                 <Button
                                     variant="contained"
-                                    endIcon={<InfoIcon />}
-                                    href="https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    sx={{
-                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
-                                        color: '#white',
-                                        fontWeight: 600,
-                                        px: 3,
-                                        py: 1.2,
-                                        boxShadow: '0 0 12px rgba(10,25,47,0.8)',
-                                        border: '1px solid rgba(70,255,249,0.12)',
-                                        '&:hover': {
-                                            boxShadow: '0 0 12px rgba(10,25,47,0.95)',
-                                        },
-                                    }}
-                                >
-                                    Sign Up!
-                                </Button>
-                                <Button
-                                    variant="contained"
                                     component={Link}
                                     to="/resources?tab=datathon"
                                     endIcon={<InfoIcon />}
                                     sx={{
-                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
-                                        color: '#white',
+                                        background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
+                                        color: '#fff',
                                         fontWeight: 600,
                                         px: 3,
                                         py: 1.2,
-                                        boxShadow: '0 0 12px rgba(10,25,47,0.8)',
-                                        border: '1px solid rgba(70,255,249,0.12)',
+                                        boxShadow: 'none',
+                                        transition: 'all 0.3s ease',
                                         '&:hover': {
-                                            boxShadow: '0 0 12px rgba(10,25,47,0.95)',
+                                            background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
+                                            boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
+                                            transform: 'translateY(-2px)',
                                         },
                                     }}
                                 >

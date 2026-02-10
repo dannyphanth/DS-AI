@@ -73,7 +73,7 @@ const MembershipCard = () => {
                     mb: 4,
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.15) 100%)',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.05) 100%)',
                     border: '1px solid rgba(48,164,199,0.25)',
                     '&::before': {
                         content: '""',
@@ -85,12 +85,14 @@ const MembershipCard = () => {
                         radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
                         radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
                     `,
-                        opacity: 1
+                        opacity: 0,
+                        transition: 'opacity 0.4s ease'
                     },
                     transition: 'transform 0.3s, box-shadow 0.3s',
                     '&:hover': {
                         transform: 'translateY(-5px)',
-                        boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
+                        boxShadow: '0 8px 30px rgba(41, 105, 157, 0.35)',
+                        '&::before': { opacity: 1 }
                     },
                 }}
             >

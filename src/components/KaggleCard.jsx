@@ -95,7 +95,7 @@ const KaggleCard = () => {
                     mb: 4,
                     position: 'relative',
                     overflow: 'hidden',
-                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.15) 100%)',
+                    background: 'linear-gradient(135deg, rgba(10,25,47,0.60) 0%, rgba(17,37,64,0.55) 50%, rgba(48,164,199,0.05) 100%)',
                     border: '1px solid rgba(48,164,199,0.25)',
                     '&::before': {
                         content: '""',
@@ -107,12 +107,14 @@ const KaggleCard = () => {
                             radial-gradient(900px 340px at 15% -10%, rgba(48,164,199,0.10), transparent 60%),
                             radial-gradient(700px 280px at 110% 20%, rgba(70,255,249,0.08), transparent 60%)
                         `,
-                        opacity: 1
+                        opacity: 0,
+                        transition: 'opacity 0.4s ease'
                     },
                     transition: 'transform 0.3s, box-shadow 0.3s',
                     '&:hover': {
                         transform: 'translateY(-5px)',
-                        boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
+                        boxShadow: '0 8px 30px rgba(41, 105, 157, 0.35)',
+                        '&::before': { opacity: 1 }
                     },
                 }}
             >
@@ -187,17 +189,19 @@ const KaggleCard = () => {
                                 endIcon={<InfoIcon />}
                                 href="https://docs.google.com/forms/d/e/1FAIpQLSfPH80gV7lERJuM16ka7r_f7MRXBSfb7Z7fhjosDpjLW1ED1A/viewform"
                                 sx={{
-                                    background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
-                                    color: '#white',
+                                    background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
+                                    color: '#fff',
                                     fontWeight: 600,
                                     px: 3,
                                     py: 1.2,
-                                    boxShadow: '0 0 12px rgba(10,25,47,0.8)',
+                                    boxShadow: 'none',
                                     alignSelf: 'flex-start',
                                     mt: 1,
-                                    border: '1px solid rgba(70,255,249,0.12)',
+                                    transition: 'all 0.3s ease',
                                     '&:hover': {
-                                        boxShadow: '0 0 12px rgba(10,25,47,0.95)',
+                                        background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
+                                        boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
+                                        transform: 'translateY(-2px)',
                                     },
                                 }}
                             >
@@ -231,13 +235,13 @@ const KaggleCard = () => {
                             fontWeight: 600,
                             fontSize: '1.1rem',
                             fontFamily: 'Montserrat, Poppins, sans-serif',
-                            boxShadow: '0 2px 10px rgba(0,158,161,0.08), 0 0 24px rgba(0,140,255,0.25), 0 0 60px rgba(0,140,255,0.12)',
-                            transition: 'box-shadow 0.3s ease',
+                            boxShadow: '0 2px 10px rgba(0,0,0,0.15)',
+                            transition: 'box-shadow 0.4s ease',
                             overflow: 'hidden',
                             background: 'linear-gradient(135deg, #0a192f 0%, #2d5c63 100%)',
-                            border: '2px solid rgba(0, 140, 255, 0.26)',
+                            border: '2px solid rgba(0, 140, 255, 0.15)',
                             '&:hover': {
-                                boxShadow: '0 4px 16px rgba(0,158,161,0.12), 0 0 32px rgba(0,140,255,0.35), 0 0 90px rgba(0,140,255,0.2)'
+                                boxShadow: '0 4px 16px rgba(0,158,161,0.12), 0 0 32px rgba(0,140,255,0.30), 0 0 60px rgba(0,140,255,0.15)'
                             }
                         }}>
                             <AnimatePresence mode="wait">

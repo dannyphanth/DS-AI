@@ -1,4 +1,4 @@
-import { Box, Container, Typography, Button, Grid, Accordion, AccordionSummary, AccordionDetails, Divider, Tabs, Tab } from '@mui/material';
+import { Box, Typography, Button, Grid, Accordion, AccordionSummary, AccordionDetails, Divider, Tabs, Tab } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -117,8 +117,7 @@ const DatathonContent = () => {
     const photosPerPage = 6;
 
     return (
-        <Box sx={{ backgroundColor: '#0a192f', minHeight: '100vh' }}>
-            <Container maxWidth="lg" sx={{ pb: 8, pt: { xs: 2, md: 3 } }}>
+        <Box sx={{ pb: 4, pt: 0 }}>
                 <motion.div
                     initial="hidden"
                     animate="visible"
@@ -146,10 +145,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -337,10 +339,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -573,10 +578,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '2rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -709,10 +717,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -775,10 +786,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -918,10 +932,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -987,10 +1004,13 @@ const DatathonContent = () => {
                                     <Typography
                                         variant="h4"
                                         sx={{
-                                            color: 'white',
-                                            fontWeight: 'bold',
+                                            fontWeight: 800,
                                             fontSize: { xs: '1.25rem', sm: '1.58rem', md: '1.8rem' },
-                                            textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                            background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                            WebkitBackgroundClip: 'text',
+                                            WebkitTextFillColor: 'transparent',
+                                            backgroundClip: 'text',
+                                            letterSpacing: '-0.01em',
                                             fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                         }}
                                     >
@@ -1119,7 +1139,6 @@ const DatathonContent = () => {
                     </motion.div>
 
                 </motion.div>
-            </Container>
 
             {/* Image Enlargement Modal */}
             <AnimatePresence>

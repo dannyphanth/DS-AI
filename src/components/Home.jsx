@@ -267,14 +267,19 @@ const Home = () => {
                                     variant="contained"
                                     size="small"
                                     sx={{
-                                        background: 'linear-gradient(135deg, #0a192f 0%,rgb(15, 76, 108) 50%,rgb(48, 164, 199) 100%)',
+                                        background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
+                                        boxShadow: 'none',
+                                        transition: 'all 0.3s ease',
                                         '&:hover': {
-                                            boxShadow: '0 0 10px #30a4c7',
+                                            background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
+                                            boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
+                                            transform: 'translateY(-2px)',
                                         },
                                         fontWeight: 600,
                                         fontSize: 'clamp(0.7rem, 0.65rem + 0.25vw, 0.9rem)',
                                         px: 'clamp(1.3rem, 1.1rem + 0.4vw, 2.5rem)',
-                                        py: 'clamp(0.7rem, 0.6rem + 0.25vw, 1.3rem)'
+                                        py: 'clamp(0.7rem, 0.6rem + 0.25vw, 1.3rem)',
+                                        minWidth: { xs: '100%', sm: 125 },
                                     }}
                                 >
                                     View Events
@@ -287,15 +292,18 @@ const Home = () => {
                                     sx={{
                                         borderColor: '#30a4c7',
                                         color: '#30a4c7',
+                                        transition: 'all 0.3s ease',
                                         '&:hover': {
                                             borderColor: '#46fff9',
                                             color: '#46fff9',
-                                            boxShadow: '0 0 10px #30a4c7',
+                                            boxShadow: '0 0 18px rgba(48, 164, 199, 0.35)',
+                                            transform: 'translateY(-2px)',
                                         },
                                         fontWeight: 600,
                                         fontSize: 'clamp(0.7rem, 0.65rem + 0.25vw, 0.9rem)',
                                         px: 'clamp(1.3rem, 1.1rem + 0.4vw, 2.5rem)',
-                                        py: 'clamp(0.7rem, 0.6rem + 0.25vw, 1.3rem)'
+                                        py: 'clamp(0.7rem, 0.6rem + 0.25vw, 1.3rem)',
+                                        minWidth: { xs: '100%', sm: 125 },
                                     }}
                                 >
                                     About

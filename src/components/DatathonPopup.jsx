@@ -12,7 +12,6 @@ const DatathonPopup = () => {
     const datathonInfo = {
         registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform',
         images: [
-            '/cr_datathon1.png', // Add more images as cr_datathon2.png, cr_datathon3.png, etc.
             '/cr_datathon2.png',
             '/cr_datathon3.png',
             '/cr_datathon4.png',

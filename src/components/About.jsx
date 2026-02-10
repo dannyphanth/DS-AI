@@ -73,16 +73,14 @@ const About = () => {
                                 variant="h3"
                                 component="h1"
                                 sx={{
-                                    fontWeight: 'bold',
+                                    fontWeight: 800,
                                     mb: 3.6,
-                                    fontSize: { xs: '2.2rem', sm: '2.25rem', md: '2.7rem' },
-                                    background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
+                                    fontSize: { xs: '2.2rem', sm: '2.4rem', md: '2.8rem' },
+                                    background: 'linear-gradient(135deg, #e6fbff 0%, rgb(48, 164, 199) 50%, rgb(100, 200, 230) 100%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
-                                    textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
-                                    // fontSize: { xs: '1.75rem', sm: '2rem', md: '2.25rem' }
-
+                                    letterSpacing: '-0.02em',
                                 }}
                             >
                                 Our Story
@@ -182,14 +180,11 @@ const About = () => {
                                             <Typography
                                                 variant="h5"
                                                 sx={{
-                                                    background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
-                                                    WebkitBackgroundClip: 'text',
-                                                    WebkitTextFillColor: 'transparent',
-                                                    backgroundClip: 'text',
-                                                    fontWeight: 'bold',
+                                                    color: 'rgb(48, 164, 199)',
+                                                    fontWeight: 700,
                                                     fontSize: { xs: '1.215rem', sm: '1.35rem', md: '1.62rem' },
                                                     lineHeight: 1.2,
-                                                    textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
+                                                    letterSpacing: '-0.01em',
                                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                 }}
                                             >
@@ -222,12 +217,12 @@ const About = () => {
                                 variant="h4"
                                 component="h2"
                                 sx={{
-                                    fontWeight: 'bold',
-                                    background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
+                                    fontWeight: 800,
+                                    background: 'linear-gradient(135deg, #e6fbff 0%, rgb(48, 164, 199) 50%, rgb(100, 200, 230) 100%)',
                                     WebkitBackgroundClip: 'text',
                                     WebkitTextFillColor: 'transparent',
                                     backgroundClip: 'text',
-                                    textShadow: '0 0 10px rgb(48, 164, 199, 0.3)',
+                                    letterSpacing: '-0.02em',
                                     mb: 1.8,
                                     fontSize: { xs: '1.8rem', sm: '2.025rem', md: '2.25rem' }
                                 }}
@@ -236,7 +231,13 @@ const About = () => {
                             </Typography>
                             <Typography
                                 variant="h6"
-                                sx={{ color: 'white', mb: 3.6, fontSize: { xs: '1.08rem', sm: '1.17rem', md: '1.26rem' } }}
+                                sx={{
+                                    color: 'rgba(156, 235, 255, 0.6)',
+                                    mb: 3.6,
+                                    fontSize: { xs: '1.08rem', sm: '1.17rem', md: '1.26rem' },
+                                    fontWeight: 400,
+                                    letterSpacing: '0.01em',
+                                }}
                             >
                                 Partnering with industry leaders to advance data science education
                             </Typography>

@@ -17,11 +17,12 @@ const SectionHeading = ({ id, title, subtitle }) => (
         <Typography
             variant="h4"
             sx={{
-                fontWeight: 'bold',
-                background: 'linear-gradient( rgb(48, 164, 199),rgb(119, 169, 184))',
+                fontWeight: 800,
+                background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
+                backgroundClip: 'text',
+                letterSpacing: '-0.01em',
             }}
         >
             {title}
@@ -341,9 +342,12 @@ const BadgesContent = () => {
                             <Typography
                                 variant="h4"
                                 sx={{
-                                    color: 'white',
-                                    fontWeight: 'bold',
-                                    textShadow: '0 0 10px rgba(70, 255, 249, 0.3)',
+                                    fontWeight: 800,
+                                    background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                    WebkitBackgroundClip: 'text',
+                                    WebkitTextFillColor: 'transparent',
+                                    backgroundClip: 'text',
+                                    letterSpacing: '-0.01em',
                                     fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                 }}
                             >
@@ -490,9 +494,12 @@ const BadgesContent = () => {
                                                 <Typography
                                                     variant="h4"
                                                     sx={{
-                                                        color: 'white',
-                                                        fontWeight: 'bold',
-                                                        textShadow: '0 0 9px rgba(70, 255, 249, 0.3)',
+                                                        fontWeight: 800,
+                                                        background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                                        WebkitBackgroundClip: 'text',
+                                                        WebkitTextFillColor: 'transparent',
+                                                        backgroundClip: 'text',
+                                                        letterSpacing: '-0.01em',
                                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                         fontSize: { xs: '1.08rem', sm: '1.215rem', md: '1.35rem' }
                                                     }}
@@ -535,9 +542,12 @@ const BadgesContent = () => {
                                                 <Typography
                                                     variant="h4"
                                                     sx={{
-                                                        color: 'white',
-                                                        fontWeight: 'bold',
-                                                        textShadow: '0 0 9px rgba(70, 255, 249, 0.3)',
+                                                        fontWeight: 800,
+                                                        background: 'linear-gradient(135deg, rgb(48, 164, 199) 0%, rgb(120, 200, 220) 100%)',
+                                                        WebkitBackgroundClip: 'text',
+                                                        WebkitTextFillColor: 'transparent',
+                                                        backgroundClip: 'text',
+                                                        letterSpacing: '-0.01em',
                                                         fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
                                                         fontSize: { xs: '1.08rem', sm: '1.215rem', md: '1.35rem' }
                                                     }}
