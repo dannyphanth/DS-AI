@@ -4,15 +4,23 @@ A modern, responsive website for the Cal Poly Pomona Data Science and AI Club, b
 
 ## Features
 
-- 🎨 Modern, responsive design with a dark theme
-- ⚡ Smooth animations and transitions using Framer Motion
-- 📱 Mobile-first approach with responsive navigation
-- 🎯 Interactive components and hover effects
-- 📸 Photo gallery and event showcase
-- 📅 Upcoming and past events display
-- 👥 Board member profiles
-- ❓ FAQ section with accordion layout
-- 🔗 Social media integration
+- Modern dark-themed UI with a navy/teal color palette and gradient text accents
+- Smooth scroll-triggered animations and staggered reveals powered by Framer Motion
+- Fully responsive layout with a mobile drawer navigation
+- 3D parallax tilt cards with glare effects on hover
+- Auto-playing image slideshows with manual controls
+- Automated event object handling — events are automatically categorized as ongoing, upcoming, or past based on real-time date/time parsing with no manual sorting needed
+- QR code badge generation for live meeting sign-ins
+
+
+## Pages
+
+- **Home** (`/`) — Landing page with hero, events preview, Datathon, Kaggle, Badges, and Membership cards
+- **About** (`/about`) — Club mission, image slideshows, and partner connections
+- **Events** (`/events`) — Upcoming/past events with RSVP links, QR sign-in, and deep-link support
+- **Resources** (`/resources`) — Tabbed hub for Meeting Slides, Videos, Digital Badges, and Datathon
+- **Team** (`/contact`) — Board member profiles with social links
+- **Past Board** (`/board`) — Archive of previous board members
 
 ## Tech Stack
 
