@@ -273,8 +273,8 @@ const Events = () => {
                                 size="medium"
                                 sx={{
                                     color: 'white',
-                                    background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
-                                    boxShadow: 'none',
+                                    background: 'rgba(48, 184, 199, 0.2)',
+                                    border: '1px solid rgba(48, 184, 199, 0.5)',
                                     py: 1.5,
                                     px: 3,
                                     width: '95%',
@@ -283,12 +283,9 @@ const Events = () => {
                                     justifyContent: 'space-between',
                                     alignItems: 'center',
                                     textAlign: 'left',
-                                    fontWeight: 600,
-                                    transition: 'all 0.3s ease',
                                     '&:hover': {
-                                        background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
-                                        boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
-                                        transform: 'translateY(-2px)',
+                                        backgroundColor: 'rgba(48, 184, 199, 0.3)',
+                                        borderColor: 'rgba(48, 184, 199, 0.7)',
                                     }
                                 }}
                             >
@@ -421,16 +418,16 @@ const Events = () => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         sx={{
-                                            background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
+                                            backgroundColor: 'rgba(48, 184, 199, 0.2)',
                                             color: 'white',
+                                            border: '1px solid rgba(48, 184, 199, 0.5)',
                                             boxShadow: 'none',
                                             textTransform: 'none',
                                             fontWeight: 600,
-                                            transition: 'all 0.3s ease',
                                             '&:hover': {
-                                                background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
-                                                boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
-                                                transform: 'translateY(-2px)',
+                                                backgroundColor: 'rgba(48, 184, 199, 0.3)',
+                                                borderColor: 'rgba(48, 184, 199, 0.7)',
+                                                boxShadow: 'none'
                                             }
                                         }}
                                     >

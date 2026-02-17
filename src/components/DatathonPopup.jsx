@@ -6,7 +6,7 @@ const DatathonPopup = () => {
     const [open, setOpen] = useState(false);
 
     const datathonInfo = {
-        registrationLink: 'https://example.com', // TODO: Replace with actual registration link
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSc0pqSvzh1JdLbYVLUBY60X8xoE-HMyjP1JqRw-641MDVrkEA/viewform',
         image: '/dnd_datathon.png',
     };
 

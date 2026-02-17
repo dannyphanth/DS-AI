@@ -5,6 +5,32 @@ import { parseEventDateTime } from '../utils/eventHelpers';
 
 export const upcomingEvents = [
     {
+        id: 'data-never-dies-datathon-spring26',
+        title: 'Data Never Dies Datathon',
+        date: 'February 23 – March 1, 2026',
+        time: 'Feb 23 @ 9:00 AM – March 1 @ 12:00 PM',
+        location: 'Hybrid (Online & In Person)',
+        type: 'Datathon',
+        iconType: 'EmojiEventsIcon',
+        image: '/dnd_datathon.png',
+        description: "Our Spring 2026 Datathon is here! Dive into a healthcare dataset and compete with your peers to build the best model. Registration is open now!",
+        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSc0pqSvzh1JdLbYVLUBY60X8xoE-HMyjP1JqRw-641MDVrkEA/viewform',
+        semester: "Spring '26"
+    },
+    {
+        id: 'making-model-from-scratch-ii-spring26',
+        title: 'Making a Model From Scratch II',
+        date: 'February 19, 2026',
+        time: '12:00 PM - 1:00 PM',
+        location: 'Building 3, Room 2636',
+        type: 'General Meeting',
+        iconType: 'SchoolIcon',
+        image: '/gm4-making_model_from_scratch_II_spring26.png',
+        description: "Continue building your ML skills! Part two of our model-from-scratch series.",
+        registrationLink: '#',
+        semester: "Spring '26"
+    },
+    {
         id: 'making-model-from-scratch-feb12',
         title: 'Making a Model From Scratch',
         date: 'February 12, 2026',
