@@ -142,7 +142,19 @@ const Projects = () => {
                                                     startIcon={<GitHubIcon />}
                                                     href={project.github}
                                                     target="_blank"
-                                                    sx={{ flex: 1 }}
+                                                    sx={{
+                                                        flex: 1,
+                                                        borderColor: '#30a4c7',
+                                                        color: '#30a4c7',
+                                                        fontWeight: 600,
+                                                        transition: 'all 0.3s ease',
+                                                        '&:hover': {
+                                                            borderColor: '#46fff9',
+                                                            color: '#46fff9',
+                                                            boxShadow: '0 0 18px rgba(48, 164, 199, 0.35)',
+                                                            transform: 'translateY(-2px)',
+                                                        },
+                                                    }}
                                                 >
                                                     GitHub
                                                 </Button>
@@ -151,7 +163,18 @@ const Projects = () => {
                                                     startIcon={<LaunchIcon />}
                                                     href={project.demo}
                                                     target="_blank"
-                                                    sx={{ flex: 1 }}
+                                                    sx={{
+                                                        flex: 1,
+                                                        background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
+                                                        boxShadow: 'none',
+                                                        fontWeight: 600,
+                                                        transition: 'all 0.3s ease',
+                                                        '&:hover': {
+                                                            background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
+                                                            boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
+                                                            transform: 'translateY(-2px)',
+                                                        },
+                                                    }}
                                                 >
                                                     Live Demo
                                                 </Button>

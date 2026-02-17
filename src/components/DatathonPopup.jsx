@@ -155,18 +155,19 @@ const DatathonPopup = () => {
                             variant="contained"
                             onClick={handleRegister}
                             sx={{
-                                background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)',
+                                background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
                                 color: 'white',
                                 fontWeight: 600,
                                 px: 4,
                                 py: 1.5,
                                 fontSize: '1.1rem',
-                                border: '1px solid rgba(70, 255, 249, 0.3)',
+                                boxShadow: 'none',
+                                transition: 'all 0.3s ease',
                                 '&:hover': {
-                                    boxShadow: '0 0 30px rgba(48, 164, 199, 0.8)',
-                                    transform: 'scale(1.05)',
+                                    background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
+                                    boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
+                                    transform: 'translateY(-2px)',
                                 },
-                                transition: 'all 0.3s',
                             }}
                         >
                             Register Now

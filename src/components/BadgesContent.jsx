@@ -44,7 +44,7 @@ const Subnav = () => (
             { href: '#more', label: 'More information' },
             { href: '#faq', label: 'FAQ' },
         ].map((item) => (
-            <Button key={item.href} href={item.href} variant="outlined" size="small" sx={{ color: '#9cebff', borderColor: 'rgba(156,235,255,0.4)', fontSize: '0.72rem' }}>
+            <Button key={item.href} href={item.href} variant="outlined" size="small" sx={{ color: '#30a4c7', borderColor: '#30a4c7', fontSize: '0.72rem', fontWeight: 600, transition: 'all 0.3s ease', '&:hover': { borderColor: '#46fff9', color: '#46fff9', boxShadow: '0 0 18px rgba(48, 164, 199, 0.35)', transform: 'translateY(-2px)' } }}>
                 {item.label}
             </Button>
         ))}
@@ -669,7 +669,7 @@ const BadgesContent = () => {
                             If you are interested in this digital badge, email us to be added to the Canvas course and begin submitting your work.
                         </Typography>
                         <Box sx={{ display: 'flex', gap: 1.125, flexWrap: 'wrap', justifyContent: 'center' }}>
-                            <Button href="mailto:cppdsai@gmail.com" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Us</Button>
+                            <Button href="mailto:cppdsai@gmail.com" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)', boxShadow: 'none', fontWeight: 600, transition: 'all 0.3s ease', '&:hover': { background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)', boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)', transform: 'translateY(-2px)' } }}>Email Us</Button>
                         </Box>
                     </Box>
                 </>
@@ -783,7 +783,7 @@ const BadgesContent = () => {
                             If you are interested in this digital badge, email us to be added to the Canvas course and begin submitting your work.
                         </Typography>
                         <Box sx={{ display: 'flex', gap: 1.25, flexWrap: 'wrap', justifyContent: 'center' }}>
-                            <Button href="mailto:cppdsai@gmail.com" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, #0a192f 0%, rgb(15, 76, 108) 50%, rgb(48, 164, 199) 100%)', border: '1px solid rgba(70,255,249,0.12)' }}>Email Us</Button>
+                            <Button href="mailto:cppdsai@gmail.com" variant="contained" size="small" sx={{ background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)', boxShadow: 'none', fontWeight: 600, transition: 'all 0.3s ease', '&:hover': { background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)', boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)', transform: 'translateY(-2px)' } }}>Email Us</Button>
                         </Box>
                     </Box>
                 </>

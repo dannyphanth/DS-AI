@@ -510,11 +510,15 @@ const DatathonContent = () => {
                                                 size="small"
                                                 variant="outlined"
                                                 sx={{
-                                                    borderColor: 'rgb(48, 164, 199)',
-                                                    color: 'rgb(48, 164, 199)',
+                                                    borderColor: '#30a4c7',
+                                                    color: '#30a4c7',
+                                                    fontWeight: 600,
+                                                    transition: 'all 0.3s ease',
                                                     '&:hover': {
-                                                        borderColor: 'rgb(48, 164, 199)',
-                                                        backgroundColor: 'rgba(48, 164, 199, 0.1)'
+                                                        borderColor: '#46fff9',
+                                                        color: '#46fff9',
+                                                        boxShadow: '0 0 18px rgba(48, 164, 199, 0.35)',
+                                                        transform: 'translateY(-2px)',
                                                     },
                                                     '&.Mui-disabled': {
                                                         borderColor: 'rgba(48, 164, 199, 0.3)',
@@ -533,11 +537,15 @@ const DatathonContent = () => {
                                                 size="small"
                                                 variant="outlined"
                                                 sx={{
-                                                    borderColor: 'rgb(48, 164, 199)',
-                                                    color: 'rgb(48, 164, 199)',
+                                                    borderColor: '#30a4c7',
+                                                    color: '#30a4c7',
+                                                    fontWeight: 600,
+                                                    transition: 'all 0.3s ease',
                                                     '&:hover': {
-                                                        borderColor: 'rgb(48, 164, 199)',
-                                                        backgroundColor: 'rgba(48, 164, 199, 0.1)'
+                                                        borderColor: '#46fff9',
+                                                        color: '#46fff9',
+                                                        boxShadow: '0 0 18px rgba(48, 164, 199, 0.35)',
+                                                        transform: 'translateY(-2px)',
                                                     },
                                                     '&.Mui-disabled': {
                                                         borderColor: 'rgba(48, 164, 199, 0.3)',

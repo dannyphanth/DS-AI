@@ -283,15 +283,15 @@ const Resources = () => {
                                                             fontSize: { xs: '0.765rem', sm: '0.81rem' },
                                                             py: 0.54,
                                                             px: 1.44,
-                                                            background: 'rgba(48, 184, 199, 0.2)',
+                                                            background: 'linear-gradient(135deg, rgba(48, 164, 199, 0.9) 0%, rgba(30, 120, 170, 0.85) 100%)',
                                                             color: 'white',
                                                             fontWeight: 600,
-                                                            boxShadow: '0 3.6px 10.8px rgba(0, 0, 0, 0.20)',
-                                                            border: '1px solid rgba(48, 184, 199, 0.5)',
+                                                            boxShadow: 'none',
+                                                            transition: 'all 0.3s ease',
                                                             '&:hover': {
-                                                                backgroundColor: 'rgba(48, 184, 199, 0.3)',
-                                                                borderColor: 'rgba(48, 184, 199, 0.7)',
-                                                                boxShadow: '0 5.4px 14.4px rgba(0, 0, 0, 0.45)'
+                                                                background: 'linear-gradient(135deg, rgba(60, 180, 215, 0.95) 0%, rgba(48, 164, 199, 0.9) 100%)',
+                                                                boxShadow: '0 4px 20px rgba(48, 164, 199, 0.4)',
+                                                                transform: 'translateY(-2px)',
                                                             }
                                                         }}
                                                     >
