@@ -1,30 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Box, Modal, IconButton, Button, Tooltip } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const DatathonPopup = () => {
     const [open, setOpen] = useState(false);
-    const [currentSlide, setCurrentSlide] = useState(0);
 
-    // Datathon details - UPDATE THESE WITH YOUR ACTUAL INFO
     const datathonInfo = {
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf7iKnOXf9E-PHIct8TEfXrnomIQzqF2ZZeaI8DEmLSGVp6GA/viewform',
-        images: [
-            '/cr_datathon2.png',
-            '/cr_datathon3.png',
-            '/cr_datathon4.png',
-            '/cr_datathon5.png',
-        ]
+        registrationLink: 'https://example.com', // TODO: Replace with actual registration link
+        image: '/dnd_datathon.png',
     };
 
     useEffect(() => {
-        // Check when user last saw the popup
         const lastSeenTimestamp = localStorage.getItem('datathonPopupLastSeen');
-        const oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
+        const oneHour = 60 * 60 * 1000;
 
-        // Show popup if never seen OR if more than 1 hour has passed
         if (!lastSeenTimestamp || (Date.now() - parseInt(lastSeenTimestamp)) > oneHour) {
             const timer = setTimeout(() => {
                 setOpen(true);
@@ -47,25 +36,13 @@ const DatathonPopup = () => {
         handleClose();
     };
 
-    const nextSlide = () => {
-        setCurrentSlide((prev) => (prev + 1) % datathonInfo.images.length);
-    };
-
-    const prevSlide = () => {
-        setCurrentSlide((prev) => (prev - 1 + datathonInfo.images.length) % datathonInfo.images.length);
-    };
-
-    const goToSlide = (index) => {
-        setCurrentSlide(index);
-    };
-
     return (
         <>
             {/* Floating Sticky Button */}
             <Tooltip title="View Datathon Info" placement="left">
                 <Box
                     component="img"
-                    src="/datathonIcon.png"
+                    src="/dnd_datathonIcon.png"
                     alt="Datathon"
                     onClick={handleOpen}
                     sx={{
@@ -138,8 +115,8 @@ const DatathonPopup = () => {
                         {/* Image */}
                         <Box
                             component="img"
-                            src={datathonInfo.images[currentSlide]}
-                            alt="Datathon"
+                            src={datathonInfo.image}
+                            alt="Data Never Dies Datathon"
                             sx={{
                                 width: '100%',
                                 height: 'auto',
@@ -165,78 +142,7 @@ const DatathonPopup = () => {
                         >
                             <CloseIcon />
                         </IconButton>
-
-                        {/* Navigation Arrows - Only show if multiple images */}
-                        {datathonInfo.images.length > 1 && (
-                            <>
-                                <IconButton
-                                    onClick={prevSlide}
-                                    size="small"
-                                    sx={{
-                                        position: 'absolute',
-                                        left: 10,
-                                        top: '50%',
-                                        transform: 'translateY(-50%)',
-                                        bgcolor: 'rgba(0, 0, 0, 0.6)',
-                                        color: 'white',
-                                        padding: '6px',
-                                        '&:hover': {
-                                            bgcolor: 'rgba(0, 0, 0, 0.8)',
-                                        },
-                                    }}
-                                >
-                                    <ArrowBackIosNewIcon sx={{ fontSize: '16px' }} />
-                                </IconButton>
-                                <IconButton
-                                    onClick={nextSlide}
-                                    size="small"
-                                    sx={{
-                                        position: 'absolute',
-                                        right: 10,
-                                        top: '50%',
-                                        transform: 'translateY(-50%)',
-                                        bgcolor: 'rgba(0, 0, 0, 0.6)',
-                                        color: 'white',
-                                        padding: '6px',
-                                        '&:hover': {
-                                            bgcolor: 'rgba(0, 0, 0, 0.8)',
-                                        },
-                                    }}
-                                >
-                                    <ArrowForwardIosIcon sx={{ fontSize: '16px' }} />
-                                </IconButton>
-                            </>
-                        )}
                     </Box>
-
-                    {/* Dots Navigation - Only show if multiple images */}
-                    {datathonInfo.images.length > 1 && (
-                        <Box
-                            sx={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                gap: 1,
-                            }}
-                        >
-                            {datathonInfo.images.map((_, index) => (
-                                <Box
-                                    key={index}
-                                    onClick={() => goToSlide(index)}
-                                    sx={{
-                                        width: currentSlide === index ? 30 : 10,
-                                        height: 10,
-                                        borderRadius: 5,
-                                        bgcolor: currentSlide === index ? 'rgb(48, 164, 199)' : 'rgba(255, 255, 255, 0.5)',
-                                        cursor: 'pointer',
-                                        transition: 'all 0.3s',
-                                        '&:hover': {
-                                            bgcolor: currentSlide === index ? 'rgb(48, 164, 199)' : 'rgba(255, 255, 255, 0.8)',
-                                        },
-                                    }}
-                                />
-                            ))}
-                        </Box>
-                    )}
 
                     {/* Register Button */}
                     <Box
@@ -255,7 +161,6 @@ const DatathonPopup = () => {
                                 px: 4,
                                 py: 1.5,
                                 fontSize: '1.1rem',
-                                // boxShadow: '0 0 20px rgba(48, 164, 199, 0.5)',
                                 border: '1px solid rgba(70, 255, 249, 0.3)',
                                 '&:hover': {
                                     boxShadow: '0 0 30px rgba(48, 164, 199, 0.8)',
