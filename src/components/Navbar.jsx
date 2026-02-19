@@ -27,6 +27,7 @@ import SlideshowIcon from '@mui/icons-material/Slideshow';
 import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -54,6 +55,7 @@ const Navbar = () => {
         { label: 'Videos', icon: <VideoLibraryIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=videos' },
         { label: 'Digital Badges', icon: <VerifiedIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=badges' },
         { label: 'Datathon', icon: <EmojiEventsIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=datathon' },
+        { label: 'Oracle Trip', icon: <DirectionsCarIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=oracle' },
     ];
 
     const handleResourcesOpen = (event) => {
