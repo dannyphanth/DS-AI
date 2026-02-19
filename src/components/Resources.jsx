@@ -11,6 +11,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import BadgesContent from './BadgesContent';
 import DatathonContent from './DatathonContent';
+import OracleTripContent from './OracleTripContent';
 
 const Resources = () => {
     const [value, setValue] = useState(0);
@@ -99,7 +100,8 @@ const Resources = () => {
         { label: 'Meeting Slides', key: 'slides' },
         { label: 'Videos', key: 'videos' },
         { label: 'Digital Badges', key: 'badges' },
-        { label: 'Datathon', key: 'datathon' }
+        { label: 'Datathon', key: 'datathon' },
+        { label: 'Oracle Trip', key: 'oracle' }
     ];
 
     const containerVariants = {
@@ -132,9 +134,9 @@ const Resources = () => {
     };
 
     return (
-        <Box sx={{ py: 9, pt: (categories[value].key === 'datathon' || categories[value].key === 'badges') ? 12 : 9, backgroundColor: '#0a192f' }}>
+        <Box sx={{ py: 9, pt: (categories[value].key === 'datathon' || categories[value].key === 'badges' || categories[value].key === 'oracle') ? 12 : 9, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
-                {categories[value].key !== 'datathon' && categories[value].key !== 'badges' && (
+                {categories[value].key !== 'datathon' && categories[value].key !== 'badges' && categories[value].key !== 'oracle' && (
                     <Box sx={{ textAlign: 'center', mb: { xs: 3, sm: 3.5, md: 4 } }}>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -171,6 +173,8 @@ const Resources = () => {
                     <AnimatePresence mode="wait" key={value}>
                         {categories[value].key === 'datathon' ? (
                             <DatathonContent />
+                        ) : categories[value].key === 'oracle' ? (
+                            <OracleTripContent />
                         ) : categories[value].key === 'badges' ? (
                             <BadgesContent />
                         ) : (
