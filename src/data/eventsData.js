@@ -31,6 +31,19 @@ export const upcomingEvents = [
         semester: "Spring '26"
     },
     {
+        id: 'board-games-study-social-ii-feb19',
+        title: 'BOARD GAMES & study Social II',
+        date: 'February 19, 2026',
+        time: '4:00 PM - 7:00 PM',
+        location: 'Building 163, Room 2026',
+        type: 'Social',
+        iconType: 'GroupIcon',
+        image: '/social2_study_board_and_study_26spring.png',
+        description: "We're running it back! But this time, we'll have some special company with us for another evening of fun and getting things done.",
+        registrationLink: '#',
+        semester: "Spring '26"
+    },
+    {
         id: 'making-model-from-scratch-feb12',
         title: 'Making a Model From Scratch',
         date: 'February 12, 2026',
@@ -66,7 +79,7 @@ export const upcomingEvents = [
         iconType: 'GroupIcon',
         image: '/social-board_games_study_feb26.png',
         description: "Enjoy an evening full of relaxing games or a nice session of studying. At the same time, you can get to know us and connect with peers around you! Hope to see you there~",
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfkrzyS9sC2jyDp1DEfmYqIyH0pW0pIzoenGrjqUcoTgVH0vA/viewform',
+        registrationLink: '#',
         semester: "Spring '26"
     },
 ];
@@ -160,7 +173,7 @@ export const pastEvents = [
         iconType: 'GroupIcon',
         image: '/social-boba2.png',
         description: 'Unwind after midterms and grab your favorite drink! A portion of every order supports our club!',
-        registrationLink: 'https://docs.google.com/forms/d/e/1FAIpQLScYXAEzvb3t6tbha2VMdx6q-xozjqrfelQq6LlCVzx-PMriuA/viewform',
+        registrationLink: '#',
         semester: "Fall '25"
     },
     {
@@ -329,7 +342,7 @@ export const pastEvents = [
         iconType: 'GroupIcon',
         image: '/social4-dodgeball.png',
         description: 'We\'re teaming up with MISSA, SheCodes, CSS, FAST, SWIFT, SEA, SOC, GameDev, and GDGC for a joint dodgeball social. Come out, play a few games, and team up with members across the CS community!',
-        registrationLink: 'https://forms.gle/dodgeball2025',
+        registrationLink: '#',
         semester: "Fall '25"
     },
     {
@@ -355,7 +368,7 @@ export const pastEvents = [
         iconType: 'GroupIcon',
         image: '/social3-board_game_and_study.png',
         description: 'A perfect mix of fun and productivity - Meet new members, play games with friends, and study in a chill group setting',
-        registrationLink: 'https://forms.gle/ujERw1wK4y1ab2Tm7',
+        registrationLink: '#',
         semester: "Fall '25"
     },
     {

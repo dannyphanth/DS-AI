@@ -20,6 +20,7 @@ import EventQRCodePopup from './EventQRCodePopup';
 // Global configuration for QR code and sign-in form
 const SIGN_IN_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSedenKpxqNruUZzU81JdiCcwcz8tiKWx1zN-i3ccBFqJKdXzQ/viewform';
 const QR_CODE_IMAGE_PATH = '/DSAI_Sign-In_QR_Code.png'; // Path to the QR code image
+const SOCIAL_RSVP_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfkrzyS9sC2jyDp1DEfmYqIyH0pW0pIzoenGrjqUcoTgVH0vA/viewform';
 
 const Events = () => {
     const [searchParams] = useSearchParams();
@@ -414,7 +415,7 @@ const Events = () => {
                                         size="small"
                                         fullWidth
                                         component="a"
-                                        href={event.registrationLink}
+                                        href={showRSVP ? SOCIAL_RSVP_URL : event.registrationLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         sx={{
