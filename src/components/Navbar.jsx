@@ -28,6 +28,7 @@ import VideoLibraryIcon from '@mui/icons-material/VideoLibrary';
 import VerifiedIcon from '@mui/icons-material/Verified';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -56,6 +57,7 @@ const Navbar = () => {
         { label: 'Digital Badges', icon: <VerifiedIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=badges' },
         { label: 'Datathon', icon: <EmojiEventsIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=datathon' },
         { label: 'Oracle Trip', icon: <DirectionsCarIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=oracle' },
+        { label: 'Kaggle', icon: <BarChartIcon sx={{ fontSize: 20 }} />, path: '/resources?tab=kaggle' },
     ];
 
     const handleResourcesOpen = (event) => {

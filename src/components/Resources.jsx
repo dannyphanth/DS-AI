@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import BadgesContent from './BadgesContent';
 import DatathonContent from './DatathonContent';
 import OracleTripContent from './OracleTripContent';
+import KaggleContent from './KaggleContent';
 
 const Resources = () => {
     const [value, setValue] = useState(0);
@@ -101,7 +102,8 @@ const Resources = () => {
         { label: 'Videos', key: 'videos' },
         { label: 'Digital Badges', key: 'badges' },
         { label: 'Datathon', key: 'datathon' },
-        { label: 'Oracle Trip', key: 'oracle' }
+        { label: 'Oracle Trip', key: 'oracle' },
+        { label: 'Kaggle', key: 'kaggle' }
     ];
 
     const containerVariants = {
@@ -134,9 +136,9 @@ const Resources = () => {
     };
 
     return (
-        <Box sx={{ py: 9, pt: (categories[value].key === 'datathon' || categories[value].key === 'badges' || categories[value].key === 'oracle') ? 12 : 9, backgroundColor: '#0a192f' }}>
+        <Box sx={{ py: 9, pt: (categories[value].key === 'datathon' || categories[value].key === 'badges' || categories[value].key === 'oracle' || categories[value].key === 'kaggle') ? 12 : 9, backgroundColor: '#0a192f' }}>
             <Container maxWidth="lg">
-                {categories[value].key !== 'datathon' && categories[value].key !== 'badges' && categories[value].key !== 'oracle' && (
+                {categories[value].key !== 'datathon' && categories[value].key !== 'badges' && categories[value].key !== 'oracle' && categories[value].key !== 'kaggle' && (
                     <Box sx={{ textAlign: 'center', mb: { xs: 3, sm: 3.5, md: 4 } }}>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -175,6 +177,8 @@ const Resources = () => {
                             <DatathonContent />
                         ) : categories[value].key === 'oracle' ? (
                             <OracleTripContent />
+                        ) : categories[value].key === 'kaggle' ? (
+                            <KaggleContent />
                         ) : categories[value].key === 'badges' ? (
                             <BadgesContent />
                         ) : (
